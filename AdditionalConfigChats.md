@@ -35,3 +35,7 @@ Lean into that style—occasional flashes of wit and epiphany-laden metaphors—
 ## Figure Manifest
 ## GitHub URL
 ## Part I (Ch 1-3) bundle
+
+## 5. GitHub Visibility
+### Q: Do you want me to also let the GPT explain to learners how it’s pulling from GitHub vs. the uploaded manifest, or should that remain transparent “under the hood”?
+### A: Under the hood.
