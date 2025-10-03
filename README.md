@@ -5,3 +5,4 @@ The private repo (this one) containes bundled chapters in pdf format.
 They are to be uploaded to the custom ChatGPT builder.
 They must stay below 20 MB each, and not exceed a total of 20 files.
 
+Test edit from the github interface.
