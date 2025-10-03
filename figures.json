@@ -5,25 +5,26 @@
     "description": "In 2D (a), a straight-line rook move cuts the board, so a rook and a king (White) can checkmate a lone king (Black) – the most basic endgame scenario. In 3D (b), a straight-line rook move does not cut the board and so the mate algorithm fails – doesn’t feel like chess. What kind of a move would cut the board?"
   }
   "Figure 2": {
-    "caption": "cap",
-    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
-    "description": "desc"
+    "caption": "Single Rook Mate Endgame Requires Planar Moves",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRookMateBE.png",
+    "description": "The orthogonal lines of the 2D rook move cut the 2D board into four disjoint areas (a). The orthogonal planes of the 3D rook move cut the 3D board into eight disjoint volumes (b). The single rook mate algorithm is now dimension agnostic. Planes intersect at the straight-line moves (black diamond inserts). A projection of the 3D rook move onto a face of the board is the 2D rook move."
   }
   "Figure 3": {
-    "caption": "cap",
-    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
-    "description": "desc"
+    "caption": "Rook’s Dual Path Attack on a Knight – Rejected",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaDualPathAttack_BW.png",
+    "description": "If a ray pair defines a plane, then a planar move might be regarded as two straight-line moves at once; first down one ray, then down the other. However, symmetry implies both traversal orders must be allowed. That means an attack occurs along two paths; the rook attacks both down the 3x6 path and down the 6x3 path. Black cannot defend in a single move. Blocking busted; there go the gambits, there goes the midgame – doesn’t feel like chess."
   }
   "Figure 4": {
-    "caption": "cap",
-    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
-    "description": "desc"
+    "caption": "Rook’s Outrageous STAB of 39 for Dual Path Move - Rejected",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaDualPathCover.png",
+    "description": "A rook allowed to move along dual paths can attack or defend 13 other pieces in each plane. Shown is one rook near the center of a horizontal plane. For clarity only one dual path is highlighted. Similar diagrams would apply for both vertical planes (not shown). The ghost rooks show the moves legal under the dual path rule. "
   }
   "Figure 5": {
-    "caption": "cap",
-    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
-    "description": "desc"
+    "caption": "The Rectangular Advancement Manifold (RAM) – Rejected",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRAM_BW.png",
+    "description": "White’s rook is attacking the Black knight via a rectangular advancement manifold (RAM for short). There can be no other pieces in the 18 tiles that make up this RAM. Black can block this attack with a single move by moving another piece onto any of the 16 empty tiles marked in black."
   }
+  
   "Figure ": {
     "caption": "cap",
     "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
