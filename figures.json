@@ -1,7 +1,32 @@
 {
   "Figure 1": {
     "caption": "Single Rook Mate Endgame Cannot be Done with Straight-line Moves",
-    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure1.png",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRookMate_BW_BE.png",
     "description": "In 2D (a), a straight-line rook move cuts the board, so a rook and a king (White) can checkmate a lone king (Black) – the most basic endgame scenario. In 3D (b), a straight-line rook move does not cut the board and so the mate algorithm fails – doesn’t feel like chess. What kind of a move would cut the board?"
+  }
+  "Figure 2": {
+    "caption": "cap",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
+    "description": "desc"
+  }
+  "Figure 3": {
+    "caption": "cap",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
+    "description": "desc"
+  }
+  "Figure 4": {
+    "caption": "cap",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
+    "description": "desc"
+  }
+  "Figure 5": {
+    "caption": "cap",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
+    "description": "desc"
+  }
+  "Figure ": {
+    "caption": "cap",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
+    "description": "desc"
   }
 }
