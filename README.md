@@ -7,3 +7,6 @@ https://chatgpt.com/g/g-68e09884b65481919f710fe0dc38921e-discover-3d-chess
 
 # Manifest Magic
 Always run manifest status? at the start of a new session.
+
+## Another command
+figure mode?
