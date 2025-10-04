@@ -25,6 +25,32 @@
     "description": "White’s rook is attacking the Black knight via a rectangular advancement manifold (RAM for short). There can be no other pieces in the 18 tiles that make up this RAM. Black can block this attack with a single move by moving another piece onto any of the 16 empty tiles marked in black."
   }
   
+  "Figure 6": {
+    "caption": "RAM STAB – Rejected",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRamStab_BW.png",
+    "description": "Under the RAM rule, the rook STAB value is still 39. Ghost rooks show the 13 locations that can be simultaneously covered by the rook under the RAM rule in one plane. None are straight-line moves, so the other two planes also support 13 targets. For clarity, only 3 rectangular advancement manifolds are shown (horizontal plane); ghost rooks are segregated for better visibility (a) – (c)."
+  }
+  "Figure 7": {
+    "caption": "The Advancement Square",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaAdvSqSnapshots.png",
+    "description": "A series of 5 snapshots (a) – (e) showing each new perimeter of the 6x6 advancement square which must be empty of any other pieces for the White rook to be attacking the Black knight. Each perimeter is two tiles larger than the previous one (3, 5, 7, 9, 11). The line of red diamonds with black inserts represent the two rays (the inner edges of the advancement square). The presence of the knight on the perimeter (outer edges of the advancement square) prevents the rook from moving to those tiles (or beyond); its only legal move on that perimeter is to capture the knight. All the diamonds are slightly smaller than a tile so the underlying tile’s color (black or white) can peek through."
+  }
+  "Figure 8": {
+    "caption": "Three Snapshots Showing King in Check by Rook in Left Vertical Plane",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRookVerticalCheck.png",
+    "description": "(Facing page.) Three snapshots (a) – (c) proving the Black king is in check by the White rook via a left vertical advancement square. Note how part of the advancement square extends off the board."
+  }
+  "Figure 9": {
+    "caption": "The Four Quadrants of the Rook Move",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaAdvSqQuadsRook_B.png",
+    "description": "The four quadrants are shown in two pairs for clarity. A 3x3 and a 4x4 advancement square (a), and a 2x2 and a 6x6 advancement square (b). The tiles which the rook can move to on the respective perimeters are shown with ghost rooks. Note that the 6x6 advancement square extends off the board, so the ghost rooks on those tiles are not shown. Note also the subtle implication that linear moves will need to be dealt with as special cases, for the tiles under them are black not red."
+  }
+  "Figure 10": {
+    "caption": "Rook’s Linear Move",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaAdvRectRook_H.png",
+    "description": "In each plane, a linear move is ambiguous in which quadrant it advances in, so both advancement squares must be empty for the move to be unblocked in that plane. Three snapshots (a) – (c) of the rook’s advancement rectangle are shown for the horizontal plane."
+  }
+
   "Figure ": {
     "caption": "cap",
     "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
