@@ -51,6 +51,32 @@
     "description": "In each plane, a linear move is ambiguous in which quadrant it advances in, so both advancement squares must be empty for the move to be unblocked in that plane. Three snapshots (a) – (c) of the rook’s advancement rectangle are shown for the horizontal plane."
   }
 
+  "Figure 11": {
+    "caption": "Linear Rook Move in Horizontal and Vertical Planes",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaLinearMoveRook_HV.png",
+    "description": "The two advancement rectangles for a linear rook move are shown. The vertical one is blocked by the knight, the horizontal one blocked by the pawn. The tile containing the ghost rook (king level) can only be reached in the horizontal plane, the first two linear tiles are reachable in both planes."
+  }
+  "Figure 12": {
+    "caption": "Board Shape",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BoardShape.png",
+    "description": "If the 2D board is a square of squares, then the 3D board should be a cube of cubes. A square is the proper unit cell for 2D, a cube the proper unit cell for 3D. In any dimension, adjacent orthogonal unit cells alternate colors (white & black)."
+  }
+  "Figure 13": {
+    "caption": "Base Pieces Derive from Adjacent Unit Cells",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/AdjacentCells.png",
+    "description": "The base pieces derive from the topology of the board, a multi-dimensional array of unit cells. Each type of adjacent cell is connected by a ray of a different type, which can be ordered by the number of coordinates it changes. The unit cell of 2D is the square (a), it has two nearest neighbors; 4 connected by sides (rook), and 4 connected by corners (bishop). Two types of rays connect squares; side rays which change 1 coordinate, and corner rays which change 2 coordinates (a).  The unit cell in 3D is the cube (b), it has 26 nearest neighbors; 6 connected by faces (rook), 12 connected by edges (bishop), and 8 connected by vertices (duke). Three types of rays connect cubes; face rays which change 1 coordinate, edge rays which change 2 coordinates, and vertex rays which change 3 coordinates. Red, green, and blue form the basis of a consistent color scheme."
+  }
+  "Figure 14": {
+    "caption": "3D Chess Piece Design",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ScreenShot 2020-12-14 at 12:39:59 PM.png",
+    "description": "Each of the 3D chess pieces allude to how they move in 3D. From left to right they are; king, queen, rook, bishop, duke, knights (with opposite parity), stack (the combined bishop and duke), and the pawn. In this rendition, the basic shapes have been covered with a marbled surface."
+  }
+  "Figure 15": {
+    "caption": "Starting Lineup",
+    "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StartingLineup.png",
+    "description": "Opponents face each other on opposite extents of the board. The major pieces mirror each other around the royal pieces, pawns in front. The White king-side rook starts on a white tile. In 2D, they align along opposing sides (a), in 3D, they align along opposing vertical columns (b). Stack starts next to the royal pieces (bishop level). King is above the queen, so both queens start on white tiles. Pawns are on tile 2,2 (left, right; from each player’s perspective) and promote only on the opponent’s home column (8,8). The piece trays lie outside the board, serving to ID each level. On each level a thin border surrounds the center 4x4 grid of tiles; easier to visualize multi-level moves."
+  }
+
   "Figure ": {
     "caption": "cap",
     "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/figure.png",
