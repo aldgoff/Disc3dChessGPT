@@ -117,6 +117,8 @@ Then expand next step.
 
 Rename file to what Builder expects (e.g., figures_manifest_all_withURL_safe.json).
 
+CHanged builder's expectations to figures_manifest_no_spaces.json.
+
 Upload → reload manifest → manifest status.
 Expect: 264 figures, all captions/descriptions non-empty.
 
@@ -127,7 +129,7 @@ show figure 13
 show figure 15
 
 
-Then expand Step 6.
+Then expand Step 7.
 
 </details>
 <details> <summary>**7️⃣ Clean and re-populate GitHub repo**</summary>
@@ -145,10 +147,10 @@ ls | grep " "    # none
 git status       # clean
 
 
-Then expand Step 7.
+Then expand Step 8.
 
 </details>
-<details> <summary>**7️⃣ Verify limits and repo view**</summary>
+<details> <summary>**8️⃣ Verify limits and repo view**</summary>
 
 GitHub → figures/ folder shows 264 PNGs.
 
@@ -156,10 +158,10 @@ Clicking each displays properly.
 
 No “too many files” warnings (limit ≫ 264).
 
-Then expand Step 8.
+Then expand Step 9.
 
 </details>
-<details> <summary>**8️⃣ Final Builder test**</summary>
+<details> <summary>**9️⃣ Final Builder test**</summary>
 reload manifest
 manifest status
 show figure 15
@@ -167,7 +169,7 @@ show figure 15
 
 ✅ All images render inline, URLs have underscores only.
 
-Then expand Step 9.
+Then expand Step 10.
 
 </details>
 <details> <summary>**9️⃣ Archive old versions (tag)**</summary>
