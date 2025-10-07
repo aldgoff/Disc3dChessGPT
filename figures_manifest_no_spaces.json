@@ -1,0 +1,1852 @@
+{
+  "figures": [
+    {
+      "id": 1,
+      "filename": "ParaRookMate_BW_BE.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRookMate_BW_BE.png",
+      "caption": "Figure 1: Single Rook Mate Endgame Cannot be Done with Straight-line Moves",
+      "description": "In 2D (a), a straight-line rook move cuts the board, so a rook and a king (White) can checkmate a lone king (Black) -- the most basic endgame scenario. In 3D (b), a straight-line rook move does *not* cut the board and so the mate algorithm fails -- doesn't feel like chess. What kind of a move would cut the board?"
+    },
+    {
+      "id": 2,
+      "filename": "ParaRookMateBE.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRookMateBE.png",
+      "caption": "Figure 2: Single Rook Mate Endgame Requires Planar Moves",
+      "description": "The orthogonal *lines* of the 2D rook move cut the 2D board into *four* disjoint *areas* (a). The orthogonal *planes* of the 3D rook move cut the 3D board into *eight* disjoint *volumes* (b). The single rook mate algorithm is now *dimension agnostic*. Planes intersect at the straight-line moves (black diamond inserts). A projection of the 3D rook move onto a face of the board is the 2D rook move."
+    },
+    {
+      "id": 3,
+      "filename": "ParaDualPathAttack_BW.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaDualPathAttack_BW.png",
+      "caption": "Figure 3: Rook's Dual Path Attack on a Knight -- Rejected",
+      "description": "If a ray pair defines a plane, then a planar move might be regarded as two straight-line moves at once; first down one ray, then down the other. However, symmetry implies both traversal orders must be allowed. That means an attack occurs along *two* paths; the rook attacks both down the 3x6 path and down the 6x3 path. Black cannot defend in a single move. Blocking busted; there go the gambits, there goes the midgame -- doesn't feel like chess."
+    },
+    {
+      "id": 4,
+      "filename": "ParaDualPathCover.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaDualPathCover.png",
+      "caption": "Figure 4: Rook's Outrageous STAB of 39 for Dual Path Move - Rejected",
+      "description": "A rook allowed to move along dual paths can attack or defend 13 other pieces in each plane. Shown is one rook near the center of a horizontal plane. For clarity only one dual path is highlighted. Similar diagrams would apply for both vertical planes (not shown). The ghost rooks show the moves legal under the dual path rule."
+    },
+    {
+      "id": 5,
+      "filename": "ParaRAM_BW.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRAM_BW.png",
+      "caption": "Figure 5: The Rectangular Advancement Manifold (RAM) -- Rejected",
+      "description": "White's rook is attacking the Black knight via a *rectangular advancement manifold* (*RAM* for short). There can be no other pieces in the 18 tiles that make up this RAM. Black can block this attack with a single move by moving another piece onto *any* of the 16 empty tiles marked in black."
+    },
+    {
+      "id": 6,
+      "filename": "ParaRamStab_BW.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRamStab_BW.png",
+      "caption": "Figure 6: RAM STAB -- Rejected",
+      "description": "Under the RAM rule, the rook STAB value is still 39. Ghost rooks show the 13 locations that can be simultaneously covered by the rook under the RAM rule in one plane. None are straight-line moves, so the other two planes also support 13 targets. For clarity, only 3 rectangular advancement manifolds are shown (horizontal plane); ghost rooks are segregated for better visibility (a) -- (c)."
+    },
+    {
+      "id": 7,
+      "filename": "ParaAdvSqSnapshots.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaAdvSqSnapshots.png",
+      "caption": "Figure 7: The Advancement Square",
+      "description": "A series of 5 snapshots (a) -- (e) showing each new perimeter of the 6x6 advancement square which must be empty of any other pieces for the White rook to be attacking the Black knight. Each perimeter is two tiles larger than the previous one (3, 5, 7, 9, 11). The line of red diamonds with black inserts represent the two rays (the inner edges of the advancement square). The presence of the knight on the perimeter (outer edges of the advancement square) prevents the rook from moving to those tiles (or beyond); its only legal move on that perimeter is to capture the knight. All the diamonds are slightly smaller than a tile so the underlying tile's color (black or white) can peek through."
+    },
+    {
+      "id": 8,
+      "filename": "ParaRookVerticalCheck.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaRookVerticalCheck.png",
+      "caption": "Figure 8: Three Snapshots Showing King in Check by Rook in Left Vertical Plane",
+      "description": "(Facing page.) Three snapshots (a) - (c) proving the Black king is in check by the White rook via a left vertical advancement square. Note how part of the advancement square extends off the board."
+    },
+    {
+      "id": 9,
+      "filename": "ParaAdvSqQuadsRook_B.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaAdvSqQuadsRook_B.png",
+      "caption": "Figure 9: The Four Quadrants of the Rook Move",
+      "description": "The four quadrants are shown in two pairs for clarity. A 3x3 and a 4x4 advancement square (a), and a 2x2 and a 6x6 advancement square (b). The tiles which the rook can move to on the respective perimeters are shown with ghost rooks. Note that the 6x6 advancement square extends off the board, so the ghost rooks on those tiles are not shown. Note also the subtle implication that linear moves will need to be dealt with as special cases, for the tiles under them are black not red."
+    },
+    {
+      "id": 10,
+      "filename": "ParaAdvRectRook_H.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaAdvRectRook_H.png",
+      "caption": "Figure 10: Rook's Linear Move",
+      "description": "In each plane, a linear move is ambiguous in which quadrant it advances in, so both advancement squares must be empty for the move to be unblocked in that plane. Three snapshots (a) -- (c) of the rook's *advancement rectangle* are shown for the horizontal plane."
+    },
+    {
+      "id": 11,
+      "filename": "ParaLinearMoveRook_HV.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/ParaLinearMoveRook_HV.png",
+      "caption": "Figure 11: Linear Rook Move in Horizontal and Vertical Planes",
+      "description": "The two advancement rectangles for a linear rook move are shown. The vertical one is blocked by the knight, the horizontal one blocked by the pawn. The tile containing the ghost rook (king level) can only be reached in the horizontal plane, the first two linear tiles are reachable in both planes."
+    },
+    {
+      "id": 12,
+      "filename": "BoardShape.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BoardShape.png",
+      "caption": "Figure 12: Board Shape",
+      "description": "If the 2D board is a square of squares, then the 3D board should be a cube of cubes. A square is the proper unit cell for 2D, a cube the proper unit cell for 3D. In any dimension, adjacent orthogonal unit cells alternate colors (white & black)."
+    },
+    {
+      "id": 13,
+      "filename": "AdjacentCells.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/AdjacentCells.png",
+      "caption": "Figure 13: Base Pieces Derive from Adjacent Unit Cells",
+      "description": "The base pieces derive from the topology of the board, a multi-dimensional array of unit cells. Each type of adjacent cell is connected by a ray of a different type, which can be ordered by the number of coordinates it changes. The unit cell of 2D is the square (a), it has two nearest neighbors; 4 connected by sides (rook), and 4 connected by corners (bishop). Two types of rays connect squares; side rays which change 1 coordinate, and corner rays which change 2 coordinates (a). The unit cell in 3D is the cube (b), it has 26 nearest neighbors; 6 connected by faces (rook), 12 connected by edges (bishop), and 8 connected by vertices (duke). Three types of rays connect cubes; face rays which change 1 coordinate, edge rays which change 2 coordinates, and vertex rays which change 3 coordinates. Red, green, and blue form the basis of a consistent color scheme."
+    },
+    {
+      "id": 14,
+      "filename": "PieceDesign.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PieceDesign.png",
+      "caption": "Figure 14: 3D Chess Piece Design",
+      "description": "Each of the 3D chess pieces allude to how they move in 3D. From left to right they are; king, queen, rook, bishop, duke, knights (with opposite parity), stack (the combined bishop and duke), and the pawn. In this rendition, the basic shapes have been covered with a marbled surface."
+    },
+    {
+      "id": 15,
+      "filename": "Starting_Lineup.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Starting_Lineup.png",
+      "caption": "Figure 15: Starting Lineup",
+      "description": "Opponents face each other on opposite extents of the board. The major pieces mirror each other around the royal pieces, pawns in front. The White king-side rook starts on a white tile. In 2D, they align along opposing sides (a), in 3D, they align along opposing vertical columns (b). Stack starts next to the royal pieces (bishop level). King is above the queen, so both queens start on white tiles. Pawns are on tile 2,2 (left, right; from each player's perspective) and promote only on the opponent's home column (8,8). The piece trays lie outside the board, serving to ID each level. On each level a thin border surrounds the center 4x4 grid of tiles; easier to visualize multi-level moves."
+    },
+    {
+      "id": 16,
+      "filename": "Planes.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Planes.png",
+      "caption": "Figure 16: The 13 Planes of 3D Chess",
+      "description": "There are three types of planes in 3D chess. *Orthogonal* for the rook (3); *horizontal*, *left vertical*, and *right vertical* (a). *Skew* for the bishop (4); *upward*, *downward*, *leftward*, and *rightward* (b). *Slant* for the duke (6): the *major* & *minor* cross pairs, the *upleft* & *downleft* cross pairs, and the *upright* & *downright* cross pairs (c). All left and right designators are from each players' perspective. Up and down designators indicate in which direction the plane approaches the opponent. Except for the horizontal, major, and minor planes, these designators are swapped between Black and White (shown). From the neutral point of view of this figure the duke minor plane is edge on; it has been rotated ever so slightly to make it visible."
+    },
+    {
+      "id": 17,
+      "filename": "RookPlane4Quads.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/RookPlane4Quads.png",
+      "caption": "Figure 17: Rook's Plane is Cut by Two Lines, Thus Four Quadrants",
+      "description": "A rook plane is cut by 2 lines yielding 4 quadrants. The black decorators are used to indicate the 4 rays that originate from the rook on KR5,4. The shape of an orthogonal plane is always an 8x8 square, independent of the rook's position."
+    },
+    {
+      "id": 18,
+      "filename": "RookOpposingQuads.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/RookOpposingQuads.png",
+      "caption": "Figure 18: Rook Opposing Quadrants in Horizontal Plane",
+      "description": "Each plane of the rook move contains four quadrants. Advancement squares of various sizes are shown for the horizontal plane in opposing quadrants for clarity. A 3x3 and a 4x4 advancement square are shown in (a) and a 2x2 and a 6x6 advancement square (extends off board) are shown in (b). The *single ghosted* rooks show the locations where the rook can make pure quadrant moves (60% opacity). The end tiles contain *double ghosted* rooks (30% opacity); including them implies a full quadrant move. Moves to end tiles are linear moves, not quadrant moves, and require at least one advancement rectangle to be unblocked."
+    },
+    {
+      "id": 19,
+      "filename": "RookPlanes.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/RookPlanes.png",
+      "caption": "Figure 19: Rook's Three Orthogonal Planes",
+      "description": "The 2D rook moves in two orthogonal lines (a). The 3D rook moves in three orthogonal planes (b). Planes intersect at the straight-line moves (black diamond inserts). Projection of the 3D rook move onto any face of the 3D board is the 2D rook move."
+    },
+    {
+      "id": 20,
+      "filename": "RookQuadSnapshots.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/RookQuadSnapshots.png",
+      "caption": "Figure 20: Rook Snapshots of a Quadrant Move in a Horizontal Plane",
+      "description": "A series of 5 snapshots (a) -- (e) showing each new perimeter of the 6x6 advancement square which must be empty of any other pieces for the rook to be able to advance to perimeter 5 (e). Each perimeter is two tiles larger than the previous one (3, 5, 7, 9, 11). Decorated red diamonds indicate tactically significant aspects of advancement squares; the line of solid black decorators represents the two rays, the open black decorators the sequence of apex tiles. Undecorated tiles (pure red tiles) indicate uninteresting interior tiles. All highlight diamonds are slightly smaller (very slightly) than a tile so the underlying tile's color (black or white) can peek through. (Zooming on supported platforms makes this more useful.)"
+    },
+    {
+      "id": 21,
+      "filename": "RookQuadrantVertical.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/RookQuadrantVertical.png",
+      "caption": "Figure 21: Rook Snapshots of a Pure Quadrant Move in a Vertical Plane",
+      "description": "(Facing page.) Three snapshots (a) - (c) of a rook making a pure quadrant move in the upward quadrant of the left vertical plane are shown, which happens to extend off the board. The ghost rooks indicate pure and full quadrant moves, but also that a piece may not move off the board. Note the addition of the apex decorators."
+    },
+    {
+      "id": 22,
+      "filename": "RookLinearSnapshot.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/RookLinearSnapshot.png",
+      "caption": "Figure 22: Rook Snapshots of Linear Move in Horizontal Plane",
+      "description": "Three snapshots (a) -- (c) of a rook making a linear move are shown in the horizontal plane only. Because the king is in the direct line of this move, it blocks both planes (vertical plane not shown). Note the use of the new two black diamond decorator to indicate the sequence of end tiles along which a linear move occurs."
+    },
+    {
+      "id": 23,
+      "filename": "RookLinear_HR.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/RookLinear_HR.png",
+      "caption": "Figure 23: Rook Linear Move in Two Planes",
+      "description": "Rook makes a linear move to the ghost rook location but falls short of putting the king in check. The two quadrants in each plane form the pair of advancement rectangles, one of which must be unblocked for the linear move to be legal. They can be, and typically are, blocked at different distances, as shown here. The vertical plane is blocked by the knight to a 3x5 advancement rectangle, while the horizontal plane is blocked by the bishop to a 5x9 advancement rectangle (which of necessity extends off the board). Note that the end tile of the linear move at perimeter 3 has a single black diamond decorator. This decorator shows that the linear move is now unblocked in only plane. Note also that the apex decorator has been added to all four quadrants."
+    },
+    {
+      "id": 24,
+      "filename": "RookShape.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/RookShape.png",
+      "caption": "Figure 24: Rook Shape",
+      "description": "From the corner of the board the rook's move outlines a cube, elongated on a physical board. Thus, the shape chosen for the rook is an elongated cube and alludes to its move."
+    },
+    {
+      "id": 25,
+      "filename": "BishopForwardPlanes.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopForwardPlanes.png",
+      "caption": "Figure 25: Bishop Forward Planes",
+      "description": "The two *forward planes* for a bishop in the center of the board (K5,4) are shown. The three straight lines in each plane are indicated with black diamond decorators (apex tiles have been suppressed for clarity). These two planes intersect in a diagonal line perpendicular to the two players. As in 2D the bishop is confined to the color of the tile it starts on."
+    },
+    {
+      "id": 26,
+      "filename": "BishopOutwardPlanes.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopOutwardPlanes.png",
+      "caption": "Figure 26: Bishop Outward Planes",
+      "description": "The two *outward planes* for a bishop in the center of the board (K5,4) are shown. The three straight lines in each plane are shown with black diamond decorators (apex tiles have been suppressed for clarity). These two planes intersect in a diagonal line which extends between the players."
+    },
+    {
+      "id": 27,
+      "filename": "Planes_Bishop.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Planes_Bishop.png",
+      "caption": "Figure 27: The Four Skew Planes of the Bishop",
+      "description": "Shown are the four skew planes of the bishop inside a cubical wire fame rendition of the 3D chess board. *Upward* and *downward* are the *forward* planes, *leftward* and *rightward* are the *outward* planes. Names are from White's perspective (right vertical edge)."
+    },
+    {
+      "id": 28,
+      "filename": "BishopPlaneQuads.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopPlaneQuads.png",
+      "caption": "Figure 28: Bishop Plane is Cut by Three Lines, thus Six Quadrants",
+      "description": "A bishop plane is cut by 3 lines yielding 6 quadrants. The black decorators are used to indicate the 6 rays that originate from the bishop on K4,5. The shape of a skew plane can be either an irregular hexagon (as in this figure) or an equilateral triangle, it depends on the position of the bishop."
+    },
+    {
+      "id": 29,
+      "filename": "BishopAlt_QuadsOdd.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopAlt_QuadsOdd.png",
+      "caption": "Figure 29: Bishop Alternating Quadrants in Right Outward Plane (1, 3, 5)",
+      "description": "Three alternating quadrants in White's rightward plane are shown (K3,4). Starting at the top and advancing clockwise the advancement squares are of size 2x2, 3x3 and 4x4. Ghost bishops indicate where on the perimeter of these three advancement squares the bishop can advance to as a pure quadrant move, double ghosted as a full quadrant move (the end tiles)."
+    },
+    {
+      "id": 30,
+      "filename": "BishopAlt_QuadsEven.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopAlt_QuadsEven.png",
+      "caption": "Figure 30: Bishop Alternating Quadrants in Right Outward Plane (2, 4, 6)",
+      "description": "The other three alternating quadrants in White's rightward plane are shown (K3,4). Starting at the right and advancing clockwise the advancement squares are of size 2x2, 3x3 and 4x4. Ghost bishops indicate where on the perimeter of these three advancement squares the bishop can advance to as a pure quadrant move, double ghosted as a full quadrant move (the end tiles)."
+    },
+    {
+      "id": 31,
+      "filename": "BishopProjection.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopProjection.png",
+      "caption": "Figure 31: Bishop Projection of 3D Move onto 2D Orthogonal Planes",
+      "description": "Projection of the 3D bishop move is the 2D bishop move (a). One forward and one outward plane project onto horizontal planes and vertical planes, in this example the right vertical planes (b). Ghost bishops are on the left most right vertical plane (White's point of view). On the left vertical planes, the projection is two parallel lines, which are marked with yellow stars in the outer left face of the board (all from White's perspective)."
+    },
+    {
+      "id": 32,
+      "filename": "BishopQuadSnapshots55AB.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopQuadSnapshots55AB.png",
+      "caption": "Figure 32: Bishop Snapshots of Quadrant Move in a Rightward Plane (2x2 & 3x3)",
+      "description": "Snapshots of White's bishop advancing into the lower forward quadrant of the rightward plane from its home position (KR1,1) (a) -- (b). Black diamond decorators indicate tiles on the inner edges of the advancement square. The sequence of apex tiles is indicated with hollow black diamond decorators. Ghosted and double ghosted bishops are on the respective perimeter tiles for these quadrants. The yellow rhombi highlight how the bishop move is a distorted advancement square, but perimeters still grow by the same mathematical law."
+    },
+    {
+      "id": 33,
+      "filename": "BishopQuadSnapshots55CD.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopQuadSnapshots55CD.png",
+      "caption": "Figure 33: Bishop Snapshots of Quadrant Move in a Rightward Plane (4x4 & 5x5)",
+      "description": "Continuation of previous figure; snapshots of White's bishop advancing still further into the lower forward quadrant of the rightward plane[^17] (c) -- (d). Ghosted and double ghosted bishops are on the respective perimeter tiles for these quadrants. The yellow rhombi highlight how the bishop move is a distorted advancement square, but perimeters still grow by the same mathematical law. The empty piece trays on each side may help keep visual alignment between the series of snapshots, particularly for such continuation figures."
+    },
+    {
+      "id": 34,
+      "filename": "BishopLinearShapshots55C_04.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopLinearShapshots55C_04.png",
+      "caption": "Figure 34: Bishop Snapshots of Linear Move in Rightward Plane (2x3 & 3x5)",
+      "description": "This (a) -- (b) and the next figure (c) show three snapshots of a bishop linear move in the outward plane for White's white bishop (K2,1) eventually advancing to K5,4. Only the rightward plane is shown. Note that the rook (K6,5) will eventually block advances in both planes."
+    },
+    {
+      "id": 35,
+      "filename": "BishopLinearShapshots7AB_04.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopLinearShapshots7AB_04.png",
+      "caption": "Figure 35: Bishop Snapshots of Linear Move in Rightward Plane (4x7)",
+      "description": "This is the 3rd snapshot of a bishop making a linear advance from K2,1 ultimately blocked by the rook at K6,5 (c). Since it is in line with the linear move, it blocks advance in both planes, but for clarity only one plane is shown. As for the rook, the linear move is indicated with double diamond decorators indicating that it is moving in two planes. The so-called advancement rectangle of a bishop linear move is distorted because of the rhombus shape of its advancement squares."
+    },
+    {
+      "id": 36,
+      "filename": "BishopLinearForwardPlanes.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopLinearForwardPlanes.png",
+      "caption": "Figure 36: Bishop Linear Move in Two Forward Planes",
+      "description": "At first glance it appears that White's bishop is putting Black's king in check with a linear move along the forward planes (toward the viewer), but the king is on the perimeters of four 5x5 advancement squares, paired up in two planes for two 5x9 advancement rectangles. Since, the knight (KR level) blocks the attack in the upward plane to a 3x3 advancement square, and the rook (QR level) blocks the attack in the downward plane to a 4x4 advancement square, the king is not actually in check. Note the artwork trick where the king and ghost bishop are offset sideways in the tiles, so both are visible."
+    },
+    {
+      "id": 37,
+      "filename": "BishopLinearOutwardPlanes.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopLinearOutwardPlanes.png",
+      "caption": "Figure 37: Bishop Linear Move in Two Outward Planes",
+      "description": "Same situation as in the previous figure, but with the linear move along two outward planes; knight (KR level) blocks the attack in the leftward plane to a 3x3 advancement square, while the rook (QR level) blocks the attack in the rightward plane to a 4x4 advancement square. The ghost bishop shows the farthest legal move the bishop can make in this direction. The ghost bishop partially hides the offset diamond decorator that indicates that the bishop at this point has been reduced to traveling in only one plane. As before, the Black king is not actually in check."
+    },
+    {
+      "id": 38,
+      "filename": "BishopLinearFOPlanes.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopLinearFOPlanes.png",
+      "caption": "Figure 38: Bishop Linear Move in Forward and Outward Plane",
+      "description": "The bishop at first appears to have Black's king in check with a linear move along the downward and rightward planes, but the king is just out of reach. White's attack in the downward plane is blocked by the knight (KB level) to a 3x3 advancement square and in the rightward plane its attack is blocked by the rook (Q level) to a 4x4 advancement square."
+    },
+    {
+      "id": 39,
+      "filename": "BishopShape.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BishopShape.png",
+      "caption": "Figure 39: Bishop Shape",
+      "description": "From a corner of the board, the bishop can move in only three planes, each with the shape of an equilateral triangle. The three triangles form three sides of an equilateral tetrahedron. Thus, the shape chosen for the bishop is an elongated tetrahedron and alludes to its move."
+    },
+    {
+      "id": 40,
+      "filename": "Planes_Duke.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Planes_Duke.png",
+      "caption": "Figure 40: The Six Duke Slant Planes",
+      "description": "The six slant planes of the duke shown in wireframed cubes."
+    },
+    {
+      "id": 41,
+      "filename": "Planes_Cross_Planes.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Planes_Cross_Planes.png",
+      "caption": "Figure 41: The Three Pairs of Duke Cross Planes",
+      "description": "The six slant planes of the duke shown in pairs, the three sets of cross planes."
+    },
+    {
+      "id": 42,
+      "filename": "DukeMetallicity_02.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeMetallicity_02.png",
+      "caption": "Figure 42: Duke Colors & Gold Tiles Primary Slant Plane (32 of the 64 Metal Tiles)",
+      "description": "Tiles are color coded with bishop colors on their surfaces and duke colors on their edges. Dukes start and stay on metal slant planes; either gold or silver tiles. They can never reach the gem planes. To help deduce duke colors without cluttering the board, the gold tiles in the primary plane are marked with black dots. Silver tiles are the unmarked tiles diagonally in between the gold ones. Metal tiles are also black and white tiles but alternate every other level. Duke colors alternate orthogonally and diagonally. KR1,1 is a white gold tile; ruby to the right, jade to the left."
+    },
+    {
+      "id": 43,
+      "filename": "DukeCrossPairsVertical.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeCrossPairsVertical.png",
+      "caption": "Figure 43: Duke Vertical Cross Planes (Major and Minor)",
+      "description": "The *vertical cross planes* intersect in a vertical line. *Major* planes extend from player to player, while *minor* plans are perpendicular to the players. The largest major plane (shown here) contains the starting lineup of the pieces. It is also called the *primary* plane. The single *apex* *tiles* (single open diamonds) are all in a horizontal plane, while the *duplex* *tiles* (double open diamonds) align along the vertical intersection line of the vertical cross planes skipping every other horizontal plane. Duke is on K4,4; notice its missing image in the White piece tray."
+    },
+    {
+      "id": 44,
+      "filename": "DukeCrossPairsLeft.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeCrossPairsLeft.png",
+      "caption": "Figure 44: Duke Left Cross Planes (Upleft, Downleft)",
+      "description": "The left cross planes intersect in a horizontal line connecting the left faces. The upleft plane extends towards the opponent when traversed in the up direction, and in perfect symmetry, the downleft plane extends towards the opponent when traversed in the down direction. The single apex tiles are all in a right vertical plane, while the duplex tiles align along the left intersection line of the left cross planes skipping every other right vertical plane. Duke is on K4,4."
+    },
+    {
+      "id": 45,
+      "filename": "DukeCrossPairsRight.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeCrossPairsRight.png",
+      "caption": "Figure 45: Duke Right Cross Planes (Upright, Downright)",
+      "description": "The right cross planes intersect in a horizontal line connecting the right faces. The upright plane extends towards the opponent when traversed in the up direction, and in perfect symmetry, the downright plane extends towards the opponent when traversed in the down direction. The single apex tiles are all in a left vertical plane, while the duplex tiles align along the right intersection line of the right cross planes skipping every other left vertical plane. Duke is on K4,4."
+    },
+    {
+      "id": 46,
+      "filename": "DukeMajorQuads_02.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeMajorQuads_02.png",
+      "caption": "Figure 46: Duke Plane is Cut by Two Lines, thus Four Quadrants",
+      "description": "Shown is the *primary major plane*, it connects the top and bottom faces of the board and opposing vertical edges. As the largest major plane, it also contains the starting lineup. It's two straight lines are readily visible and clearly divide the plane, like the rook, into four quadrants, but unlike rook quadrants, duke quadrants come in two flavors, which alternate around the plane. Those quadrants advancing toward a board edge (left and right) are regular quadrants. They use the conventional apex tile decorator. Those quadrants advancing toward a diagonal line across a board face (up and down) have duplex tiles, they are also in the cross plane (minor plane, not shown). Note that the duke can only reach half of the tiles in its plane (32 out of 64). All the tiles in this plane have been raised so that their edges are visible. Note they are all gold tiles; the primary plane is a metallic plane."
+    },
+    {
+      "id": 47,
+      "filename": "DukeOpposingEdgeQuads.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeOpposingEdgeQuads.png",
+      "caption": "Figure 47: Duke Opposing Edge Quadrants in the Primary Major Plane",
+      "description": "The two opposing *edge quadrants* of the duke move are shown for the *primary major plane*, the largest major plane, the one that contains the starting lineup of the pieces. As these are edge quadrants, they utilize the regular apex tile decorator (single open black diamond). Each sports a 3x3 advancement square. Note the one apex decorator off the board. Ghost dukes show the pure quadrant moves."
+    },
+    {
+      "id": 48,
+      "filename": "DukeOpposingFaceQuads.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeOpposingFaceQuads.png",
+      "caption": "Figure 48: Duke Opposing Face Quadrants in the Primary Major Plane",
+      "description": "The two opposing *face quadrants* of the duke move are shown for the *primary plane*, (see previous figure). As face quadrants, they utilize the duplex tile decorator (pair of open black diamonds). Each sports a 3x3 advancement square. Note the off board duplex decorator and the ghost dukes."
+    },
+    {
+      "id": 49,
+      "filename": "Duke_Pseudo_Projection.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Duke_Pseudo_Projection.png",
+      "caption": "Figure 49: Duke Pseudo Projection; Linear Moves in Slant Planes are the 2D Bishop Move",
+      "description": "The straight-line moves of the duke in a slant plane are the 2D bishop's move. This example is in the primary major plane, which contains 64 tiles, 32 of which the duke can reach. Other than tile color, this plane is a one-to-one map with the 2D board, which is why in this figure most of the pieces have been moved from their tray positions to their starting lineup position."
+    },
+    {
+      "id": 50,
+      "filename": "DukeQuadSnapshotsEdge_ab_02.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeQuadSnapshotsEdge_ab_02.png",
+      "caption": "Figure 50: Duke Snapshots of Edge Quadrant Move (Perimeters 1 & 2)",
+      "description": "Two snapshots of a silver duke making an edge quadrant move in the primary plane out to perimeter 1 (a) and perimeter 2 (b). Silver tiles in the primary plane have been raised. Ghost dukes show the legal quadrant moves to perimeters 1 & 2. Note this includes the apex tiles."
+    },
+    {
+      "id": 51,
+      "filename": "DukeQuadSnapshotsEdge_c.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeQuadSnapshotsEdge_c.png",
+      "caption": "Figure 51: Duke Snapshots of Edge Quadrant Move (Perimeter 3)",
+      "description": "Third snapshot of a silver duke making an edge quadrant move in the primary plane out to perimeter 3 (c). Ghost dukes show the legal quadrant moves to perimeter 3. Note this includes the apex tiles."
+    },
+    {
+      "id": 52,
+      "filename": "DukeQuadSnapshotsFace_ab_02.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeQuadSnapshotsFace_ab_02.png",
+      "caption": "Figure 52: Duke Snapshots of Face Quadrant Simplex Move (Perimeters 1 & 2)",
+      "description": "Two snapshots of a duke face quadrant move out to perimeter 1 (a) and perimeter 2 (b) in the major plane. Advance in the minor plane is blocked by the pawn, so the duke can only advance to the 'apex' tile in this plane. Such tiles are called *simplex tiles*, and simply delete one diamond from the duplex decorator. Primary plane silver tiles have been raised. Ghost dukes indicate pure quadrant moves."
+    },
+    {
+      "id": 53,
+      "filename": "DukeQuadSnapshotsFace_c.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeQuadSnapshotsFace_c.png",
+      "caption": "Figure 53: Duke Snapshots of Face Quadrant Simplex Move (Perimeter 3)",
+      "description": "(Continues previous figure.) Third snapshot of a duke face quadrant move out to perimeter 3 (c) in the major plane. Advance in the minor plane is blocked by the pawn, note the simplex tiles. Ghost dukes indicate pure quadrant moves to perimeter 3."
+    },
+    {
+      "id": 54,
+      "filename": "DukeQuadSnapshotsDuplex_ab_02.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeQuadSnapshotsDuplex_ab_02.png",
+      "caption": "Figure 54: Duke Snapshots of a Duplex Move to Perimeter 2 First in the Minor Plane",
+      "description": "Two snapshots of a duke face quadrant move to the duplex tile out to perimeter 1 (a) and perimeter 2 (b) first in the minor plane only. The silver tiles in this minor plane have been raised for clarity. Ghost dukes indicate the move. Note the lack of ghost dukes on the body tiles of perimeter 2."
+    },
+    {
+      "id": 55,
+      "filename": "DukeQuadSnapshotsDuplex_cd.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeQuadSnapshotsDuplex_cd.png",
+      "caption": "Figure 55: Duke Snapshots of a Duplex Move to Perimeter 2 Adding the Major Plane",
+      "description": "(Continuation of previous figure.) The advancement squares for the major plane are added in. The single ghost duke on the final duplex tile was advancing in *both* cross planes. Note specifically that the ghost duke is *only* on the duplex tile, and there are none on the other tiles on the perimeters as those moves occur in one plane only. The silver tiles have not been raised, rather the inner 16 border has been used."
+    },
+    {
+      "id": 56,
+      "filename": "DukeLinearSnapshot_a.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeLinearSnapshot_a.png",
+      "caption": "Figure 56: Duke Snapshot of Linear Move in Primary Plane to Perimeter 1.",
+      "description": "The White duke is on a gold tile, as is the Black king. In addition, the king is in line with the duke, so a linear attack is a possibility; one must check all three planes. Snapshot of the 2x3 advancement rectangle at perimeter 1 of the linear threat in the primary plane. Black's pawn is in a gem plane and thus safe from the duke."
+    },
+    {
+      "id": 57,
+      "filename": "DukeLinearSnapshot_b.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeLinearSnapshot_b.png",
+      "caption": "Figure 57: Duke Snapshot of Linear Move in Primary Plane to Perimeter 2.",
+      "description": "(Continuation of previous figure.) Snapshot of the 3x5 advancement rectangle at perimeter 2 of the linear threat to the king in the primary plane. The duke has three linear move decorators. At perimeter 1 is the one with three diamonds, so at this point, the move is in all three duke planes. At perimeter 2, however, one of the diamonds is hollowed, so one of the other planes is blocked; the duke is polarized in two planes. Notice that one end tile also sports a change in their decorator at perimeter 2 (KR5,5), for the same reason. The inner black diamond is smaller, indicating that a linear move in this direction would be blocked in one plane as well."
+    },
+    {
+      "id": 58,
+      "filename": "DukeLinearSnapshot_c.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeLinearSnapshot_c.png",
+      "caption": "Figure 58: Duke Snapshot of Linear Move in Primary Plane Blocked by Rook at Perimeter 4.",
+      "description": "(Continuation of previous figure.) Snapshot of the 4x7 advancement rectangle at perimeter 3 of the linear threat to the king in the primary plane. The third duke linear move decorator has only one diamond of three that is solid, indicating a linear move polarized in one plane only, so the king is not in check in either of the other two duke planes. Advance to perimeter 4 is blocked by the rook in a face quadrant so the king is not in check in the primary plane either. Note that the king is not threatening the rook, for it is covered by the duke. Both are on raised tiles to indicate the duke threat. Note the four decorators off the board to make the advancement rectangle a little clearer."
+    },
+    {
+      "id": 59,
+      "filename": "DukeLinearDownRight.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeLinearDownRight.png",
+      "caption": "Figure 59: Duke Linear Move Blocked by Knight in Downright Plane at Perimeter 2.",
+      "description": "White's knight (KB7,3) blocks her duke's (KB3,3) potential linear attack on Black's king (KN2,2) in the downright plane at perimeter 2 in a face quadrant. Knight and underlying tile are raised to emphasize this. The knight is on a duplex tile of a face quadrant. The advancement rectangle is 2x3. At perimeter 1 (K4,4) the duke's move is not yet polarized. Note the decorator has *three* solid diamonds indicating linear motion in *three* planes."
+    },
+    {
+      "id": 60,
+      "filename": "DukeLinearDownLeft.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeLinearDownLeft.png",
+      "caption": "Figure 60: Duke Linear Move Blocked by Bishop in Downleft Plane at Perimeter 3.",
+      "description": "White's bishop (QR8,2) blocks her duke's (KB3,3) potential linear attack on Black's king (KN2,2) in the downleft plane at perimeter 3 in an edge quadrant. Bishop and underlying tile are raised to emphasize this. The advancement rectangle is 3x5. At perimeter 2 (Q5,5) the duke's move is now polarized into just two planes. Note the decorator has *two* solid diamonds and one hollowed, indicating linear motion in *two* planes."
+    },
+    {
+      "id": 61,
+      "filename": "DukeShape.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/DukeShape.png",
+      "caption": "Figure 61: Duke Shape",
+      "description": "Marking all the tiles a duke can reach in one move from the corner fails to reveal any fundamental shape, unlike for the rook and bishop. Since the duke moves through corners connecting adjacent cubes, the shape chosen for the duke is a cube pivoted onto one truncated corner. Hollowed out this allows it to stack neatly on top of the bishop to create the composite piece, the stack. Three planes are shown, with linear move decorators, the apex tile decorators (edge quadrants), and the duplex tile decorators (face quadrants)."
+    },
+    {
+      "id": 62,
+      "filename": "QueenOverlapTiles.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QueenOverlapTiles.png",
+      "caption": "Figure 62: Queen Quark Attacks from Board Center to 60 Overlap Tiles",
+      "description": "All the queen *quark* moves from the center of the board; 24 *brook* tiles, 15 *q-tiles*, 9 *hotspots*, 12 *Feynman* tiles, for a total of 60 *overlap* tiles. Note the new decorators with nested diamonds; colors indicate the base piece that cover such tiles. 12 rook and 25 duke linear tiles are also shown."
+    },
+    {
+      "id": 63,
+      "filename": "QueenQuarkBrookQtiles.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QueenQuarkBrookQtiles.png",
+      "caption": "Figure 63: Queen Quark (Alternating Brook and Q-tile Overlap Tiles)",
+      "description": "Combined diagram showing a queen advancing to alternating brook and q-tiles. The rook and bishop advancement manifolds are shown for an advance to the brook tile at Q4,4, and the duke advancement square is shown for an advance to the q-tile at Q5,5. Brook tiles alternate with the q-tiles down diagonal lines. Both are on the apex of a rook quadrant move, and on the end tile of a bishop linear move in two planes. The q-tile is also on the apex of a duke edge quadrant move at half the perimeter of the rook and bishop. The standard decorators are bordered in purple (royal color). To reduce clutter, queen decorators emphasize what *kind* of base piece over what *type* of tile, or number of manifolds for pure base piece attacks. Brook tile decorators have two nested diamonds, green and red, and the q-tile decorators have three nested diamonds (red, green, blue). The next subsections introduce hotspot and Feynman tiles, which are included i..."
+    },
+    {
+      "id": 64,
+      "filename": "QueenQuarkHotspots.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QueenQuarkHotspots.png",
+      "caption": "Figure 64: Queen Quark (Alternating Hotspot & Rook Linear Tiles)",
+      "description": "Hotspot tiles are the duplex tiles of duke face quadrants at perimeter N and the linear tiles of rook linear moves at 2N. They are thus in *four* advancement manifolds. Hotspot tiles alternate with rook linear tiles down orthogonal lines. Shown are the rook advancement rectangles out to perimeter 4 and the pair of duke advancement squares in the upright and downright slant planes out to perimeter 2. The hotspot decorator consists of two nested diamonds, blue surrounded by red. For the queen, both rook and duke end tile decorators are replaced with the linear tile idiom, two inline diamonds for the rook, and three inline diamonds for the duke. Rook apex tile decorators are replaced with brook decorators. This substitution helps clarify the relationships between the overlap tiles."
+    },
+    {
+      "id": 65,
+      "filename": "QueenQuarkFeynmanTiles.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QueenQuarkFeynmanTiles.png",
+      "caption": "Figure 65: Queen Quark (Feynman Tiles)",
+      "description": "Feynman tiles can be attacked as either a bishop or a duke, both quadrant moves. Feynman tiles come in pairs; on the 3N perimeter of a duke face quadrant move 1/3 of the way from end tile to dual apex tile and simultaneously on the bishop apex tile of 2N perimeter. Note also the existence of the other three overlap tiles; four brook tiles, four q-tiles, and three hotspot tiles."
+    },
+    {
+      "id": 66,
+      "filename": "QueenShapeQR11.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QueenShapeQR11.png",
+      "caption": "Figure 66: Queen Shape",
+      "description": "The queen covers 289 tiles from a corner of the board. It's impressive, but chaotic. Pretty much any design shorter and shapelier than the king which alludes to her being able to move like any of the base pieces should do."
+    },
+    {
+      "id": 67,
+      "filename": "QueenPowerProjectionQ54.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QueenPowerProjectionQ54.png",
+      "caption": "Figure 67: Queen Power Projection",
+      "description": "The queen covers 355 tiles from the center of the board. Purple bordered decorators are used to indicate hotspot and rook linear tiles, brook and q-tiles, duke linear tiles, Feynman, and bishop apex tiles, and finally rook, bishop, and duke body tiles."
+    },
+    {
+      "id": 68,
+      "filename": "KnightAntiQueen.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KnightAntiQueen.png",
+      "caption": "Figure 68: Knight as the Anti-Queen (Queen Covered Tiles Within a 5^N Manifold)",
+      "description": "Shown are all the tiles a 2D queen can cover in a 5x5 square (a), and all the tiles a 3D queen can cover in a 5x5x5 cube (b). The tiles she can't cover (8 and 24) are precisely the tiles the knight can cover."
+    },
+    {
+      "id": 69,
+      "filename": "KnightDukeColors.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KnightDukeColors.png",
+      "caption": "Figure 69: Knight Covers those Tiles the Queen Cannot in a 5^N Array",
+      "description": "The knight is the anti-queen. In 2D, he covers the 8 tiles in a 5x5 square the queen does not (a) and in 3D he covers the 24 tiles within a 5x5x5 cube which she does not (b). The knight changes *both* bishop and duke colors and it projects the 2D move onto each face of the 5x5x5 cube. Its move within a slant plane is its 2D move. The duke-colored board has been used and destination tiles raised; the knight changes to the other color in its current metallicity on adjacent levels, but changes to the other metallicity two levels away. Knight on a jade tile, changes to a ruby tile one level away, but to gold or silver tiles two levels away, 8 of each of the other colors."
+    },
+    {
+      "id": 70,
+      "filename": "KnightCoverage.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KnightCoverage.png",
+      "caption": "Figure 70: Knight Coverage Proof",
+      "description": "The knight can (eventually) reach every tile on the board. In both boards, the duke starts on the king rook initial tile. In 2D, a simple three move sequence brings the knight to an adjacent side square (a), in 3D, a simple five move sequence brings the knight to an adjacent face cube (b). While not optimal, they prove the knight can reach every tile on the board in no more than 192 moves in 2D and 2560 moves in 3D. For the 3D case, tiles have been raised to reveal the duke colors to reveal the sequence (G: S, G, R, G, J). In 3D, interestingly, the even moves *lite* upon the same color as the knight started on, with each of the other colors visited exactly once."
+    },
+    {
+      "id": 71,
+      "filename": "KnightShape.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KnightShape.png",
+      "caption": "Figure 71: Knight Shape",
+      "description": "The knight's shape is quite literally its move; two out, two up, one over; just permute the directions. The knight traverses five cubes. Knight decorators are yellow."
+    },
+    {
+      "id": 72,
+      "filename": "StackOverlapTiles.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackOverlapTiles.png",
+      "caption": "Figure 72: Stack Overlap Tiles",
+      "description": "Stack decorators are bordered in orange like queen decorators are bordered in purple. From the home location, each stack can cover 9 q-tiles and 5 Feynman tiles. White king side stack shown."
+    },
+    {
+      "id": 73,
+      "filename": "StackCoverage.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackCoverage.png",
+      "caption": "Figure 73: Stack Coverage via Sub Pieces",
+      "description": "The tiles a stack covers as either a bishop or a duke. New decorators are introduced, but they follow previous idioms. Note the linear moves, bishop alternation patterns, and duke duplex tiles."
+    },
+    {
+      "id": 74,
+      "filename": "StackMoveToQtile.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackMoveToQtile.png",
+      "caption": "Figure 74: Stack Advancement Manifolds for a Move to a Q-Tile",
+      "description": "This is a linear move for the bishop sub-piece (outward planes) and an apex move for the duke sub-piece (primary plane). Note the linear move decorator. Ghost stack shows the destination."
+    },
+    {
+      "id": 75,
+      "filename": "StackMoveToFeynmanTile.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackMoveToFeynmanTile.png",
+      "caption": "Figure 75: Stack Advancement Manifolds for a Move to a Feynman Tile",
+      "description": "This is an apex move for the bishop sub-piece (leftward plane) and face quadrant move for the duke sup-piece (downleft plane). Note the alternation patterns. Ghost stack shows the destination."
+    },
+    {
+      "id": 76,
+      "filename": "StackDecayDuke.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackDecayDuke.png",
+      "caption": "Figure 76: Stack Decay - White Emits Duke",
+      "description": "White's queen side stack (black bishop, silver duke) decays emitting a duke to KN5,1. Move is in an edge quadrant in the upleft plane to the apex tile of a 3x3 advancement square, which is the first q-tile in this direction. This means both the duke and the bishop cover each other. Note that the duke is fading out of the stack (QB1,1) leaving only the bishop."
+    },
+    {
+      "id": 77,
+      "filename": "StackDecayBishop.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackDecayBishop.png",
+      "caption": "Figure 77: Stack Decay - Black Emits Bishop",
+      "description": "Black's queen side stack (black bishop, gold duke) decays emitting a bishop to KN4,8, (same tile as the duke from the previous figure). Move is in the forward up quadrant of the rightward plane (Black's perspective) to a tile on the perimeter of a 5x5 advancement square. This is not an overlap tile, so while the bishop is covering the duke, the duke is not covering the bishop. Note that the bishop is fading out of the stack (QB1,1) leaving a hanging duke (which will drop to the tile)."
+    },
+    {
+      "id": 78,
+      "filename": "StackRecombinations.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackRecombinations.png",
+      "caption": "Figure 78: Stack Recombination",
+      "description": "Two examples of *recombination* are shown. White's gold duke recombines with its white bishop on KB1,1 via a duplex move with two independent 3x3 advancement squares in the up quadrants of the major and minor planes (half the tiles are off the board, shown). Black's white bishop recombines with its silver duke on Q1,3 via a 4x4 advancement square in the down forward quadrant of the leftward plane. Destination tiles have ghosted duke and bishop respectively. Neither sub piece must be on an overlap tile."
+    },
+    {
+      "id": 79,
+      "filename": "StackCrossCombination.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackCrossCombination.png",
+      "caption": "Figure 79: Stack Cross Combination",
+      "description": "White has cross combined her black bishop (from QB1,1) with her gold duke (from KB1,1) onto a *gold-black stack* (K2,2) via a series of unspecified moves. Either sub piece may make the final move to create a cross combined stack. The free bishop (KB1,1) and duke (QB1,1) could also cross combine, forming a *silver-white stack*. Occupied tiles have been raised to reveal their duke colors."
+    },
+    {
+      "id": 80,
+      "filename": "StackTeleportationDuke.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackTeleportationDuke.png",
+      "caption": "Figure 80: Stack to Stack Teleportation of a Duke Between Two Bishops",
+      "description": "An original white-gold stack (Q5,1) teleports by emitting a duke which combines with the existing black bishop (QR8,6) creating a gold-black stack, one of the two possible cross combined stacks for White. The teleporting sub piece (ghosted) does not change its color (gold) but must teleport between two sub pieces (bishop) that are on different native colors (white/black). The example shows the 5x5 advancement square in the downleft plane; note the two tiles off the board. Occupied tiles have been raised to reveal their duke colors."
+    },
+    {
+      "id": 81,
+      "filename": "StackTeleportationBishop.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackTeleportationBishop.png",
+      "caption": "Figure 81: Stack to Stack Teleportation of a Bishop Between Two Dukes",
+      "description": "An original *white-gold stack* (KR1,1) *teleports* by emitting a bishop which combines with the existing silver duke (QN8,2) creating a *silver-white stack*, one of the two possible *cross combined stacks* for White. The teleporting sub piece (ghosted) does not change its color (white) but must teleport between two sub pieces (duke) that are on *different native colors* (gold/silver). The example shows the 7x7 advancement square in the rightward plane; note the many tiles off the board, including two of the three Feynman tiles. Since the bishop is the traveling piece, it has been inverted with the duke in the stacks. Occupied tiles have been raised to reveal their duke colors."
+    },
+    {
+      "id": 82,
+      "filename": "StackFissionQtile.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackFissionQtile.png",
+      "caption": "Figure 82: Stack Explosion (Fission) Conjoined by a Q-Tile",
+      "description": "Stack *explodes* at Q1,1 *conjoined* to a q-tile at Q5,5 which places it on the apex tile of perimeter 2 of a duke edge quadrant move in the major plane, and on perimeter 4 of a bishop liner move in the outward planes. There are 5 potential destination tiles for the duke and 18 for the bishop, which implies 89 possible *explosions*. The permutation where *both* sub pieces end up on the overlap tile is *denied*, as that would be a *stack* *move* not a *fission* move, so ghost bishop & duke are not stacked."
+    },
+    {
+      "id": 83,
+      "filename": "StackFissionFeynman.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackFissionFeynman.png",
+      "caption": "Figure 83: Stack Explosion (Fission) Conjoined by a Feynman Tile",
+      "description": "Stack explodes at K2,4 conjoined by a Feynman tile at K4,6 which is the apex tile of perimeter 2 of a bishop quadrant move in the leftward plane and on perimeter 3 of a duke face quadrant move in the upright plane. There are 5 potential destination tiles for the bishop and 7 for the duke, which implies 34 possible explosions. The permutation where both sub pieces end up on the overlap tile is denied, as that would be a stack move not a fission move. Ghost pieces show legal destinations."
+    },
+    {
+      "id": 84,
+      "filename": "StackShape.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/StackShape.png",
+      "caption": "Figure 84: Stack Shape",
+      "description": "Preferred shape for the stack is duke on top (upper left image) but for some cases, the reverse has merit (upper right). Both can be real pieces with a tetrahedral cutout in the bases that align with the outside surface. The image used in this work (lower middle) is an artistic cheat that allows the duke and bishop images to be easily separated for reuse without a lot of cut and paste effort. Duke-bishop rotation is 60 degrees around the vertical axis. Stack decorators are typically orange."
+    },
+    {
+      "id": 85,
+      "filename": "PawnAdvances.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnAdvances.png",
+      "caption": "Figure 85: Pawn Advances Like a Rook",
+      "description": "Pawn advances like a rook with the end tiles included in the quadrant move. Two pawn advances are shown; an optional first move double advance to perimeter 2 by White (a), and a first move single advance to perimeter 1 by Black (b). Pawn decorators are smaller than for the other pieces and don't have a crisp black edge. Ghost pawns indicate legal moves. Note that from the starting lineup, apex tiles lie in the primary major plane, but the pawn is not limited to staying in that plane and may advance off the metal plane onto either adjacent gem plane (or with a double advance, even to the next metal plane over). Recall that the end tiles of the advancement square are included in the quadrant perimeter; there is no linear move for the pawn in the horizontal plane."
+    },
+    {
+      "id": 86,
+      "filename": "PawnPromotionMolasses.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnPromotionMolasses.png",
+      "caption": "Figure 86: Pawn Promotion Molasses",
+      "description": "Eight different examples of various pawn promotion routes via advancement only are shown for pawns from the initial position on tile 2,2. Promotion examples include ghost images of all the possible major pieces (queen, rook, stack, bishop, duke, & knight). It takes 6 advances to promote a pawn given an initial single advance (a), but only 5 given a double advance (b); just like in 2D. Every advance that is not to an apex tile is to an end tile and decreases the promotion distance by a half move (c), the farther from the primary plane a pawn wonders, the more moves it will require to promote (d) & (e) until a worse case of 12 moves is required (f). It doesn't matter how many times the primary plane is crossed (g). For every left end tile, there must be a right end tile; apex moves are the fastest (h). Ghost pawns illuminated the various routes, except they've been suppressed on the last level (QR) to highlight the count of end tiles v..."
+    },
+    {
+      "id": 87,
+      "filename": "PawnShackled.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnShackled.png",
+      "caption": "Figure 87: Pawns Unshackled",
+      "description": "The king side pawn (KB6,8) is in the right back plane and thus unshackled (a). It may advance in the vertical plane without a range restriction. Decorators indicate tiles which could block such moves, ghost pawns indicate legal moves. The queen side pawn (QN8,5) is also unshackled, but it is blocked in the left back plane by Black's knight (b). It may still make a perimeter 1 advance in the horizontal plane. Normally, this would be a linear move, but the right quadrant is virtual (dimmed decorators), and the left quadrant is off the board, so as a practical matter this is a *direct* move and thus unblockable. The ghost pawn indicates the legal move."
+    },
+    {
+      "id": 88,
+      "filename": "PawnBishopForwardsPerm1.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnBishopForwardsPerm1.png",
+      "caption": "Figure 88: Pawn Bishop Virtual Quadrants in Forward Planes",
+      "description": "All the perimeter 1 tiles of the pawn's bishop attack in the forward planes are shown for a White pawn on KB3,3. In each plane, 5 of the 6 quadrants are virtual. Tiles in virtual quadrants are dimmed. Note there are 12 apex tiles; 10 dimmed and 2 not, and 10 edge tiles, 6 dimmed and 4 not, which are the linear tiles of advancement rectangles reduced to advancement squares (KN & K levels)."
+    },
+    {
+      "id": 89,
+      "filename": "PawnBishopOutwardsPerm1.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnBishopOutwardsPerm1.png",
+      "caption": "Figure 89: Pawn Bishop Virtual Quadrants in Outward Planes",
+      "description": "All the perimeter 1 tiles of the pawn's bishop attack in the outwards planes are shown for a White pawn on KB3,3. In each plane, 4 of the 6 quadrants are virtual. Tiles in virtual quadrants are dimmed. Note there are 12 apex tiles; 8 dimmed and 4 not and 10 edge tiles, 5 dimmed and 5 not dimmed. The four which are linear tiles of advancement rectangles reduced to advancement squares are on the KN & K levels. The fifth is a true linear move in two planes with two advancement rectangles (KB4,4) which is also a brook tile and thus the decorator sports a small red diamond."
+    },
+    {
+      "id": 90,
+      "filename": "PawnBishopCapturePredator.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnBishopCapturePredator.png",
+      "caption": "Figure 90: Pawn Bishop Quadrant Capture in Forward Planes (Predator)",
+      "description": "The two 2x2 advancement squares for the two predator captures are shown. These are moves to apex tiles. Ghost pawns show the legal moves. While these are captures *two* levels away (above and below), they only advance the pawn *one* move toward promotion."
+    },
+    {
+      "id": 91,
+      "filename": "PawnBishopCaptureSling.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnBishopCaptureSling.png",
+      "caption": "Figure 91: Pawn Bishop Quadrant Capture in Outward Planes (Sling)",
+      "description": "The four 2x2 advancement squares for the four sling captures (one level above and one level below) are shown. These are also moves to apex tiles but change the metallicity of the pawn and bring it one and half moves closer to promotion. Ghost pawns show the legal moves."
+    },
+    {
+      "id": 92,
+      "filename": "PawnBishopCaptureReducedLU.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnBishopCaptureReducedLU.png",
+      "caption": "Figure 92: Pawn Bishop Linear Capture in Upward & Leftward Planes (Reduced)",
+      "description": "The two 2x2 advancement squares (reduced advancement rectangles), which are in different planes, are shown for the pawn's bishop reduced linear capture. The ghost pawn shows the legal move. This is a change in metallicity and advances the pawn toward promotion by only half a move. Like the rook advance to an end tile, this violates a 2D derived invariant."
+    },
+    {
+      "id": 93,
+      "filename": "PawnBishopCaptureReducedLD.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnBishopCaptureReducedLD.png",
+      "caption": "Figure 93: Pawn Bishop Linear Capture in Downward & Leftward Planes (Reduced)",
+      "description": "Mirror situation of the previous figure. The two 2x2 advancement squares, which are in different planes (still the leftward plane, but now in the downward plane) are shown for the pawn's bishop reduced linear capture. The ghost pawn shows the legal move."
+    },
+    {
+      "id": 94,
+      "filename": "PawnBishopCaptureReducedRUD.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnBishopCaptureReducedRUD.png",
+      "caption": "Figure 94: Pawn Bishop Reduced Linear Capture in Forward & Rightward Planes (Reduced)",
+      "description": "In this figure, both reduced linear captures in the rightward plane are shown; one in the upward plane, the other in the downward plane. Each move has two 2x2 advancement squares, which are in different planes. Ghost pawns show the legal moves. Note that a piece on the brook tile directly in front of the pawn (red insert in the tile decorator) blocks both moves only in the outward plane. Attack may still be possible in the relevant forward plane."
+    },
+    {
+      "id": 95,
+      "filename": "PawnBishopCaptureBead.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnBishopCaptureBead.png",
+      "caption": "Figure 95: Pawn Bishop Linear Capture in the Outward Planes (Bead)",
+      "description": "The pair of 2x3 advancement rectangles are shown for the pawn's one and only fully linear capture. This is a bishop capture in the outward planes. The ghost pawn shows the legal move. Either the leftward or the rightward plane must be unblocked. Like the dart capture as a duke, this is a capture to a tile on the pawn's level, a horizontal plane, a rook plane, the pawn's dominant plane. It is called the *bead* tile, in allusion to the dominant plane. Metallicity is unchanged, and the pawn advances toward promotion by exactly one move."
+    },
+    {
+      "id": 96,
+      "filename": "PawnMinorVirtualQuads.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnMinorVirtualQuads.png",
+      "caption": "Figure 96: Pawn Duke Minor Plane -- All Tiles Fail to Advance Toward Promotion",
+      "description": "All the quadrants in the minor plane are virtual; half the tiles recede from promotion (the corner tiles) and half fail to approach promotion (the apex and duplex tiles). The pawn has no legal captures in this plane. Note that all decorators are dimmed."
+    },
+    {
+      "id": 97,
+      "filename": "PawnDukeDartCapture.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnDukeDartCapture.png",
+      "caption": "Figure 97: Pawn Duke Apex Capture in Primary Plane (Dart)",
+      "description": "The 8 tiles of perimeter 1 of the major plane are shown for a pawn at KB3,3. Three tiles recede from promotion and two fail to advance toward promotion, so three of the four quadrants are virtual. Limiting the pawn's ability to capture as a duke to non-virtual quadrants eliminates 23 quadrants out of 24, leaving only the forward quadrant of the major plane. The up and down quadrants of the major plane are face quadrants and thus share a duplex tile (KR3,3 & Q3,3) with the minor plane. Note the dimmed decorators. Captures to these quadrants are forbidden."
+    },
+    {
+      "id": 98,
+      "filename": "PawnDukeDownLeftPerim1.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnDukeDownLeftPerim1.png",
+      "caption": "Figure 98: Pawn Duke Cross Planes -- All Four Quadrants are Virtual, But the End Tile is Not",
+      "description": "The perimeter 1 tiles (all four quadrants) of a representative cross plane, in this case, the down left cross plane. All four quadrants contain at least one tile which recedes from promotion, but one of the end tiles (Q4,4 in this example) is nonetheless closer to promotion. The odd result is that moves to these end tiles are allowed, but since there are no advancement squares (or rectangles) associated with them, they are *direct* moves which cannot be blocked. Note the dimmed decorators; all but the corner move."
+    },
+    {
+      "id": 99,
+      "filename": "PawnDukeDirectCapture.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnDukeDirectCapture.png",
+      "caption": "Figure 99: Pawn Duke Doubly Reduced Linear Captures -- Not Blockable (Direct)",
+      "description": "Even though all four quadrants in the four cross planes are virtual, the two corner tiles that also lie in the major plane actually advance toward promotion. Thus, not only is capture allowed to them, but such captures cannot be blocked as they have no associated advancement manifolds -- they are *direct* moves; neither linear nor quadrant. When in the primary major plane, they are also the captures that project to the 2D bishop capture."
+    },
+    {
+      "id": 100,
+      "filename": "PawnAttacks.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnAttacks.png",
+      "caption": "Figure 100: Pawn Attacks from Starting Position",
+      "description": "All the tiles the pawn can attack from the starting position in 2D (a) and 3D (b)."
+    },
+    {
+      "id": 101,
+      "filename": "PawnShackleCapture.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnShackleCapture.png",
+      "caption": "Figure 101: Pawn Unshackled Capture",
+      "description": "A pawn's range limit is removed once it reaches a back plane; it has become *unshackled*. Most of the normal capture tiles are off the board. However, one pair of the bishop reduced tile sequences remain on the board. The White pawn (K8,5) is forking Black's rook and knight, in which capture of either will result in immediate promotion. While the reduced tiles remain on the board, all the other tiles in the advancement squares do not, so these are effectively direct attacks. Also shown are the duke duplex attacks, which now that the pawn is far off the major plane advance toward promotion. Since half of each quadrant is off the board, and since the pawn cannot reach the other tiles that are, these are also regarded as direct attacks, non blockable. This is a one-time non-reversible upgrade to the pawn's move -- a partial promotion."
+    },
+    {
+      "id": 102,
+      "filename": "PawnUplift.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnUplift.png",
+      "caption": "Figure 102: Pawn Uplift Examples",
+      "description": "Six examples of pawn promotion, showing three uplifts and how they relate to more conventional promotions. (a) A pawn promotes to a queen in the horizontal plane, (b) the pawn next level down is blocked from promoting by the knight (dimmed decorators), (c) pawn uplifts a bishop to a stack via horizontal plane, (d) promotion to a queen in the horizontal plane (unshackled promotion is blocked, (e) an unshackled uplift of a duke to a stack, (f) cannot directly promote to a queen (QN8,8) because it is blocked by the silver duke (Q8,8) as well as by the black bishop (QR8,8) but could promote in two moves (ghost pawn) via the horizontal level after a perimeter 1 advance (either level or left back plane linear), and (g) an unshackled uplift of bishop (QR8,8). Ghost images are used for the single promoted pieces, but for uplifts only the missing component piece is ghosted, the occupying piece is full image."
+    },
+    {
+      "id": 103,
+      "filename": "PawnPromotionVarianceRD.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnPromotionVarianceRD.png",
+      "caption": "Figure 103: Pawn Promotion Variance for Rook Advance & Duke Capture",
+      "description": "Examples of pawn promotion variance for rook like advances (White) and duke like captures (Black). Double advances to apex tiles shorten by 2, to either between tile by 1½, and to either end tile by 1. Single advances to apex tiles shorten by 1, to either end tile by ½. Dart captures shorten by 2, and direct captures shorten by 1. White pawns show the advances as a rook, Black pawns show the captures as a duke. Ghost pawns show the relevant moves."
+    },
+    {
+      "id": 104,
+      "filename": "PawnPromotionVarianceB.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnPromotionVarianceB.png",
+      "caption": "Figure 104: Pawn Promotion Variance for Bishop Capture",
+      "description": "Examples of pawn promotion variance for bishop like captures. White makes apex captures (sling and predator); Black makes captures to adjacent tiles (bead and reduced). Sling captures shorten by 1½, predator captures by 1. Bead captures shorten by 1, reduced captures shorten by ½. Ghost pawns show the relevant moves."
+    },
+    {
+      "id": 105,
+      "filename": "PawnDukeColors.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnDukeColors.png",
+      "caption": "Figure 105: Pawn Duke Colors for Advance and Capture",
+      "description": "The duke colors for pawn captures (king side, raised tiles) and advances (queen side, new colored decorators). Dart and direct tiles have the same color as the source tile, bead and predator tiles the opposite color. Sling and reduced tiles have opposite metallicities, gem planes in this example (ruby/jade), with opposite gem colors to either side. Any bishop 2x2 advancement square contains one tile of each duke color."
+    },
+    {
+      "id": 106,
+      "filename": "PawnStandoff.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/PawnStandoff.png",
+      "caption": "Figure 106: Pawn Standoff Situations",
+      "description": "Opposing pawns are in a standoff in 2D when on adjacent squares connected by sides; king pawns in (a). In 3D, opposing pawns are in a *static* standoff (b) & (d) when on adjacent cubes connected by faces (KR, KN, K) or in a *dynamic* standoff (e) when on each other's bead tiles when capture is blocked by *two* other pieces (knights), one in each plane. The king pawns have passed each other and have *side-stepped* a standoff all together (c); note the pair of red 2x2 advancement squares."
+    },
+    {
+      "id": 107,
+      "filename": "KingFailedMove2.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KingFailedMove2.png",
+      "caption": "Figure 107: King Implies Two Inadequate Move Rules - Rejected",
+      "description": "Giving the king direct access to adjacent tiles without advancement manifolds allows him to move prior to any other piece; breaks openings (b). Treating the king as a limited range queen permits him to advance to perimeter 1 of 2x2 advancement squares; the bishop and duke apex tiles extend beyond the 26 adjacent tiles (42 apex tiles) allowing him to penetrate rook and dual bishop fences and win all close pawn and knight races; there go the endgames (a). Two potential rules, both bad."
+    },
+    {
+      "id": 108,
+      "filename": "KingLinear_Rook.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KingLinear_Rook.png",
+      "caption": "Figure 108: King Rook-like Linear Moves",
+      "description": "The Black king contemplates making a linear rook-like move out to his KB2,3 tile; note the red double diamond decorator (a). This is a linear move in the horizontal plane and Black's left vertical plane. The White king contemplates making a linear rook-like move up a level to his KN2,2 tile; note the red double diamond decorator (b). This is a linear move in both vertical planes. In each case there are two 2x3 advancement rectangles, one for each plane; these would be moves to perimeter 1. Note the open decorators on the rook apex tiles; the king cannot advance to these tiles as a rook, but another piece would block advance on the corresponding perimeter. Note that it takes two pieces to block a king's linear rook advance unless one of them is on the linear tile itself."
+    },
+    {
+      "id": 109,
+      "filename": "KingLinear_Bishop.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KingLinear_Bishop.png",
+      "caption": "Figure 109: King Bishop-like Linear Moves",
+      "description": "The Black king contemplates making a linear bishop-like move out to his KB3,3 tile; note the green double diamond decorator (a). This is a linear move in the outward planes. The White king contemplates making a linear bishop-like move up a level to his KN2,3 tile; note the green double diamond decorator (b). This is a linear move in the upward and rightward planes. In each case there are two 2x3 advancement rectangles, one for each plane; these would be moves to perimeter 1. All the bishop apex tiles are outside the 26 adjacent tiles next to the kings. Note the open decorators on the bishop apex tiles; the king cannot advance to these tiles, but another piece would block advance on the corresponding perimeter. As for the rook it takes two pieces to block a king's linear bishop advance unless one of them is on the linear tile itself."
+    },
+    {
+      "id": 110,
+      "filename": "KingLinear_Duke.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KingLinear_Duke.png",
+      "caption": "Figure 110: King Duke-like Linear Moves",
+      "description": "The Black king contemplates making a linear duke-like move up a level to his KN3,3 tile (primary plane); note the blue triple diamond decorator (a). This is a linear move in the three planes: major, upleft, & upright. The White king contemplates making a linear duke-like move up a level to his KN1,3 tile (face of the board); note the blue triple diamond decorator (b). This is a linear move in three planes: minor, upleft, & upright. In each case there are three 2x3 advancement rectangles, one for each plane; these would be moves to perimeter 1. All the duke apex (and duplex) tiles are outside the 26 adjacent tiles next to the kings. Note the open decorators on the duke apex/duplex tiles (three are off the board); the king cannot advance to these tiles, but another piece would block advance on the corresponding perimeter. Unlike the rook and bishop, it takes three pieces to block a king's linear duke advance unless one of them is on th..."
+    },
+    {
+      "id": 111,
+      "filename": "KingHem_CornerEdgeFace.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KingHem_CornerEdgeFace.png",
+      "caption": "Figure 111: King Hemming Against Corner, Edge, or Face",
+      "description": "Shown are three of the four hemming situations in 3D. The king can be hemmed in the corner with just 4 pieces (a), along an edge with just 6 (b), and against a face with just 8 (c). The source tile decorator under the kings is shown, as are those for the unoccupied adjacent tiles. In the corner, 2 face tiles and 1 edge tile are unoccupied but blocked. Along an edge, 3 face tiles and 2 edge tiles, but still no vertex tiles are unoccupied but blocked. Against a face, 4 face tiles, 4 edge tiles, and 1 vertex tile are unoccupied but blocked. Note that pieces on edge tiles may block both rook and bishop advances. Other optimal solutions exist for (b) and (c)."
+    },
+    {
+      "id": 112,
+      "filename": "KingHem_Open.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KingHem_Open.png",
+      "caption": "Figure 112: King Hemming in the Open",
+      "description": "It takes just 3 pieces to prevent a king in the open from making any rook-like advances (a), just 4 to prevent it from making any bishop-like advances (b), and also just 4 to prevent it from making any duke-like advances (c). If the pieces are carefully placed, some of the pieces blocking bishop-like advances also block rook-like ones, requiring only 6 to block both (d). Linear decorators show the corresponding open tiles which are nonetheless blocked because of the adjacent pieces. Despite 26 adjacent cells a king in the open can be fully blocked with as few as 10 pieces, compared with 8 in 2D, a surprisingly small difference."
+    },
+    {
+      "id": 113,
+      "filename": "KingFence_RookR.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KingFence_RookR.png",
+      "caption": "Figure 113: King Fenced by Single Rook",
+      "description": "A rook fences a king by threatening its adjacent tiles. A single rook reduces the king's options by a line of 3 tiles in 2D (a) and by a square of 9 tiles in 3D (b), in both cases reducing the king's options by 1/3. The king's position has been *deflated* from an open position to a side position (2D) or a face position (3D). The type of tile in the rook plane is not significant for this analysis, but the rook decorators for end and apex tiles have been used anyway, for consistency."
+    },
+    {
+      "id": 114,
+      "filename": "KingFence_RookLR.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KingFence_RookLR.png",
+      "caption": "Figure 114: King Deflated Two Levels",
+      "description": "A carefully positioned 3D rook can fence a king by threatening his adjacent tiles in two dimensions, reducing the king's options by 55% (b). There is not enough resolution to do this in 2D, (reduction is only 33%). The king's position has been *deflated* from an open position to an edge position. For a single rook to fence a king in two dimensions, the intersection of two of its planes must pass through an edge tile and two vertex tiles adjacent to the king; in this case the 4,4 vertical column."
+    },
+    {
+      "id": 115,
+      "filename": "KingFence_RookPair.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/KingFence_RookPair.png",
+      "caption": "Figure 115: King Fenced by A Pair of Rooks",
+      "description": "A pair of rooks can fence a king by threatening its adjacent tiles in all dimensions. The pair reduces the king's options in two lines (5 tiles) in 2D by 55% (a), and in two squares (19 tiles) in 3D by 70% (b). The king's position has been *fully deflated* from an open position to a corner position. Decorator use has changed to emphasize the intersection of the rook planes."
+    },
+    {
+      "id": 116,
+      "filename": "EnPassantPaths.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantPaths.png",
+      "caption": "Figure 116: En Passant Paths",
+      "description": "A pawn which makes a double advance to the apex tile, or to one of the two end tiles, has only one possible path: through the single move apex tile (a), or through the single move end tile (b), respectively. However, it has two possible paths to the between tiles; either an end tile advance followed by an apex advance, or an apex advance followed by an end tile advance (c). In the latter case, capture by en passant is possible only if both path tiles are covered. The path tiles are at 2,3, (or 3,2) and 3,3. This also means the opposing player has the option of which path tile to capture upon. Ghost pawns show the destination tile of the double advance and the path tile(s) of the single advance. Note that the 2x2 advancement squares partially overlap, so the decorators shown are for the later single advance of those tiles."
+    },
+    {
+      "id": 117,
+      "filename": "EnPassantApexDirect.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantApexDirect.png",
+      "caption": "Figure 117: En Passant Apex-Direct Capture",
+      "description": "The White pawn has made a double advance to the apex tile, and both Black pawns, one above, one below, can make an en passant capture to the single advance apex tile via pawn-duke *direct* capture. Ghost pawns show the legal moves. This is the situation most like the case in 2D; all the pieces and moves are in the primary plane. Note the offset pair of pawn-duke decorators indicating that two different pieces are attacking the same tile."
+    },
+    {
+      "id": 118,
+      "filename": "EnPassantApexSlingPred.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantApexSlingPred.png",
+      "caption": "Figure 118: En Passant Apex-Sling & Apex-Predator with Regular Reduced Capture",
+      "description": "The White pawn has made a double advance to the apex tile, and all four Black pawns, two above, two below, can make an en passant capture to the single advance apex tile via pawn-bishop apex captures; two via *predator* tiles (forward planes), two by *sling* tiles (outward planes). In addition to the four en passant captures, the two Black pawns one level away also have regular capture moves to the double apex tile via *reduced* capture. Ghost pawns show the legal moves. Note the offset pawn-bishop decorators indicating that multiple different pieces are attacking the same tiles."
+    },
+    {
+      "id": 119,
+      "filename": "EnPassantApexDartBead.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantApexDartBead.png",
+      "caption": "Figure 119: En Passant Apex-Dart with Regular Bead Capture",
+      "description": "The White pawn has made a double advance to the apex tile, and the one Black pawn, on the same level, can make an en passant capture to the single advance apex tile via *dart* capture. In addition to the en passant capture, it can also make a regular capture via the *bead* attack, if at least one of the 2x3 advancement rectangles in the outward planes are empty (as they are here). Ghost pawns show the legal moves."
+    },
+    {
+      "id": 120,
+      "filename": "EnPassantApexReduced.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantApexReduced.png",
+      "caption": "Figure 120: En Passant Apex-Reduced Capture",
+      "description": "The White pawn has made a double advance to the apex tile, and the two Black pawns, up one level and down one level, can make an en passant capture to the single advance apex tile via *reduced* capture. Ghost pawns show the legal moves. Note that the White pawn could have captured either Black pawn via *sling* instead of making the double advance, and in perfect symmetry both Black pawns were attacking the White pawn via sling as well. Note the offset pawn-bishop decorators indicating that multiple different pieces are attacking the same tile."
+    },
+    {
+      "id": 121,
+      "filename": "EnPassantEndDirect.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantEndDirect.png",
+      "caption": "Figure 121: En Passant End-Direct Capture",
+      "description": "The White pawn has made a double advance to the left end tile, and both Black pawns, one above, one below, can make an en passant capture to the single advance left end tile via *direct* capture. However, Black could also have captured the pawn at the end tile via *reduced* capture, or if it was their move even captured the White pawn by *sling* in its original location. Look at all the advancement squares. Ghost pawns show the legal moves. Note the offset pair of pawn-duke and pawn-bishop decorators indicating that two different pieces are attacking the same tile."
+    },
+    {
+      "id": 122,
+      "filename": "EnPassantEndSlingPred.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantEndSlingPred.png",
+      "caption": "Figure 122: En Passant End-Sling & End-Predator with Regular Direct Capture",
+      "description": "The White pawn has made a double advance to the left end tile, and all four Black pawns, two above, two below, can make an en passant capture to the single advance end tile via pawn-bishop apex captures; two via *predator* tiles (forward planes), two by *sling* tiles (outward planes). In addition to the four en passant captures, the two closet Black pawns also have regular capture moves to the double left end tile via *direct* capture. Ghost pawns show the legal moves. Note the offset pawn-bishop and pawn-duke decorators indicating that multiple different pieces are attacking the same tiles."
+    },
+    {
+      "id": 123,
+      "filename": "EnPassantEndDartBead.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantEndDartBead.png",
+      "caption": "Figure 123: En Passant End-Dart; no Regular Bead Capture",
+      "description": "The White pawn has made a double advance to the left end tile, and the one Black pawn, on the same level, can make an en passant capture to the single advance end tile via *dart* capture. Ghost pawns show the legal moves. It has no regular captures unlike the bead capture it had in the apex case."
+    },
+    {
+      "id": 124,
+      "filename": "EnPassantEndReduced.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantEndReduced.png",
+      "caption": "Figure 124: En Passant End-Reduced Capture",
+      "description": "The White pawn has made a double advance to the left end tile, and the two Black pawns, up one level and down one level, can make an en passant capture to the single advance end tile via *reduced* capture. Ghost pawns show the legal moves. The Black pawns are not symmetrically placed; the upper one also has a *direct* attack on the White pawn, which by symmetry it also has in return, so it could have captured the upper pawn instead of making the double advance. Note the offset pawn-bishop decorators indicating that multiple different pieces are attacking the same tile."
+    },
+    {
+      "id": 125,
+      "filename": "EnPassantBetweenDirect.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantBetweenDirect.png",
+      "caption": "Figure 125: En Passant Between-Direct and Between-Reduced or Between-Sling Capture",
+      "description": "For a single pawn to cover both paths of a between tile double advance, one attack must be *direct*, and the other either *reduced* or *sling*. If the direct attack is paired with reduced (knight pawn), it might have captured the advancing pawn via sling prior to its advance, and if paired with sling (king pawn), it could have just captured the pawn in its new location via reduced. Ghost pawns indicate legal moves. Offset decorators indicate different pieces attacking the same tile."
+    },
+    {
+      "id": 126,
+      "filename": "EnPassantBetweenTwoPredators.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantBetweenTwoPredators.png",
+      "caption": "Figure 126: En Passant of Between-Tile Between Two Predators",
+      "description": "These two opposing pawns cover both path tiles of a between double advance. Note that they are not symmetrically placed. Each Black pawn covers one of the path tiles; the rook pawn covers the single advance apex tile (KB6,6) and the queen pawn covers the single advance end tile (KB6,7). Both covers are by *predator* capture. Ghost pawns indicate the legal moves."
+    },
+    {
+      "id": 127,
+      "filename": "EnPassantBetweenTwoOnLevel.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EnPassantBetweenTwoOnLevel.png",
+      "caption": "Figure 127: En Passant of Between Tile via Two Pieces on Same Level",
+      "description": "It is possible for two pawns on the same level to both have en passant attacks. Shown here is a double advance by White from KB2,2 to KB4,3, a between tile. Therefore, there are two path tiles which must be covered for Black to have an en passant option. His two rook pawns indeed cover both path tiles (*predator*), and he may execute an en passant capture by moving one or the other to the path tile that particular Black pawn covers. Ghost pawns indicate legal moves."
+    },
+    {
+      "id": 128,
+      "filename": "Castling2D.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Castling2D.png",
+      "caption": "Figure 128: Castling to Develop the King in 2D",
+      "description": "Castling is intended for safety and development, including developing the king. Here, castling on the king side allows White to continue to protect the KR pawn from Black's bishop (green decorators), but uses the king to do so. It was previously protected by the rook."
+    },
+    {
+      "id": 129,
+      "filename": "CastlingInline.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/CastlingInline.png",
+      "caption": "Figure 129: Castling Inline - Rejected",
+      "description": "There are no advancement squares in inline castling as it occurs in a space *two* dimensions less than the board, just the vertical straight line of the home column. While simple, piece development is highly limited. For clarity, king and rook decorators are offset because the 'straight lines' overlap. Ghost pieces show the destinations that would be legal if this rule were acceptable."
+    },
+    {
+      "id": 130,
+      "filename": "Castle_FarSide.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Castle_FarSide.png",
+      "caption": "Figure 130: Castling Far Side Rule -- Rejected",
+      "description": "Shown are two examples of castling under the *far side rule*, where the rook has access to any tile on the perimeter of its advancement square which is on the *far side* of the king. White makes a king-side castle, which offers *three* tiles for her rook, *one* of which is not adjacent to her king and thus undefended (a). Black makes a queen-side castle, which offers *four* tiles for his rook, *two* of which are not adjacent to his king and thus undefended (b). The advancement rectangles for the kings have been suppressed to make the rooks' moves clearer. Off board tiles and the rooks' linear moves to the 1,1, tiles have also been suppressed. Ghost pieces indicate the tiles that would be allowed if this move were legal. Hollow decorators indicate blocking tiles not accessible to the rook while castling."
+    },
+    {
+      "id": 131,
+      "filename": "Castle_Vertical_King.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Castle_Vertical_King.png",
+      "caption": "Figure 131: Castling Vertically, King Advancement Rectangles Only",
+      "description": "Two examples of the king advancement rectangles for vertical castles; White king side (a) and Black queen side (b). The White king advances to KN1,1 on the king side, the Black king to QB1,1 on the queen side. In both cases there are two advancement rectangles each with one quadrant off the board: both quadrants shown for clarity. If blocked in one plane, there would be only one advancement rectangle. Note the introduction of new decorators. The 'hollowness' indicates that other pieces there will block the castle, but in no case can the king move to such tiles."
+    },
+    {
+      "id": 132,
+      "filename": "Castle_KingSide_Rook.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Castle_KingSide_Rook.png",
+      "caption": "Figure 132: Castling King Side, Rook Advancement Manifolds Only",
+      "description": "The rook advances *just far enough* to reach the level on the other side of the king. Shown are just the rook advancement manifolds for king-side castles; a linear castle by White to KB1,1 (a) and the two quadrant castles by Black to either KB1,2 or KB2,1 (b). In all cases, the rook ends up on the other side of the king (bishop level) on a tile adjacent to the king where the king can protect it. As before, hollow decorators indicate tiles which can block the castle but to which the rook cannot move. This is a partial companion figure to the previous one. Ghost pieces indicate the legal moves."
+    },
+    {
+      "id": 133,
+      "filename": "Castle_QueenSide_Rook.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Castle_QueenSide_Rook.png",
+      "caption": "Figure 133: Castling Queen Side, Rook Advancement Manifolds Only",
+      "description": "The rook advances *just far enough* to reach the level on the other side of the king. Shown are just the rook advancement manifolds for queen-side castles; a linear castle by White to Q1,1 (a) and the two quadrant castles by Black to either Q1,2 or Q2,1 (b). In all cases, the rook ends up on the other side of the king (queen level) on a tile adjacent to the king where the king can protect it. Note that queen side castling requires a 4x4 (or 4x7) advancement manifold for the rook in contrast to a 3x3 (3x5) for a king side castle, one more, just as in 2D. As before, hollow decorators indicate tiles which can block the castle but to which the rook cannot move. This is a partial companion figure to Figure 131. Ghost pieces indicate the legal moves."
+    },
+    {
+      "id": 134,
+      "filename": "Castle_Royal_King.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Castle_Royal_King.png",
+      "caption": "Figure 134: Castling Royal King Side",
+      "description": "Since for castling, the king and rook advancement manifolds overlap, this figure shows the king advancement rectangles for royal castling for Black (b) and the rook advancement squares for royal castling for White (a) for the case of king-side royal castling. There are three tiles adjacent to the king in each plane for the rooks, all on the queen level. As usual, hollow decorators show tiles which the king and rook cannot move to, but which if occupied will block the castle. For the royal castles, there is no plane ambiguity, the king and rook of necessity advance in the same plane. Note that while a linear move for the king, a royal move occurs only in a vertical plane (and both quadrants are on the board); there is no advance in the horizontal plane. As usual, ghost pieces indicate the legal moves."
+    },
+    {
+      "id": 135,
+      "filename": "Castle_Royal_Queen.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Castle_Royal_Queen.png",
+      "caption": "Figure 135: Castling Royal Queen Side",
+      "description": "Two examples of royal queen side castles, one for White (a) and one for Black (b), both in their respective right back planes. Both are blocked in their respective left back planes; White by her gold duke on QN1,5 and Black by his white bishop on QR1,6. There are three tiles adjacent to the king in the right back plane for the rooks, all on the queen level. As usual, hollow decorators show tiles which the rook cannot move to, but which if occupied will block the castle. For the royal castles, there is no plane ambiguity, the king and rook of necessity advance in the same plane. Note that while a linear move for the king, a royal move occurs only in a vertical plane (and both quadrants are on the board); there is no advance in the horizontal plane. As usual, ghost pieces indicate the legal moves."
+    },
+    {
+      "id": 136,
+      "filename": "Castle_Double.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Castle_Double.png",
+      "caption": "Figure 136: Castling Double Sided",
+      "description": "If the king has not moved, if neither rook has moved, if all pieces are out of the way, and the king is not castling out of check, into check or through check, then when a king advances to a royal tile, it is ambiguous whether a king-side or a queen-side castle is intended. Therefore, *both* rooks may participate in the castle *simultaneously*. Both the king and queen rooks assume their sidekick positions on either side of the king, each in one tile from a pair of 3 adjacent tiles, but they have *changed sides*. Ghost pieces indicate the legal moves. This is an aggressive move that does not hide the king behind a row of pawns, it exchanges safety for initiative developing both rooks at once. But they also flank the king so instead of being guarded by pawns it is now guarded by rooks."
+    },
+    {
+      "id": 137,
+      "filename": "Castle_Thru_Check.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Castle_Thru_Check.png",
+      "caption": "Figure 137: Castling through Check not Allowed",
+      "description": "A king may not castle out of check, into check, or, as in this example, through check. Black's white bishop is threatening White's KB1,1 tile, through which White's king would have to make his linear advance (in either back plane). In this case, the blurry ghost piece indicates the problem, this is not a legal move. White is prevented from castling because the intermediate tile is under attack; just like in 2D. Her right plane royal castle is blocked for the same reason. The bishop's 5x5 advancement square sits on top of the king's two 3x5 advancement rectangles for clarity."
+    },
+    {
+      "id": 138,
+      "filename": "Symmetry_2D_BasePieces.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Symmetry_2D_BasePieces.png",
+      "caption": "Figure 138: Symmetry; 2D Base Pieces",
+      "description": "The set of all tiles a base piece can potentially reach on the *next* move is identical to the set of tiles it had to come from on the *prior* move. Call these *symmetry sets*. The symmetry set for the rook is marked with red decorators and the symmetry set for the bishop is marked with green decorators. The bishop decorator on the overlaid tile of rook and bishop has been raised for clarity."
+    },
+    {
+      "id": 139,
+      "filename": "Symmetry_3D_BasePieces.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Symmetry_3D_BasePieces.png",
+      "caption": "Figure 139: Symmetry; 3D Base Pieces have Temporal and Spatial Symmetry",
+      "description": "Symmetry sets (one plane only) for rook (horizontal), bishop (forward), and duke (major). Presentation layer order is rook, bishop & duke, overlaid decorators have not been raised. The set of all tiles a base piece can reach on the next move is identical to the set of tiles it had to come from on the previous move."
+    },
+    {
+      "id": 140,
+      "filename": "Symmetry_Rook.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Symmetry_Rook.png",
+      "caption": "Figure 140: Symmetry; Rook Advancement Manifolds on Between Tiles are Not Symmetric",
+      "description": "For the rook, advance and retreat manifolds perfectly overlay for end tiles (a) and apex tiles (b), but not for between tiles (c). Retreat decorators are dimmed; moves are from solid rooks to ghost rooks and back."
+    },
+    {
+      "id": 141,
+      "filename": "Symmetry_Bishop_EndBetween.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Symmetry_Bishop_EndBetween.png",
+      "caption": "Figure 141: Symmetry; Bishop Advancement Manifolds Partially Overlap; End & Between Tiles",
+      "description": "The advancement manifolds for bishop advance and retreat moves only partially overlay on between tiles (a), but also don't fully overlay for linear moves (b). It is the only base piece whose linear move does not have symmetric advancement rectangles. For the White bishop, the advance tiles have been raised so the retreat tiles (dimmed) are more visible."
+    },
+    {
+      "id": 142,
+      "filename": "Symmetry_Bishop_Apex.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Symmetry_Bishop_Apex.png",
+      "caption": "Figure 142: Symmetry; Bishop Advancement Manifolds are Symmetric Only on Apex Tiles",
+      "description": "The advance and retreat manifolds for the bishop only fully overlap for moves to apex tiles. Shown are two advances and their retreats. The retreat decorators are dimmed. The advance decorators are slightly offset for clarity. Advance is from solid piece to ghost piece; retreat is from ghost piece to solid piece. The White bishop moves in her rightward plane (a), Black bishop moves in his downward plane (b)."
+    },
+    {
+      "id": 143,
+      "filename": "Symmetry_Duke_LinearApexDuplex.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Symmetry_Duke_LinearApexDuplex.png",
+      "caption": "Figure 143: Symmetry; Duke Linear, Apex & Duplex Advancement Manifolds Fully Overlap",
+      "description": "For the duke, advance and retreat moves perfectly overlay for apex tiles (a), end tiles (b), and duplex tiles (c). Note that one quadrant of a linear move is an apex quadrant, the other a duplex quadrant. Advance is from the sole solid piece to the three ghost pieces; retreat is from the ghost pieces to the sole solid piece. The retreat decorators are not shown."
+    },
+    {
+      "id": 144,
+      "filename": "Symmetry_Duke_Between.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Symmetry_Duke_Between.png",
+      "caption": "Figure 144: Symmetry; Duke Advancement Manifolds on Between Tiles are Not Symmetric",
+      "description": "That advancement squares for duke advance to and retreat from between tiles do not fully overlay. Retreat decorators are dimmed; advance decorators slightly raised for clarity. Advance is from solid piece to ghost piece, retreat from ghost piece to solid piece."
+    },
+    {
+      "id": 145,
+      "filename": "FundRookBishop2D.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/FundRookBishop2D.png",
+      "caption": "Figure 145: Pairwise Broken Symmetry Between Like and Unlike Base Pieces in 2D",
+      "description": "Black's queen side bishop is attacking White' king side rook, but the rook is not counterattacking. It is, however, attacking Black's king side bishop, but the bishop is not counterattacking. Neither Black rook is attacking the White bishops and neither of the White bishops are attacking the Black rooks. The queen side rooks are attacking each other. Neither king side rook is attacking the other."
+    },
+    {
+      "id": 146,
+      "filename": "2_Pieces_UnlikeSymmetryBrook.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/2_Pieces_UnlikeSymmetryBrook.png",
+      "caption": "Figure 146: Pairwise Restored Symmetry Between Rook & Bishop (Brook Tile)",
+      "description": "The rook is attacking the bishop via an apex tile on perimeter 3 in quadrant 1 of the horizontal plane. Simultaneously, the bishop is counterattacking with a linear move to perimeter 3 in the two outward planes. They are connected by a *brook tile*. The rook's degree of cover is 1, the bishop's is 2."
+    },
+    {
+      "id": 147,
+      "filename": "2_Pieces_UnlikeSymmetryQtile123.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/2_Pieces_UnlikeSymmetryQtile123.png",
+      "caption": "Figure 147: Pairwise Restored Symmetry Between Bishop & Rook and Bishop & Duke (Q-tile)",
+      "description": "White rook and Black bishop in mutual attack on perimeter 2, this time via *q-tile* (every other brook tile is a q-tile), and the White bishop and Black duke in a mutual attack (perimeter 2 for the bishop, perimeter 1 for the duke), also by *q-tile*. The bishops' attacks are linear (cover 2) the rook and duke attacks are apex (cover 1)."
+    },
+    {
+      "id": 148,
+      "filename": "2_Pieces_UnlikeSymmetryQtile13.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/2_Pieces_UnlikeSymmetryQtile13.png",
+      "caption": "Figure 148: Pairwise Restored Symmetry Between Rook & Duke (Q Tile)",
+      "description": "The rook is attacking the duke via an apex tile on perimeter 4 in quadrant 3 of the horizontal plane. Simultaneously, the duke is counterattacking via an apex tile on perimeter 2 in quadrant 1 of the major plane. They are connected by a *q-tile*. Both rook and duke have one degree of cover over the other."
+    },
+    {
+      "id": 149,
+      "filename": "2_Pieces_UnlikeSymmetryHotspot.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/2_Pieces_UnlikeSymmetryHotspot.png",
+      "caption": "Figure 149: Pairwise Restored Symmetry Between Rook & Duke (Hotspot Tile)",
+      "description": "The rook is attacking the duke via a linear move to perimeter 2 in the vertical planes. Simultaneously, the duke is counterattacking via a duplex tile on perimeter 1 in the major and minor planes. They are connected by a *hotspot tile*. Both rook and duke have two degrees of cover over the other."
+    },
+    {
+      "id": 150,
+      "filename": "2_Pieces_UnlikeSymmetryFeynman.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/2_Pieces_UnlikeSymmetryFeynman.png",
+      "caption": "Figure 150: Pairwise Restored Symmetry Between Bishop & Duke (Feynman Tile)",
+      "description": "The bishop is attacking the duke via an apex move to perimeter 2 in the leftward plane. Simultaneously, the duke is counterattacking via a between tile on perimeter 3 in the upleft plane. They are connected by a Feynman tile. Both pieces have one degree of cover over the other."
+    },
+    {
+      "id": 151,
+      "filename": "2_Pieces_Rook_Peeking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/2_Pieces_Rook_Peeking.png",
+      "caption": "Figure 151: Pairwise Peeking Between Rooks",
+      "description": "The White rook is attacking the Black rook in the horizontal plane, at a between tile on perimeter 2 (a). There is no counterattack however, as the reverse advancement square includes the pawn in a mutual blocking situation with the White rook (b) resulting in a one-way attack. The White rook is *peeking* out around its own pawn (the ancillary pieces) which is in the *extant tiles* of the Black rook's counterattack advancement square."
+    },
+    {
+      "id": 152,
+      "filename": "2_Pieces_Rook_Trapdoor.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/2_Pieces_Rook_Trapdoor.png",
+      "caption": "Figure 152: Pairwise Rook Succumbs to Trapdoor Move",
+      "description": "Snapshots of a trapdoor move. The White rook is attacking the Black rook in a one-way attack by *peeking* around its pawn (a). If it captures the opposing rook (b), it has executed a *trapdoor move* (c) because it will take *two* moves to return to its original position (d) for now the very pawn that it was peeking around, has blocked its direct *retreat*."
+    },
+    {
+      "id": 153,
+      "filename": "2_Pieces_Bishop_Peeking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/2_Pieces_Bishop_Peeking.png",
+      "caption": "Figure 153: Pairwise Peeking Between Bishops on Between Tiles",
+      "description": "The 4x4 advancement square of the White bishop's attack on the Black bishop shows a one-way attack between like pieces because the White bishop is *peeking* around its knight. The target is on perimeter 3, but the knight is on perimeter 2 of the retreat 3x3 advancement square, so is a *quadrant block* not a *mutual block*, thus the knight is *exposed*. The extant tiles encompass *two* perimeters, as evident by the *double row* of dimmed decorators. If the bishop is confined to the rightward plane, the *trapdoor* retreat will require *three* moves to return to the original location."
+    },
+    {
+      "id": 154,
+      "filename": "2_Pieces_Duke_Peeking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/2_Pieces_Duke_Peeking.png",
+      "caption": "Figure 154: Pairwise Peeking Between Dukes",
+      "description": "The Black duke is attacking the White duke on perimeter 2 in its major plane by peeking out around its own king. The single row of extant tiles is shown dimmed, which means this is a trapdoor move of degree 1."
+    },
+    {
+      "id": 155,
+      "filename": "3P_Blocks_Pins_Discovers_2D.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Blocks_Pins_Discovers_2D.png",
+      "caption": "Figure 155: Blocks, Pins & Discovers in 2D",
+      "description": "Decorators indicate the paths of the rook's attack. Extended they would attack king, queen, & rook, but are blocked by bishop, knight, & pawn respectively, which are shown with red *halos*. The bishop is pinned to the king, the knight pinned to the queen, and if the White pawn moves it discovers an attack on the Black rook."
+    },
+    {
+      "id": 156,
+      "filename": "3P_Cover_Blocking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Cover_Blocking.png",
+      "caption": "Figure 156: BPD; Types of Blocking",
+      "description": "Shows the White rook imposing all five types of blocking on Black. In *linear blocking* one piece can block (a), in *planar blocking* it takes two or more (b), in *quadrant blocking* the piece on the earliest perimeter blocks (c), in *quiet blocking* one piece is on the far side of the advancement manifold (d), and in *mutual blocking* two or more pieces are on the same perimeter (e)."
+    },
+    {
+      "id": 157,
+      "filename": "3P_Linear_Blocking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Linear_Blocking.png",
+      "caption": "Figure 157: BPD; Linear Blocking",
+      "description": "The rook's intended attack on the king is blocked in both vertical planes by the pawn. The two 2x3 advancement rectangles are shown and the covered pawn sports a red halo."
+    },
+    {
+      "id": 158,
+      "filename": "3P_Planar_Blocking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Planar_Blocking.png",
+      "caption": "Figure 158: BPD; Planar Blocking",
+      "description": "The rook's intended attack on the queen is blocked by two pieces, the pawn on the knight level blocks the attack in the vertical plane (2x3 advancement rectangle) and the duke blocks the attack in the horizontal plane (3x5 advancement rectangle). Both covered pieces sport red halos. The linear decorators toward the queen have two inner diamonds, one solid, one open, to indicate that at this point the rook is advancing in only one plane, not two."
+    },
+    {
+      "id": 159,
+      "filename": "3P_Quadrant_Blocking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Quadrant_Blocking.png",
+      "caption": "Figure 159: BPD; Quadrant Blocking",
+      "description": "The rook's intended attack on the black bishop is blocked by the white bishop on an earlier perimeter (#3). Technically, the rook cannot get to any tile on perimeter 3 of his 4x4 advancement square except the one occupied by the white bishop. The covered bishop sports a red halo."
+    },
+    {
+      "id": 160,
+      "filename": "3P_Quiet_Blocking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Quiet_Blocking.png",
+      "caption": "Figure 160: BPD; Quiet Blocking",
+      "description": "The rook's intended attack on the rook (QR level, partially obscured) is blocked by the duke on the far side of the quadrant. The 5x5 advancement square is shown; a 6x6 one is required. The covered duke sports a red halo. Note smaller diamond in end tile decorator when blocked by queen."
+    },
+    {
+      "id": 161,
+      "filename": "3P_Mutual_Blocking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Mutual_Blocking.png",
+      "caption": "Figure 161: BPD; Mutual Blocking",
+      "description": "The rook's intended attack on either knight is blocked by the other knight as they are on the same perimeter (5x5 advancement square). The hollow decorators on the last perimeter (#4) indicate that advance can be blocked there, but that the rook cannot reach them. Note that while both knights sport red halos, neither is under attack; when there is more than one halo, the haloed pieces are in a mutual blocking situation, which also means they are pinned against each other. The new decorators are for end, apex, and body tiles."
+    },
+    {
+      "id": 162,
+      "filename": "3P_Cover_Pinning.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Cover_Pinning.png",
+      "caption": "Figure 162: BPD s; Types of Pinning",
+      "description": "The White rook creates all five types of pinning. In *linear pinning* one piece is pinned (a), in *planar pinning* two or more are pinned (b), in *quadrant pinning* the piece on the earliest perimeter is pinned (c), in *quiet pinning* the pinned piece is on the far side of the advancement manifold (d), and in *mutual pinning* two or more pieces are on the same perimeter and pin each other (e)."
+    },
+    {
+      "id": 163,
+      "filename": "3P_Cover_Discover.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Cover_Discover.png",
+      "caption": "Figure 163: BPD; Types of Discovered Attacks",
+      "description": "Pieces which if they move will discover an attack are shown with red halos. Pieces exposed to the discovered attacks are on raised tiles. (a) pawn discovers attack on king, (b) pawn or duke discover attack on queen, (c) white bishop discovers attack on the black bishop, (d) knights self-discover attack on the other, (e) duke discovers attack on rook. Advancement manifolds suppressed."
+    },
+    {
+      "id": 164,
+      "filename": "3P_End_Blocks.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_End_Blocks.png",
+      "caption": "Figure 164: BPD; End Blocks",
+      "description": "White rook is quadrant attacking Black's bishop and duke on the king level. Hollow decorators indicate mutual blocking on end or between tiles, a small red diamond inside the hollow means it's an apex tile. A small solid black diamond inside a hollow means the attack is blocked in the other planes. If advance to an end tile is open in another plane (K8,4) it's a *poltergeist block* (a). If blocked, but becomes open if the attacked piece moves, it's a *fickle block* (b). If blocked so the attacked piece can move away, yet the blocking piece stays uncovered, then it's a *stonewall block* (c), and if closer to the attacking piece than the perimeter it's a *long stonewall block* (d)."
+    },
+    {
+      "id": 165,
+      "filename": "3P_Poltergeist_Block.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Poltergeist_Block.png",
+      "caption": "Figure 165: BPD; Poltergeist Block",
+      "description": "While Black's advance of his black bishop to K1,5 puts it in a mutual block with both the duke and the other bishop in the horizontal plane, it itself is vulnerable to capture in the right vertical plane, and thus only temporarily blocks the attacks. This is a *poltergeist block* (a); the blocking piece is not long for this world."
+    },
+    {
+      "id": 166,
+      "filename": "3P_Fickle_Block.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Fickle_Block.png",
+      "caption": "Figure 166: BPD; Fickle Block",
+      "description": "Black moves his black bishop to K5,1 to block the rook attack on his white bishop. It works, neither piece is under attack, for White's attack in the left vertical plane is blocked by the KN pawn. However, if the bishop originally under attack (white) moves away, the blocking piece (black) comes under attack in the horizontal plane; the mutual block was also a mutual pin. This is a *fickle block* (b). Note the single plane decorator on K4,7."
+    },
+    {
+      "id": 167,
+      "filename": "3P_Stonewall_Block.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Stonewall_Block.png",
+      "caption": "Figure 167: BPD; Stonewall block",
+      "description": "The knight blocks the rook attack on the duke by moving to an end tile which is already protected from attack by the pair of White pawns. Thus, it is not a mutual block. The rook's advancement rectangles are only 2x3 in both planes. Note the linear decorator shows legal advance only to perimeter 1, perimeter 2 is blocked, no decorator at all. This is a *stonewall block* (c)."
+    },
+    {
+      "id": 168,
+      "filename": "3P_Long_Stonewall_Block.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Long_Stonewall_Block.png",
+      "caption": "Figure 168: BPD; Long Stonewall Block",
+      "description": "Black advances his black bishop to block the rook attack on his duke but moves it to an end tile not even on the perimeter. The piece is safe because the linear attack on this tile is blocked even earlier than the perimeter the duke is on. This is a long stonewall block (d). Note the pair of stonewall decorators in the setup figure in the 4x4 advancement square attacking the duke (Figure 164)."
+    },
+    {
+      "id": 169,
+      "filename": "3P_RestoredLinear.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_RestoredLinear.png",
+      "caption": "Figure 169: BPD; Restored Linear Attack",
+      "description": "Three snapshots of a restored linear attack. The knight jumps into the line between them blocking the rook's attack on the queen in a linear block (a). The rook takes the knight with a linear move via 3x5 advancement rectangle (b) which restores the attack (c). The new advancement rectangle (also 3x5) is fully subsumed by the original 5x9 advancement rectangle (ghosted). Note, the single plane linear decorator directly in front of the rook (a). In the restored attack, the rook got past the Black pawn in the vertical plane, so that is now a double plane linear decorator (c)."
+    },
+    {
+      "id": 170,
+      "filename": "3P_Restored_Planar.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Restored_Planar.png",
+      "caption": "Figure 170: BPD; Restored Planar Attack",
+      "description": "Three snapshots of a restored quadrant attack. The knight jumps into quadrant 3 blocking the rook's attack on the queen in a planar block (a). The rook takes the knight with a quadrant move via 3x3 advancement rectangle (b) which restores the attack (c). The new advancement manifold is a 4x4 advancement square that is fully subsumed by the original 5x9 advancement rectangle (ghosted). Note the end tile decorators change from two planes to one plane as they pass over the Black pawn on the level below."
+    },
+    {
+      "id": 171,
+      "filename": "3P_Dormant_Shield_Planar.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Dormant_Shield_Planar.png",
+      "caption": "Figure 171: BPD; Restored Planar Attack Despite Shield",
+      "description": "Three snapshots of a planar block. The knight jumps into quadrant 4 onto a shield tile, blocking the rook's attack on the queen in a planar block (a). The rook takes the knight with a quadrant move via 4x4 advancement rectangle (b) which now threatens the queen with a 3x3 quadrant attack. This succeeds in restoring the attack, however, because there are no ancillary pieces in the extant tiles beyond the original advancement rectangle (c). "
+    },
+    {
+      "id": 172,
+      "filename": "3P_Active_Shield_Planar.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Active_Shield_Planar.png",
+      "caption": "Figure 172: BPD; Shield Thwarts Planar Attack (Mutual Block)",
+      "description": "Three snapshots of a planar block. The knight jumps into quadrant 4 onto a shield tile, blocking the rook's attack on the queen in a planar block (a). The rook takes the knight with a quadrant move via 4x4 advancement rectangle (b) which now threatens the queen with a 4x4 quadrant attack. This fails to restore the attack, however, because the White pawn in the extant tiles is now in a mutual block with queen (c)."
+    },
+    {
+      "id": 173,
+      "filename": "3P_Active_Shield_Planar_Periph.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Active_Shield_Planar_Periph.png",
+      "caption": "Figure 173: BPD; Shield Thwarts Planar Attack (Quadrant/Quiet Block)",
+      "description": "Three snapshots of a planar block. The knight jumps into quadrant 4 onto an active shield tile, blocking the rook's attack on the queen in a planar block (a). The rook takes the knight with a quadrant move via 4x4 advancement rectangle (b) which now threatens the queen with a 4x4 quadrant attack. This fails to restore the attack, however, because the White pawn in the extant tiles is now in a *quiet* block with the queen (c)."
+    },
+    {
+      "id": 174,
+      "filename": "3P_Shield_Quads.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Shield_Quads.png",
+      "caption": "Figure 174: BPD; Shield Tiles for Quadrant Blocks",
+      "description": "Shown are the shield tiles for four perimeter locations on a 5x5 advancement square (a), represented by the queen. The extant tiles are not shown, but as a set encompass tiles one or two rows deep on three sides of the quadrant. For between tile #1, there are 9 (b). For between tile #2, there are 6 (c). For between tile #3, there are 10, and for the apex tile, there are 14, more than half the tiles in the advancement square. Shield tiles don't appear to be rare."
+    },
+    {
+      "id": 175,
+      "filename": "BPD_Retreat_Adv_4x4.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/BPD_Retreat_Adv_4x4.png",
+      "caption": "Figure 175: BPD; Overlaid Advance and Retreat Advancement Squares",
+      "description": "Knight walks the perimeter of a 4x4 rook attack from a near end tile (a) through the apex (c) to the far end tile (f). The advance square is fixed, the retreat square follows the knight. Their overlay is the RAM move. The extant tiles are where they don't overlay (dimmed decorators). Pieces on the retreat extant tiles (R tiles) create peeking and trapdoor moves. Pieces on the advance extant tiles (A tiles) block the attack. Partial advance to a RAM tile maintains the threat in the same manifold. For the linear move, the advancement rectangle has been suppressed. End tile decorators were suppressed on the retreat square to reduce clutter, but the apex decorators remain."
+    },
+    {
+      "id": 176,
+      "filename": "3P_Plane_Forks.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Plane_Forks.png",
+      "caption": "Figure 176: Forks; Plane Forks Setup",
+      "description": "The Black queen is under attack only from the forward knight. She moves to the q-tile at Q3,3 forking all 16 of White's pieces, 8 as a rook, 4 as a bishop and 4 as a duke. The dimmed decorators show her bishop and duke attacks prior to the move. Note that none of White's 16 pieces are on a decorated tile. The rook decorators are not shown, but they are easy to visualize; none of White's pieces are on the queen level, nor on either back plane. She may have advanced to Q3,3 as either a rook, a bishop, or a duke; regardless she has gone from forking none to forking all."
+    },
+    {
+      "id": 177,
+      "filename": "3P_Plane_Forks_Rook.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Plane_Forks_Rook.png",
+      "caption": "Figure 177: Forks; Plane Fork via Queen's Rook Attacks",
+      "description": "From her new location the queen forks 8 pieces as a rook. Neither White queen nor either rook is counter attacking because of the pawns. All attacks are in the vertical planes via 3x3 advancement squares."
+    },
+    {
+      "id": 178,
+      "filename": "3P_Plane_Forks_Bishop.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Plane_Forks_Bishop.png",
+      "caption": "Figure 178: Forks; Plane Fork via Queen's Bishop Attacks",
+      "description": "From her new location the queen forks 4 pieces as a bishop, all in forward planes; the king, two pawns, and the king-side stack, which is counter attacking by bishop decay."
+    },
+    {
+      "id": 179,
+      "filename": "3P_Plane_Forks_Duke.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Plane_Forks_Duke.png",
+      "caption": "Figure 179: Forks; Plane Fork via Queen's Duke Attacks",
+      "description": "From her new location the queen forks 4 pieces as a duke, all in the left and right cross planes; three pawns, and the queen-side stack, which is counter attacking by duke decay."
+    },
+    {
+      "id": 180,
+      "filename": "3P_Drift_Fork_Rook.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Drift_Fork_Rook.png",
+      "caption": "Figure 180: Forks; Drift Fork for a Rook",
+      "description": "An example of a drift fork where the moving piece forks four pieces in the drift plane. A White rook has a pair of knights in a mutual blocking/pinning situation in quadrant 1 (a), and also has a bishop and a duke in a mutual blocking/pinning situation over in quadrant 2 (b). The rook drifts into the center of board (c). Now the rook is attacking every piece on this level (a 4-way fork), each in a different quadrant. One knight in quadrant 1 and the bishop in quadrant 3 (d), and the duke in quadrant 2 along with the other knight in quadrant 4 (e). Haloed pieces show which ones are under attack, the ghost rook the rook advance. For clarity, (a) & (b) are split views before the move, (d) & (e) split views after the move."
+    },
+    {
+      "id": 181,
+      "filename": "3P_Focus_Fork_Rook.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/3P_Focus_Fork_Rook.png",
+      "caption": "Figure 181: Forks; Focus Fork for a Rook",
+      "description": "Two examples of a focus fork, in-plane forking by changing the extant tiles. In the setup the rook cannot capture the knights because of mutual blocking with one king or the other (a). The rook advances (b) to shrink the extant tiles (Black king) or move them (White king) such that there are no longer any ancillary pieces in them (c). The rook advances to a different tile (d) eliminating the extant tiles near the Black king (apex attack) altogether, even if that increases the number of extant tiles in the other manifold (White king), just so long as they become empty (e)."
+    },
+    {
+      "id": 182,
+      "filename": "EG_2Rooks.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_2Rooks.png",
+      "caption": "Figure 182: Endgame Two Rooks",
+      "description": "White uses his two rooks to form a double wall and then repeatedly leapfrogs the back wall to the front, checking the Black king and forcing him toward a side/face of the board. The queen-side rook moves first in this example, then the king-side rook. The White king just stays out of the way. Ghost pieces indicate the moves. The algorithm in 2D (a) translates perfectly to 3D (b)."
+    },
+    {
+      "id": 183,
+      "filename": "EG_Single_Rook_7.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Single_Rook_7.png",
+      "caption": "Figure 183: Endgame One Rook and King 7 Moves from Checkmate",
+      "description": "White's king is on a hotspot tile of the Black king. He is therefore free to check the king and force it to the face of the board. The Black king does so but approaches the rook threatening it. The rook simply flees to the side of the board, and king pursues, but its hopeless."
+    },
+    {
+      "id": 184,
+      "filename": "EG_Single_Rook_5.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Single_Rook_5.png",
+      "caption": "Figure 184: Endgame One Rook and King 5 Moves from Checkmate",
+      "description": "White's king advances trying to regain the hotspot orientation which Black's pursuit of the rook interrupted. Black advances once again threatening the rook, who simply moves to within reach of his own king, but now restricting Black to just two squares in 3D (a) and four squares in 3D (b)."
+    },
+    {
+      "id": 185,
+      "filename": "EG_Single_Rook_3.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Single_Rook_3.png",
+      "caption": "Figure 185: Endgame One Rook and King 3 Moves from Checkmate",
+      "description": "The White king advances twice regaining the hotspot location (a) but in 3D Black attempts to lure the rook up a level, which would extend his doom by two moves (b). White declines and lines up his king anyway. In 2D, Black is forced into the corner, but in 3D Black again moves to threaten the rook and prevents it from mating him from KB8,3, but to no avail."
+    },
+    {
+      "id": 186,
+      "filename": "EG_Single_Rook_1.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Single_Rook_1.png",
+      "caption": "Figure 186: Endgame One Rook and King 1 Move from Checkmate",
+      "description": "Having trapped Black in the corner in 2D (a) the rook simply moves to the side of the board, checkmate. In 3D (b), Black has been able to both stay out of the corner and even stay off any edge of the board, but the rook uses a quadrant move to not only advance to the side of the board but do so a level down where the Black king cannot reach him. Mate in 7."
+    },
+    {
+      "id": 187,
+      "filename": "EG_Queen_Position.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Queen_Position.png",
+      "caption": "Figure 187: Endgame of Queen Mate -- Attack Position",
+      "description": "White has just promoted her KR pawn to a queen and Black has run to the center of the board. The queen advances to a hotspot tile (ghost queen) above the king putting him in check -- no wait, *checkmate*, even in the center of the board. The queen in 3D is a fearsome piece."
+    },
+    {
+      "id": 188,
+      "filename": "EG_Queen_Attack.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Queen_Attack.png",
+      "caption": "Figure 188: Endgame of Queen Mate -- Queen's Attack",
+      "description": "To reduce clutter, the queen's coverage has only been indicated around the king's 5x5x5 sphere of influence. The knight tiles on his level are just out of reach as are those one level above and below. Surprise, the 9 adjacent tiles one level down are all covered by the queen. The king has nowhere to go and has been mated in the open."
+    },
+    {
+      "id": 189,
+      "filename": "EG_Dual_Bishop_Fence.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Dual_Bishop_Fence.png",
+      "caption": "Figure 189: Endgame -- Dual Bishop Fence is Porous",
+      "description": "A pair of bishops form an effective fence in 2D (a), but in 3D (b) it is porous; the king can escape via its duke move. Whichever corner of the king's 26 adjacent cells the bishop fence 'leans' toward is the duke move which penetrates it. The dual bishop fence in 3D does not cleave the board. For clarity, only the upward planes have been shown."
+    },
+    {
+      "id": 190,
+      "filename": "EG_Pawn_Races_King.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Pawn_Races_King.png",
+      "caption": "Figure 190: Endgame -- Pawn Races King",
+      "description": "In a pawn-king race where the pawn's king is too far away to engage (Q1, Q1,1), the opposing king can thwart the promotion of a virgin pawn on a rook file (QR2, QR2,2) if it is within the 6x6 square of tiles (a) or 6x6x6 cube of tiles (b) anchored by the promotion tile (QR8, or QR8,8). Ghost pieces show the moves; White to move first. The pawn can promote but is immediately captured."
+    },
+    {
+      "id": 191,
+      "filename": "EG_Pawn_Races_Knight.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Pawn_Races_Knight.png",
+      "caption": "Figure 191: Endgame -- Pawn Races Knight",
+      "description": "In 2D White loses this race unless the Black knight is diagonally opposed to the promotion tile (a). In 3D, White can at best convert this edge case (super diagonal) into a king's race (b). If the knight's third move is to the ruby tile instead of the gold one, his advance to the silver tile will get him captured. From the gold tile, Black can block White even if the pawn reaches a back plane."
+    },
+    {
+      "id": 192,
+      "filename": "EG_Pawn_Races_Stack.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Pawn_Races_Stack.png",
+      "caption": "Figure 192: Endgame -- Pawn Races Stack",
+      "description": "A stack can effectively fence a pawn, as a stack, if it has two overlap tiles on the board. In this case Q3,3, and KR1,1 both fence a pawn on the QR level after it has made a double advance. It takes the White king three moves to switch which overlap tile it threatens, giving Black the opportunity to chase down and capture the defenseless and immobile pawn (ghost kings). Result of this endgame is a draw when there are two overlap tiles on the board. Decorators for the stack on KR1,1 are not shown, but overlap with those from Q3,3 maintaining the fence on the QR pawn."
+    },
+    {
+      "id": 193,
+      "filename": "EG_Unshackled_Pawn_Races_Knight.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_Unshackled_Pawn_Races_Knight.png",
+      "caption": "Figure 193: Endgame -- Unshackled Pawn Races",
+      "description": "The QR pawn is 5 moves from promotion via its level, but only 4 via its closest back plane. It can win the race in this direction; the knight can threaten it, but not in time. From the back plane, the pawn immediately advances like a regular rook to any of 6 promotion tiles, all metallic. They are raised to reveal their duke colors. Ghost pieces show the sequence of moves. If the pawn ends up on the QB level (shown), and promotes to a queen, it attacks the knight as a rook and checks the king as a duke."
+    },
+    {
+      "id": 194,
+      "filename": "EG_BN_Checkmate.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/EG_BN_Checkmate.png",
+      "caption": "Figure 194: Endgame -- A Bishop & Knight Checkmate Position",
+      "description": "While it is possible (barely) for a bishop and a knight to mate a lone king in 2D, the algorithm is torturous and can take up to 30 moves. It is not known if there is a general mate algorithm for this endgame in 3D, but the suspicion is that there is not. A necessary but not sufficient condition is that checkmate positions exist, such as this one."
+    },
+    {
+      "id": 195,
+      "filename": "MG_Slingshot_Gambit.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Slingshot_Gambit.png",
+      "caption": "Figure 195: Midgame -- Slingshot Gambit",
+      "description": "Two White pawns make double advances. King-side pawn captures the Black pawn on the up sling tile in one direction, the knight on the down sling tile in the *other* direction, placing it one move from promotion (a). Queen-side pawn captures the Black pawn on the down sling tile in one direction, the stack on the down sling tile in the *same* direction, placing it on the left back plane, again one move from promotion (b). Ghost pawns show advances, green outlines captured pieces."
+    },
+    {
+      "id": 196,
+      "filename": "MG_Trapdoor_Dynamic_(a).png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Trapdoor_Dynamic_(a).png",
+      "caption": "Figure 196: Midgame -- Dynamic Trapdoor Gambit Setup",
+      "description": "Black's rook on the queen level can oscillate between two tiles defending either of his bishops (ghost rooks). White can attack each bishop by similarly oscillating his silver duke in the 2,2. column (ghost dukes). The duke's oscillation is from apex to apex, so is not vulnerable to a trapdoor, but the rook's oscillation is not between apex tiles, so a piece injected into the queen level in just the right way can establish a trapdoor, in this case, in either direction."
+    },
+    {
+      "id": 197,
+      "filename": "MG_Trapdoor_Dynamic_(b).png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Trapdoor_Dynamic_(b).png",
+      "caption": "Figure 197: Midgame -- Dynamic Trapdoor Gambit Tripped",
+      "description": "White can set up a trapdoor in either direction by moving one knight or the other onto the perimeter of either advancing or retreating advancement squares. Ghost knights show the two possible moves. Red decorators show just one of the rook advancement squares. Knight tiles downward are shown in yellow for one knight and in a slimy green color for the other."
+    },
+    {
+      "id": 198,
+      "filename": "MG_Trapdoor_Chain.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Trapdoor_Chain.png",
+      "caption": "Figure 198: Midgame -- Trapdoor Chain of Maximum Length, a Trapdoor Hallway",
+      "description": "A trapdoor move is any move (a) that requires more than one move to retreat to the original tile, but it can take more. In this example it takes *four* moves for the rook to return (b), (c), (d), (e); a trapdoor chain of length 4, which is also the maximum possible for an initial advance to perimeter 4, so this is also a trapdoor hallway."
+    },
+    {
+      "id": 199,
+      "filename": "MG_Trapdoor_Shortcut.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Trapdoor_Shortcut.png",
+      "caption": "Figure 199: Midgame -- Trapdoor Shortcut (In-plane)",
+      "description": "By retreating in multiple quadrants, the rook can retreat to the original tile in just three moves; a trapdoor shortcut."
+    },
+    {
+      "id": 200,
+      "filename": "MG_Pawn_MF_Advance.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Pawn_MF_Advance.png",
+      "caption": "Figure 200: Midgame -- Pawn Multifunction Advance",
+      "description": "White pawn makes a regular advance on the KB level to an end tile returning it to the primary plane. Ghost pawn shows the move."
+    },
+    {
+      "id": 201,
+      "filename": "MG_Pawn_MF_Peeking.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Pawn_MF_Peeking.png",
+      "caption": "Figure 201: Midgame -- Pawn Reduces a Mutual Attack to a Peeking Attack",
+      "description": "Pawn converts the silver duke mutual attack into a peeking situation; note the 3 dimmed blue decorators which are part of White's counterattack advancement square."
+    },
+    {
+      "id": 202,
+      "filename": "MG_Pawn_MF_Forks.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Pawn_MF_Forks.png",
+      "caption": "Figure 202: Midgame -- Pawn Dual Cover and Triple Fork",
+      "description": "Pawn covers two of his own pawns, both on predator tiles, and forks two of Black's pawns, both on sling tiles, along with his rook via direct duke attack, a double cover, and a triple fork."
+    },
+    {
+      "id": 203,
+      "filename": "MG_Pawn_MF_FreesPinnedKnight.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Pawn_MF_FreesPinnedKnight.png",
+      "caption": "Figure 203: Midgame -- Pawn Frees Knight from Queen Pin",
+      "description": "Previously, the knight was pinned against the queen by the rook attack. The pawn's advance creates a 3-way mutual block freeing the knight to attack the queen level pawn."
+    },
+    {
+      "id": 204,
+      "filename": "MG_Pawn_MF_PassThroughCheck.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Pawn_MF_PassThroughCheck.png",
+      "caption": "Figure 204: Midgame -- Pawn Blocks Bishop's 'Pass Through Check' Block of Castling",
+      "description": "Black's white bishop was preventing White from a king-side castle by the 'can't move through check restriction.' The pawn now blocks this block."
+    },
+    {
+      "id": 205,
+      "filename": "MG_Pawn_MF_QuarkDoublePin.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Pawn_MF_QuarkDoublePin.png",
+      "caption": "Figure 205: Midgame -- Pawn Escapes Queen, Discovers Quark and Double Pin",
+      "description": "To cap it all off, the pawn escapes the queen's attack, simultaneously discovers a quark attack by bishop and rook, which also pins her against her king by both pieces, a double pin."
+    },
+    {
+      "id": 206,
+      "filename": "MG_Stack_Split_Q-tile.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Stack_Split_Q-tile.png",
+      "caption": "Figure 206: Midgame -- Spilt Stack Gambit, Q-tile",
+      "description": "To capture half a stack, force a decay split. Black was fencing QB pawn but opts to check with his stack. White defends forcing Black to retreat, but only the duke can retreat; the bishop's retreat is blocked by the rooks (advancement regions are shown for the retreat only). BxB, DxB, an even exchange but White's pawn is no longer fenced. Ghost pieces (and sub-pieces) hint at the moves."
+    },
+    {
+      "id": 207,
+      "filename": "MG_Stack_Split_Feynman.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Stack_Split_Feynman.png",
+      "caption": "Figure 207: Midgame -- Spilt Stack Gambit, Feynman tile",
+      "description": "White advances her stack threatening the king by both direct check (duke) and by blocking his castle (bishop). Black defends with a multi-function move of his knight blocking both, but also discovering a rook attack on the stack. White can only retreat the bishop. If RxD, then BxR, but Black can still castle. Standard decorators are for the forward advancement squares, dimmed blue ones for the duke retreat which is blocked by the QN pawn. Ghost pieces hint at the moves."
+    },
+    {
+      "id": 208,
+      "filename": "MG_Quark_Gambit.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Quark_Gambit.png",
+      "caption": "Figure 208: Midgame -- Quark Gambit",
+      "description": "White uses a queen quark attack to force a queen trade and gains a knight and perhaps exchanges a bishop for a pawn, regaining material parity. Since her king is closer to the only two remaining pawns she has at least upgraded to a draw. Q\\>Q3,3 discovering a pin on the queen and quarking her. Black has no options for retreat or capture, and few options to block, but moving either knight or queen to Q4,4 results in a queen trade. Ghost pieces hint at the potential moves."
+    },
+    {
+      "id": 209,
+      "filename": "MG_Double_Pawn_Gambits.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_Double_Pawn_Gambits.png",
+      "caption": "Figure 209: Midgame -- Four Double Pawn Gambits",
+      "description": "Two diagonally arranged pawns can advance so the rearward always covers the forward (a). Capture by dart (44PxN) is preferred to capture by bead (55PxN), as it advances two moves toward promotion (b). One opposing pawn may be able to block both doubled pawns (c). If not, it can block one, or split them and head for promotion itself (e). Ghost pawns show the potential moves."
+    },
+    {
+      "id": 210,
+      "filename": "MG_KCK_Gambit_Setup.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_KCK_Gambit_Setup.png",
+      "caption": "Figure 210: Midgame -- King Checks King Gambit Setup",
+      "description": "White's rook is a big threat, attacking 3 pieces, fencing the king and protected by the KR pawn. The White king also threatens the knight, but not the forward pawn as it is dart protected. Black needs to promote and prevent White from doing the same, he might have to sacrifice his knight, but then he sees a multi-function move with his rearward queen pawn. Three decorator sets show the major interactions. Ghost pawn indicates the next move."
+    },
+    {
+      "id": 211,
+      "filename": "MG_KCK_Gambit_MultiFunction.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_KCK_Gambit_MultiFunction.png",
+      "caption": "Figure 211: Midgame -- King Checks King Gambit Multi-function Advance",
+      "description": "Black advances his rearward pawn, evading the rook threat, defending his knight (predator) and checking the White king (direct). He continues to protect his forward pawn by bead attack, a classic Texas two-step gambit, but fails to notice that he's saturated his pawn's degrees of freedom and the White king is free to make a rook linear move to the upper reduced tiles. Ghost king shows the move. But how is this legal, he is on a tile adjacent to the Black king."
+    },
+    {
+      "id": 212,
+      "filename": "MG_KCK_Gambit_Peeks.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_KCK_Gambit_Peeks.png",
+      "caption": "Figure 212: Midgame -- King Checks King Gambit King Peeks at King",
+      "description": "The White king is peeking out around the very same pieces that allowed him access to the reduced tile. They block the Black king's counterattack, but not White's forward attack. The White king is not in check, but the Black king is, and by the White king himself. Recall that the forward and retreat advancement rectangles of the bishop linear move do not fully overlap; this is the king's only peeking move. Note the king bishop linear decorators in both directions."
+    },
+    {
+      "id": 213,
+      "filename": "MG_KCK_Gambit_Mate.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/MG_KCK_Gambit_Mate.png",
+      "caption": "Figure 213: Midgame -- King Checks King Gambit Checkmate by King",
+      "description": "But it gets better. The Black king has nowhere to go, and no way to block the opposing king's attack; he is in checkmate -- mated by the White king."
+    },
+    {
+      "id": 214,
+      "filename": "Torque.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Torque.png",
+      "caption": "Figure 214: Opening Torque",
+      "description": "Knight and pawn torque in 2D (a) and 3D (b). For clarity, knight torque is shown for Black, pawn torque for White. In both games, tiles covered by knights are already covered by pawns. No man's land in 2D is two tiles wide, cleaved and uniform, in 3D its width is variable and jagged."
+    },
+    {
+      "id": 215,
+      "filename": "Open_RP&K_Torque_Pawns.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_RP%26K_Torque_Pawns.png",
+      "caption": "Figure 215: Openings -- Royal Pawns Double Advance Torque",
+      "description": "Double advanced royal pawns penetrate into Black's territory, just barely in 2D (a), more deeply in 3D (b). In both 2D & 3D, they attack all the center tiles they don't occupy, but fail to protect each other and are not themselves protected by any of the other pawns."
+    },
+    {
+      "id": 216,
+      "filename": "Open_RP&K_Torque_Knights.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_RP%26K_Torque_Knights.png",
+      "caption": "Figure 216: Openings -- Royal Pawns & Knight Torque",
+      "description": "The decorators for the knights are added to the previous figure. As in 2D, the 3D knights cover all the center tiles not occupied by the royal pawns, but unlike the case in 2D (a), they no longer cover the pawns themselves (b)."
+    },
+    {
+      "id": 217,
+      "filename": "Open_RP&K_Torque_Dukes.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_RP%26K_Torque_Dukes.png",
+      "caption": "Figure 217: Openings -- Royal Pawns, Knight & Stack-Duke Torque",
+      "description": "At this stage, the duke plays a role in 3D more in line with the bishops in 2D; therefore, blue decorators have been used for the 2D bishops for consistency. After just four moves, this is the threat environment Black must play into. Bishop decorators not shown, but q-tiles hint at them."
+    },
+    {
+      "id": 218,
+      "filename": "Open_Greedy_2.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Greedy_2.png",
+      "caption": "Figure 218: Opening Greedy Move 2",
+      "description": "1\\. P-K4,4 P-K4,3 2. P-K5,5 P-Q4,3"
+    },
+    {
+      "id": 219,
+      "filename": "Open_Greedy_4.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Greedy_4.png",
+      "caption": "Figure 219: Opening Greedy Move 4",
+      "description": "3\\. P-Q3,4 QxQ(lb) 4. DxQ(minor) S-KN5,1"
+    },
+    {
+      "id": 220,
+      "filename": "Open_Greedy_6.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Greedy_6.png",
+      "caption": "Figure 220: Opening Greedy Move 6",
+      "description": "5\\. N-KB3,3 P-KB4,4 6. PxP ep KRPxP"
+    },
+    {
+      "id": 221,
+      "filename": "Open_Greedy_8.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Greedy_8.png",
+      "caption": "Figure 221: Opening Greedy Move 8",
+      "description": "7\\. B-QB2,3 K-QB3,3 8. C-KN1,1,KB1,1 P-Q4,4"
+    },
+    {
+      "id": 222,
+      "filename": "Open_Fools_Mate.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Fools_Mate.png",
+      "caption": "Figure 222: Openings -- Example Fool's Mates",
+      "description": "Black blunders his opening and White takes advantage of it. In 2D, Black opens 2 king-side pawns; White mates with her queen via bishop advance & check (a). In 3D, Black opens 1 king-side pawn and splits his king-side stack; White mates with her queen via duke advance and check (b)."
+    },
+    {
+      "id": 223,
+      "filename": "QB_Pawns_Leave_Primary.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QB_Pawns_Leave_Primary.png",
+      "caption": "Figure 223: Openings -- Mutual Stack Attacks; After the Pawns Leave the Primary Major Plane",
+      "description": "The queen side bishop pawns have both left the primary major plane exposing each to attack from the other. The decorators are shown for White's bishop decay attack (a linear move in both outward planes) on Black as it is her turn. This snapshot was taken from an early version of the Unity 3D Chess software."
+    },
+    {
+      "id": 224,
+      "filename": "QBxQS.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QBxQS.png",
+      "caption": "Figure 224: Openings -- Mutual Stack Attacks; After BxS & Before QxB",
+      "description": "White has just captured Black's queen-side stack by bishop decay of her black-silver stack. The decorators show the queen's available duke moves, and more critically, her one rook move; a linear one in both vertical planes, one that can capture the bishop. Early software didn't show complete perimeters when a piece was under attack, only the tile holding the target piece was highlighted."
+    },
+    {
+      "id": 225,
+      "filename": "Open_4_Pawns_Setup.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_4_Pawns_Setup.png",
+      "caption": "Figure 225: Openings -- 4 Faceoff Pawns; Setup",
+      "description": "When both players double advance both royal pawns, they dominate the board. In 2D (a), each pawn attacks the one diagonally opposed to it. In 3D (b), each pawn attacks one opposing pawn on the same level (bead attack, green), *and* the other pawn one level away (direct attack, blue)."
+    },
+    {
+      "id": 226,
+      "filename": "Open_4_Pawns_PxP_PxP.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_4_Pawns_PxP_PxP.png",
+      "caption": "Figure 226: Openings -- 4 Faceoff Pawns; PxP, PxP",
+      "description": "From the 4-pawn faceoff position, type and order of capture determine the outcome. In 2D (a), there is only one type of capture (bishop) and both pawns end up back-to-back on the same file; which file, king or queen, depends on the order of the captures. In 3D, there are two types of capture. If by direct (b), both pawns end up back-to-back on the same level; which level, king or queen, depends on the order of the captures. If by bead (c), the pawns end up on different levels, which level holds which color pawn, depends on the order of the captures."
+    },
+    {
+      "id": 227,
+      "filename": "Open_Knights_Gambit_Move_2.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Knights_Gambit_Move_2.png",
+      "caption": "Figure 227: Openings -- Knight's Gambit; Move 2",
+      "description": "White double apex advances her king pawn, with Black responding as far as is safe. White brings out her queen knight which prevents Black from advancing his king pawn to block White's pawn. Black double apex advances his QB pawn threatening the knight (dart) and forking White's king pawn (predator). This pawn is defended by the queen bishop but under mutual attack by White's king pawn (predators) yet can maintain pressure on the knight with an apex advance (bead)."
+    },
+    {
+      "id": 228,
+      "filename": "Open_Knights_Gambit_Move_4.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Knights_Gambit_Move_4.png",
+      "caption": "Figure 228: Openings -- Knight's Gambit; Move 4",
+      "description": "Black accepts the gambit and is thus ahead in material (see the trays), but behind in development. White has a semi-developed queen side rook (the pawn is gone) and both stacks have open planes (decorators for the king side stack are shown. White has the queen pawn pinned, so even though the royal pawns are mutually attacking (direct), Black has fewer options."
+    },
+    {
+      "id": 229,
+      "filename": "Open_Knights_Gambit_Move_6.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Knights_Gambit_Move_6.png",
+      "caption": "Figure 229: Openings -- Knight's Gambit; Move 6",
+      "description": "White has opened his king side for castling, by developing the stack, simultaneously checking the king and forcing Black to block with his knight which is therefore pinned. The queens are now mutually attacking each other by linear bishop move, and Black is threatening White's sole remaining knight with the forward pawn on the king level. Black could advance this pawn and check White's king."
+    },
+    {
+      "id": 230,
+      "filename": "Open_Knights_Gambit_Move_8.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Knights_Gambit_Move_8.png",
+      "caption": "Figure 230: Openings -- Knight's Gambit; Move 8",
+      "description": "The knights have some utility to restrict various pawn advances, but since the Black knight is still pinned against its king, not very much. The queens are gone, leaving an empty level. White's queen bishop pawn is still defending her king pawn by predator cover, but as this pawn is not currently threatened that is sufficient. Note how Black as set himself up for a peeking attack between his queen rook and White's on the queen rook level."
+    },
+    {
+      "id": 231,
+      "filename": "Open_Knights_Gambit_Move_9.5.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/Open_Knights_Gambit_Move_9.5.png",
+      "caption": "Figure 231: Openings -- Knight's Gambit; Move 9.5",
+      "description": "White ignored the queen-side rook peeking attack as her rook is defended in the minor plane by the queen duke, but bishop decayed her queen side stack to fork the pinned knight and check the king. Given the absence of the queens, and the knight-pawn swap, White can eventually win this game with just an even exchange of material going forward for her extra pawn can promote to a queen and Black's knight advantage is insufficient to prevent checkmate."
+    },
+    {
+      "id": 232,
+      "filename": "QA_Loss_of_Trajectory.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Loss_of_Trajectory.png",
+      "caption": "Figure 232: Loss of Trajectory",
+      "description": "Black rook expanding into the horizontal plane in a quadrant move to some arbitrary point (ghost rook) on the fourth perimeter (unadorned decorators show the 5x5 advancement square). There is simply no unique sequence of tiles, no path, no trajectory that gets the rook to its destination. The arrows suggest the permutations; all more or less equally reasonable, and equally wrong."
+    },
+    {
+      "id": 233,
+      "filename": "QA_Classical_Trajectory.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Classical_Trajectory.png",
+      "caption": "Figure 233: Classical Trajectory",
+      "description": "A Black rook successively captures 8 White pawns on a 16x16 level. The illusion of a trajectory is the result of many small steps; there is no trajectory between the source and destination tiles of each small advancement square, and the sequence of advancement squares is discrete not continuous, but the temptation to abstract the concept of a trajectory from such a pattern is nearly irresistible."
+    },
+    {
+      "id": 234,
+      "filename": "QA_Correspondence_Principle.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Correspondence_Principle.png",
+      "caption": "Figure 234: Correspondence Principle",
+      "description": "A Black rook makes steady progress capturing a long sequence of roughly equally space pawns. The farther away from the quantum realm the more the system looks classical."
+    },
+    {
+      "id": 235,
+      "filename": "QA_Wave_Front.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Wave_Front.png",
+      "caption": "Figure 235: Wave Front",
+      "description": "Advance of a Black rook where only every other perimeter is shown, complete with ghost rooks. Such a representation certainly evokes the concept of an advancing wave front."
+    },
+    {
+      "id": 236,
+      "filename": "QA_Diffraction.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Diffraction.png",
+      "caption": "Figure 236: Diffraction",
+      "description": "Considering only the apex tiles in an orthogonal plane when a duke advances into an edge quadrant, it has a wavelength twice that of the rook. It can therefore diffract around a single piece if the single piece is on an odd perimeter (a phase requirement). The KR rook is blocked from advancing down the apex tiles of its horizontal plane by the pawn on KR4,4. The Q duke is not blocked from advancing down the apex tiles of its horizontal plane by the pawn on Q4,4; it can continue indefinitely. Two pawns on adjacent apex tiles, however, would block it. Long wavelengths can diffract around small objects."
+    },
+    {
+      "id": 237,
+      "filename": "QA_Rook_Polarization.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Rook_Polarization.png",
+      "caption": "Figure 237: Polarization of Linear Rook Moves",
+      "description": "Every other rook is linear blocked from making a linear move by a pawn, the other 4 rooks are only planar blocked in the horizontal planes. Before the grid of pawns, every rook is in a superposition of advancing in both a horizontal and a vertical plane. After the grid of pawns, the remaining rooks are all advancing in vertical planes only -- polarized rooks. Ghost pieces indicate the transmitted rooks."
+    },
+    {
+      "id": 238,
+      "filename": "QA_Duke_Duplex_Polarization.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Duke_Duplex_Polarization.png",
+      "caption": "Figure 238: Polarization of Duke Duplex Moves",
+      "description": "Dukes can also be polarized in their duplex moves. In this example, a single duke is advancing downward to a succession of duplex tiles. Before the bishop on the king level, the duke's move is unblocked in both the major and minor planes; its advance is in a superposition of a pair of cross planes. This is not a linear move. After the bishop, the duke is advancing only in the major plane -- it has become polarized. Ghost dukes indicated the successive moves."
+    },
+    {
+      "id": 239,
+      "filename": "QA_Superposition.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Superposition.png",
+      "caption": "Figure 239: Superposition on Perimeter Tiles",
+      "description": "The advancement square rule of 3D chess places a piece during its advance in a superposition of all the tiles on the final perimeter. All things being equal this superposition is equally weighted. Ghost rooks show the tiles in the superposition."
+    },
+    {
+      "id": 240,
+      "filename": "QA_Collapse.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Collapse.png",
+      "caption": "Figure 240: Collapse to One Tile",
+      "description": "Amongst all the tiles of the final perimeter, the player must choose just one, collapsing the superposition (poltergeist rooks) to one specific tile (solid rook). The rook is no longer on the source tile."
+    },
+    {
+      "id": 241,
+      "filename": "QA_Probabilities.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Probabilities.png",
+      "caption": "Figure 241: Weighted Probabilities for Perimeter Tiles with the Time Symmetric Balance Rule",
+      "description": "To get weighted superpositions, a balance rule is invoked; let advance be blocked not only by the forward advancement square but also by the retarded advancement square. Then the odds that an advance is blocked depends on how far the perimeter tile is from the apex tile. In this example, the forward advance of the Black rook is shown in red, as are the two retarded advancement squares blocked by the knights (transparent). One is shown above the plane, and one in the plane, to provide a more complete picture. Given a random distribution of other pieces in the plane, the superposition is now unevenly weighted; peaked at the apex tile and decreasing as each successive perimeter tile is farther away. The change in probabilities is hinted at by the limited number of ghost rooks centered around the apex tile."
+    },
+    {
+      "id": 242,
+      "filename": "QA_Wave_Particle_Duality.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Wave_Particle_Duality.png",
+      "caption": "Figure 242: Wave-Particle Duality",
+      "description": "3D chess requires us to regard pieces as particle-like in some circumstances, the rook (point like) is blocking the bishop, but as wave-like in others, the rook's advance (distributed) is blocked by the knight."
+    },
+    {
+      "id": 243,
+      "filename": "QA_Fermion-Boson.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Fermion-Boson.png",
+      "caption": "Figure 243: Pieces as Fermions, Advancement Manifolds as Bosons.",
+      "description": "Two pieces are excluded from being in the same tile; they are fermionic. But there is no limit for the number of decorators, proxies for *imps* (impinging advancement manifolds) which a tile may hold; they are bosonic. In this example, the rook, bishop, duke and knight are all covering the KB3,3 tile. The decorators on that tile have been vertically separated to show them all. Like bosons mediate the forces between fermions, imps mediate the interactions between pieces."
+    },
+    {
+      "id": 244,
+      "filename": "QA_Time_Symmetry_Queen.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Time_Symmetry_Queen.png",
+      "caption": "Figure 244: Time Symmetry, Queen",
+      "description": "Since base piece moves are time symmetric, so are all the queen moves. For clarity, only one plane of each base piece is shown. In each plane, the set of tiles the queen can reach on the next move is precisely the same set of tiles she had to come from within that plane on the previous move. Note the many overlap tiles. While every decorator is bordered in purple, the interior colors code for which base piece moves can reach that tile; red for rook, green for bishop, and blue for duke."
+    },
+    {
+      "id": 245,
+      "filename": "QA_Time_Symmetry_Violation.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_Time_Symmetry_Violation.png",
+      "caption": "Figure 245: Time Symmetry Violation",
+      "description": "White desires to move his rook so as to peek around the pawn in a one-way attack on Black's rook (a). While the peek works (b), it is a trapdoor move for White, as his rook can no longer return to his original tile in one move (c)."
+    },
+    {
+      "id": 246,
+      "filename": "QA_CPT.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QA_CPT.png",
+      "caption": "Figure 246: An Orbiting Rook Obeys PT Invariance",
+      "description": "A rook can orbit a pawn in 4 moves counterclockwise (a-d), but it would take 8 moves to do so clockwise. Note how successive moves of the rook are always in a 2D knight's move in relation to the pawn. But that's only four tiles, and a 2D knight can attack eight. Start the rook on one of the other four 'knight' tiles, and the situation is reversed. Now the rook can orbit the pawn in 4 moves clockwise, but it will take 8 moves to orbit counterclockwise. In both cases, reversing the direction of the orbit (parity) and reversing the clock (time) changes nothing. An orbiting rook obeys PT invariance."
+    },
+    {
+      "id": 247,
+      "filename": "QC_Pawn_Propagating_Packet.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Pawn_Propagating_Packet.png",
+      "caption": "Figure 247: Pawn Propagating Probability Packet",
+      "description": "An initially classical pawn makes a quantum double advance. Shown are the virtual pawns and the complete 3x3 advancement square for this first move (a). The 'pawn' then makes four more quantum single advances undisturbed by other pieces; in these latter snapshots, only the perimeters are decorated (b) -- (e). The single full-sized ghost pawn indicates the initial position, mini pawns (half size) represent the superpositions. Behold; a *propagating probability packet*. Each virtual pawn represents one unique sequence of classical moves. Only one reality can queen this early."
+    },
+    {
+      "id": 248,
+      "filename": "QC_Pawn_Diffraction.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Pawn_Diffraction.png",
+      "caption": "Figure 248: Pawn Diffraction Propagating Packet of Probability",
+      "description": "Six snapshots of a quantum pawn diffracting around a fixed obstacle (Black pawn); advance only, no captures. Pawn is slowed by two moves, (f) has still not promoted. Note the diffraction shadow; the probability density is lower behind the Black pawn. Only the perimeters have been decorated."
+    },
+    {
+      "id": 249,
+      "filename": "QC_Pawn_Prop_Probability_Packets.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Pawn_Prop_Probability_Packets.png",
+      "caption": "Figure 249: Numerical Capture of the Pawn's Propagating Probability Packet",
+      "description": "The probability packets for the previous pair of figures are shown numerically. Column one shows the unopposed case (a)-(e), column two the obstacle case (f)-(k). The pawn's degree of super-position increases with each snapshot; in the first case growing by a factor of 3 each time; 5 (a), 15 (b), 45 (c), 135 (d), and 405 (e), but somewhat more haphazardly in the second case; 5 (f), 12 (g), 24 (h), 48 (i), 132 (j) and 300 (k). The obstacle slows the leading edge, but not the trailing one."
+    },
+    {
+      "id": 250,
+      "filename": "QC_Rook_Quad_Spreads.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Rook_Quad_Spreads.png",
+      "caption": "Figure 250: Rook Quantum Quadrant Moves with Various Spreads",
+      "description": "Six examples of a rook making quantum moves in the horizontal plane into quadrant 1. Pure quadrant to perimeter 3, R(KR3,3) -- \\[KR6,6\\]~5~ (a). Full quadrant to perimeter 3, R(KR3,3) -- \\[KR6,6\\]~7~ (b). Semi blocked (by knight) full quadrant to perimeter 3, R(KR3,3) -- \\[KR6,6\\]~7~ (c). Focused quadrant to apex tile of perimeter 3, R(KR3,3) -- \\[KR6,6\\]~3~ (d). Focused quadrant to body tile of perimeter 4, R(KR3,3) -- \\[KR5,7\\]~3~ (e). Focused quadrant to off board body tile of perimeter 5, R(KR3,4) -- \\[KR7,9\\]~7~ (f). Ghost virtual pieces are not valid moves."
+    },
+    {
+      "id": 251,
+      "filename": "QC_Rook_Linear_Even_Spread.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Rook_Linear_Even_Spread.png",
+      "caption": "Figure 251: Rook Quantum Linear Moves with Equal Spreads",
+      "description": "The White rook makes a quantum linear move with equal spread to perimeter 2 in the horizontal and left vertical planes, R(KB3,1) -- \\[KB3,3\\]~7,7~, (a). This would be regarded as a pure linear move; note the lack of virtual rooks on the end tiles. The Black rook makes a quantum linear move with equal spread to perimeter 3 in the vertical planes, R(QR4,4) -- \\[Q4,4\\]~5,5~, (b). This is a focused superposition; note that the virtual rooks don't even make it to the apex tiles."
+    },
+    {
+      "id": 252,
+      "filename": "QC_Rook_Linear_Uneven_Spread.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Rook_Linear_Uneven_Spread.png",
+      "caption": "Figure 252: Rook Quantum Linear Moves with Differential Spreads",
+      "description": "The White rook makes a quantum linear move with unequal spreads to perimeter 2 in the horizontal and left vertical planes, R(KB3,1) -- \\[KB3,3\\]~H1,L9~, (a). This would be regarded as a full linear move only in the vertical plane; note the lack of virtual rooks in the horizontal plane. The Black rook makes a quantum linear move with unequal spreads to perimeter 3 in the vertical planes, R(QR4,4) -- \\[Q4,4\\]~L7,R3~, (b). These are both differential focused superpositions."
+    },
+    {
+      "id": 253,
+      "filename": "QC_Knight_Superposition.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Knight_Superposition.png",
+      "caption": "Figure 253: The Knight's Three Quantum Moves",
+      "description": "The knight's 3 superposition moves. The lowest 3 levels are not shown. Treating the knight as the anti-queen allows for deflecting its attempt to move as one of the base pieces. Knight has three quantum moves; (a) deflected rook (headed up, top face, 8 virtual knights, N(KB6,3) -- \\[KR6,3\\]~R~), (b) deflected bishop (headed down-right, bottom-right edge, 2 virtual knights, N(KB6,3) -- \\[Q6,1\\]~B~), and (c) deflected duke (head down-left, bottom corner, 3 virtual knights, N(KB6,3) -- \\[Q8,5\\]~D~). Original position indicated with ghost knight & source tile; each base piece straight-line move indicated via decorated tiles of the base piece colors."
+    },
+    {
+      "id": 254,
+      "filename": "QC_Stack_Fission.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Stack_Fission.png",
+      "caption": "Figure 254: Quantum Fission to a Q-tile",
+      "description": "In stack fission, both sub pieces must move in the same 'direction,' they must share an overlap tile. Perimeter 2 apex for the duke (major plane), and perimeter 4 linear for the bishop (outward planes) overlap on Q5,5. Every tile on the perimeters get a virtual piece. The stack started on Q1,1, with overlap q-tile on Q5,5, which is the only tile with both a virtual duke and a virtual bishop. A stack move is the one classical reality where a quantum fission move failed. There are 5 classical realities for the duke and 21 for the bishop; 105 realities in the classical ensemble. In one of these, the stack failed to fission, S(Q1,1) -- \\[Q5,5\\]~17,17,5~."
+    },
+    {
+      "id": 255,
+      "filename": "QC_Separable_Example.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Separable_Example.png",
+      "caption": "Figure 255: Knight and Rook in 2-way Separable States",
+      "description": "The White knight and rook are both in 2-way superpositions, but since they share no tiles, their states are separable. There are therefore, 4 possible classical realities; 2x2."
+    },
+    {
+      "id": 256,
+      "filename": "QC_Semi_Entanglement.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Semi_Entanglement.png",
+      "caption": "Figure 256: Knight and Rook in Semi Entangled State",
+      "description": "The White knight and rook are still each in 2-way superpositions, but since they now share a tile, the combined state is no longer separable; they are entangled. In this example, a semi-entanglement."
+    },
+    {
+      "id": 257,
+      "filename": "QC_EPR_Entanglement.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_EPR_Entanglement.png",
+      "caption": "Figure 257: Knight and Rook in an EPR Entangled State",
+      "description": "The White knight and rook are still each in 2-way superpositions, but since they now share two tiles, the combined state is no longer separable; they are entangled. In this example, an EPR entanglement."
+    },
+    {
+      "id": 258,
+      "filename": "QC_Classical_Game_Tree.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Classical_Game_Tree.png",
+      "caption": "Figure 258: A Classical Game is One Path Through the Game Tree",
+      "description": "A single path through a game tree represents one history, one specific game; a classical game."
+    },
+    {
+      "id": 259,
+      "filename": "QC_Quantum_Game_Tree.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Quantum_Game_Tree.png",
+      "caption": "Figure 259: A Quantum Game is Multiple Paths Through the Game Tree",
+      "description": "Multiple paths through a game tree represent superposition, multiple classical games in play at once; a quantum game."
+    },
+    {
+      "id": 260,
+      "filename": "QC_Oscillating_Rook.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Oscillating_Rook.png",
+      "caption": "Figure 260: Oscillating Quantum Rook",
+      "description": "Four snapshots of an initially classical rook (ghost piece) which advances and retreats a fixed distance in a fixed direction; an oscillating rook. The probability packet is nearly symmetric on odd moves (a) & (c) and fully symmetric on even moves (b) & (d). If the spread is fixed, the distance and direction of the oscillating moves can be determined, as can the forward and reverse relative perimeters. Note that the number of oscillations is particularly easy to extract from the state. While the edges of the board will eventually distort the packet, until then or on very large boards, the history of the rook's moves is preserved in the superposition."
+    },
+    {
+      "id": 261,
+      "filename": "QC_Separable_Capture.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Separable_Capture.png",
+      "caption": "Figure 261: State of the Board After a Quantum Capture -- Separable.",
+      "description": "The Black knight and bishop are both in 2-way superpositions. White's pawn can capture the knight (green decorators), ending up in a 2-way superposition, and White's rook can capture the bishop (red decorators), ending up in a 2-way superposition (a). The product state is separable (b)."
+    },
+    {
+      "id": 262,
+      "filename": "QC_Entangled_Capture.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Entangled_Capture.png",
+      "caption": "Figure 262: State of the Board After a Quantum Capture - Entangled",
+      "description": "Here the Black knight and bishop are in different 2-way superpositions. White's pawn can capture either the knight or the bishop, and White's rook can capture either the bishop or the knight, both ending up in a 2-way superposition (a). The product state is entangled (b), but that can't be determined by the positions of the virtual pieces. The board state is ambiguous."
+    },
+    {
+      "id": 263,
+      "filename": "QC_Collapsed_Capture.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Collapsed_Capture.png",
+      "caption": "Figure 263: Virtual Pieces Cannot Represent Unambiguous State",
+      "description": "Either the pawn captured the knight and the rook captured the bishop (b), or the pawn captured the bishop and the rook captured the knight (c). It's going to take *two* 3D quantum boards to represent the state of the game unambiguously."
+    },
+    {
+      "id": 264,
+      "filename": "QC_Many_Worlds.png",
+      "url": "https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/QC_Many_Worlds.png",
+      "caption": "Figure 264: Collapse and/or Many Worlds",
+      "description": "When the quantum state cannot be represented on a single board, the universe splits and one player must choose upon which board play continues. The classical White rook and pawn are the only differences between these two worlds; they are in the pseudo EPR positions from the previous figure. The quantum states reveal much about the history. The Black king castled king side, the White king made a royal castle with the queen rook. Black's queen rook made a linear quantum move up the vertical column with asymmetric spread and his queen knight attempted a rook move. White's queen pawn made a double advance, her queen knight pawn two single advances, and her king rook pawn made a double advance followed by a single advance that was pruned by conflict. White gets to choose the collapse; she should probably choose world #2."
+    }
+  ]
+}
