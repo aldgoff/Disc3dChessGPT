@@ -46,10 +46,31 @@ Then continue to Step 3.
 
 </details>
 <details> <summary>**3️⃣ Generate ordered list of PNGs**</summary>
-ls -1 *.png | sort > ordered_figures_list.txt
-wc -l ordered_figures_list.txt   # expect 264
 
+1. Capture DS_Store.
 
+~~pip install ds_store~~
+
+python3 -m ds_store ./.DS_Store > ds_output.txt
+
+2. Sort in col/row order, pipe to a file.
+
+perl -ne 'if(/^(.*?)\s+Iloc\s+\((\d+),\s*(\d+)\)/){printf "%s %d %d\n",$1,$2,$3}' ds_output.txt \
+| sort -k2,2n -k3,3n | awk '{print $1}' | grep .png
+
+- " > ../colroworderedfigs_000"
+- " > ../colroworderedfigs_100"
+- " > ../colroworderedfigs_200"
+
+3. Repeat for all three figure directories.
+
+4. Cat the 000 files into one.
+
+cd ..
+cat colroworderedfigs_000 colroworderedfigs_100 colroworderedfigs_200 > colroworderedfigs.txt
+
+5. May have a problem with a duplicated file in DS_Store with and w/o spaces "Planes Cross Planes.png".
+   
 Then expand Step 4.
 
 </details>
