@@ -10,23 +10,39 @@ rename 's/ /_/g' *.png
 # or if 'rename' isn't installed:
 for f in *.png; do nf="${f// /_}"; [ "$f" != "$nf" ] && mv "$f" "$nf"; done
 
-
 ✅ Double-check
 
 ls | grep " "           # should print nothing
 find . -type f -name "* *"
 
-
 When clean, collapse this and expand Step 2.
 
 </details>
 <details> <summary>**2️⃣ Refresh metadata (.DS_Store)**</summary>
-rm -f .DS_Store
+Goal: Ensure Finder has up-to-date layout info before reading file order.
 
+1. Remove any stale .DS_Store files from the current folder and subfolders:
 
-macOS will regenerate it automatically.
+find . -name ".DS_Store" -delete
 
-Then expand Step 3.
+2. Open the “figures” folder in Finder
+
+Switch to Icon View (⌘-1).
+
+Arrange icons exactly the way you want them represented in the manifest (column-by-row layout).
+
+Wait a few seconds — Finder automatically regenerates a fresh .DS_Store for that directory.
+
+Close the window.
+
+3. Verify regeneration:
+
+ls -a | grep DS_Store
+
+You should see .DS_Store listed.
+If not, reopen Finder → adjust view once → close again.
+
+Then continue to Step 3.
 
 </details>
 <details> <summary>**3️⃣ Generate ordered list of PNGs**</summary>
