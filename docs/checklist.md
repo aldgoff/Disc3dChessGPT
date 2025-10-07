@@ -80,7 +80,7 @@ Use your latest good manifest as a base; replace filenames and rebuild URLs:
 
 https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/<filename>.png
 
-
+Couldn't get to work, manually changed existing manifest, replacing spaces with underscores.
 Confirm:
 
 264 total figures
@@ -92,7 +92,28 @@ URLs open directly in browser
 Then expand Step 5.
 
 </details>
-<details> <summary>**5️⃣ Upload manifest to Builder**</summary>
+<details> <summary>**5️⃣ Create manifest from markdown and ordered list of filenames**</summary>
+
+1. Creation of the script
+Had ChatGPT write a python script to create the manifest file (json).
+
+```It is at .../3D Chess Book/FiguresNumbered/make_manifest.py.```
+
+2. How to run
+
+```
+python3 make_manifest.py \
+  --manuscript 3DChessBook_188.md \
+  --filelist figures_ordered_graphically.txt \
+  --out figures_manifest_all_withURL_canonical.json
+```
+
+3. Confirm output
+
+Then expand next step.
+
+</details>
+<details> <summary>**6️⃣ Upload manifest to Builder**</summary>
 
 Rename file to what Builder expects (e.g., figures_manifest_all_withURL_safe.json).
 
@@ -109,7 +130,7 @@ show figure 15
 Then expand Step 6.
 
 </details>
-<details> <summary>**6️⃣ Clean and re-populate GitHub repo**</summary>
+<details> <summary>**7️⃣ Clean and re-populate GitHub repo**</summary>
 cd Disc3dChessGPT/figures
 git rm -r .
 cp /path/to/renamed/files/*.png .
