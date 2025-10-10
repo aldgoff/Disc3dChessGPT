@@ -1,0 +1,202 @@
+{
+  "version": "1.1",
+  "manuscript_path": "3DChessBook_188.md",
+  "figures_manifest_path": "figures_manifest_no_spaces.json",
+
+  "runtime": {
+    "model": "gpt-5",
+    "temperature": 0.3,
+    "notes": "Temperature applies when run via API or scripted runtime. Chat UI uses fixed deployment settings."
+  },
+
+  "tone": {
+    "style": "editorial_professional",
+    "anti_flattery": true,
+    "verbosity": "precise"
+  },
+
+  "start_menu": {
+    "enabled": true,
+    "show_on_new_chat": true,
+    "prompt": "Select a lesson to begin. You can switch at any time.",
+    "show_fig_counts": true
+  },
+
+  "lessons": [
+    {
+      "id": 1,
+      "name": "Foundations",
+      "chapters": ["front_matter", 1, 2, 3],
+      "figures": { "from": 1, "to": 15 },
+      "est_tokens_text": 11400,
+      "est_tokens_manifest": 750
+    },
+    {
+      "id": 2,
+      "name": "Bedrock • Rook • Bishop • Duke",
+      "chapters": [4, 5, 6, 7],
+      "figures": { "from": 16, "to": 61 },
+      "est_tokens_text": 17600,
+      "est_tokens_manifest": 2300
+    },
+    {
+      "id": 3,
+      "name": "Queen • Knight • Stack",
+      "chapters": [8, 9, 10],
+      "figures": { "from": 62, "to": 84 },
+      "est_tokens_text": 26325,
+      "est_tokens_manifest": 1150
+    },
+    {
+      "id": 4,
+      "name": "Pawn • King",
+      "chapters": [11, 12],
+      "figures": { "from": 85, "to": 115 },
+      "est_tokens_text": 18900,
+      "est_tokens_manifest": 1550
+    },
+    {
+      "id": 5,
+      "name": "En Passant • Castling",
+      "chapters": [13, 14],
+      "figures": { "from": 116, "to": 137 },
+      "est_tokens_text": 13000,
+      "est_tokens_manifest": 1100
+    },
+    {
+      "id": 6,
+      "name": "Piece-to-Piece Interactions",
+      "chapters": [15, 16, 17, 18],
+      "figures": { "from": 138, "to": 190 },
+      "est_tokens_text": 19500,
+      "est_tokens_manifest": 2650
+    },
+    {
+      "id": 7,
+      "name": "Endgames • Midgame",
+      "chapters": [19, 20],
+      "order_note": "Answer in the order Endgames then Midgame.",
+      "figures": { "from": 191, "to": 215 },
+      "est_tokens_text": 18900,
+      "est_tokens_manifest": 1250
+    },
+    {
+      "id": 8,
+      "name": "Openings",
+      "chapters": [21],
+      "figures": { "from": 216, "to": 231 },
+      "est_tokens_text": 13000,
+      "est_tokens_manifest": 800
+    },
+    {
+      "id": 9,
+      "name": "Quantum Paradigm",
+      "chapters": [22, 23],
+      "figures": { "from": 232, "to": 260 },
+      "est_tokens_text": 20475,
+      "est_tokens_manifest": 1450
+    },
+    {
+      "id": 10,
+      "name": "Appendices & References",
+      "chapters": ["appendices", "table_of_figures", "notes", "index", "references"],
+      "figures": { "from": 261, "to": "end" },
+      "est_tokens_text": 14625,
+      "est_tokens_manifest": 1500
+    }
+  ],
+
+  "routing": {
+    "enable_out_of_scope_detection": true,
+    "detect_by": {
+      "keywords": {
+        "lesson_1": ["foundations", "paradigm", "board shape", "unit cell", "setup", "starting lineup"],
+        "lesson_2": ["bedrock", "rook", "bishop", "duke", "orthogonal plane", "skew plane", "slant plane", "quadrant"],
+        "lesson_3": ["queen", "knight", "stack"],
+        "lesson_4": ["pawn", "promotion", "king move", "king movement"],
+        "lesson_5": ["en passant", "castling", "castle", "ep"],
+        "lesson_6": ["checks", "pins", "forks", "trades", "balance", "pairwise", "composition", "interaction"],
+        "lesson_7": ["endgame", "mate", "zugzwang", "opposition", "midgame", "plans", "trapdoor"],
+        "lesson_8": ["openings", "theory", "principles"],
+        "lesson_9": ["quantum", "probability", "degenerate invariants", "superposition", "feynman", "quark", "overlap tiles"],
+        "lesson_10": ["appendix", "appendices", "glossary", "table of figures", "index", "references"]
+      },
+      "figure_id_ranges": true
+    },
+    "out_of_scope_policy": {
+      "warn_and_offer_switch": true,
+      "warning_template": "That topic is best covered in Lesson {target_id}: {target_name}. Switch to that lesson now, or stay in Lesson {current_id} and ask a question within its scope?",
+      "actions": ["switch_lesson", "stay_and_reask"],
+      "on_switch": {
+        "flush_current_context": true,
+        "load_lesson_slice": true
+      }
+    }
+  },
+
+  "fallbacks": {
+    "term_resolution": {
+      "enabled": true,
+      "steps": [
+        {
+          "name": "lesson_1_toc_search",
+          "description": "If a term is not recognized in the active lesson, load Lesson 1 (TOC / term lists) and search headings/entries.",
+          "target_lesson": 1,
+          "search_fields": ["toc", "lists", "front_matter"],
+          "on_success": "map_term_to_lesson_by_toc"
+        },
+        {
+          "name": "lesson_10_glossary_search",
+          "description": "If not found in Lesson 1, load Lesson 10 (glossary/appendices) and search definitions; use page anchors to map to the owning lesson.",
+          "target_lesson": 10,
+          "search_fields": ["glossary", "appendices", "index"],
+          "on_success": "map_term_to_lesson_by_glossary_page"
+        }
+      ],
+      "mapping_rules": {
+        "use_page_numbering": true,
+        "page_to_lesson_map": {
+          "1-35": 1,
+          "36-100": 2,
+          "101-181": 3,
+          "182-239": 4,
+          "240-279": 5,
+          "280-339": 6,
+          "340-397": 7,
+          "398-437": 8,
+          "438-500": 9
+        },
+        "figure_id_priority": true,
+        "disambiguation": "prefer_narrower_scope_lesson"
+      },
+      "user_prompt_on_resolution": "The term '{term}' appears to belong to Lesson {resolved_id}: {resolved_name}. Switch to that lesson now, or stay in Lesson {current_id} and re-ask within scope?"
+    },
+    "unknown_term_policy": {
+      "ask_for_clarification_if_all_fail": true,
+      "clarification_prompt": "I couldn’t find '{term}' in the active lesson, TOC, or glossary. Is it an external term or a synonym for something in this book?"
+    }
+  },
+
+  "figure_rendering": {
+    "inline_image": true,
+    "include_link": true,
+    "link_style": "raw_github",
+    "caption_format": "Figure {id}. {caption}",
+    "include_description": true,
+    "description_source": "manifest",
+    "include_synthesis": true,
+    "synthesis_label": "Analysis",
+    "analysis_source": "manuscript",
+    "omit_line_numbers": true,
+    "max_inline_per_response": 8
+  },
+
+  "output_controls": {
+    "include_visual_appendix": false,
+    "inline_insertion": false,
+    "block_out_of_scope_answers": false,
+    "show_scope_hint_on_each_answer": true,
+    "scope_hint_format": "Scope: Lesson {lesson_id} — {lesson_name}"
+  }
+}
+
