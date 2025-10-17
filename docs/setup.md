@@ -1,15 +1,22 @@
 # Setup
 
 # Prepare a complete book ready manuscript, like 3D Chess
+
 ## Convert to markdown (manuscript.md)
 script/tool
 pandoc?
 
+## Accurate determination of the token count
+Use tiktoken.
+
+```python3 token_counter.py <file>```
+
 ## Clean the markdown file
 This removes meta data that increases token count but is not part of the 'manuscript.'
 
-## Accurate determination of the token count
-Use tictock?
+```python3 clean_markdown.py <file>```
+
+```python3 compare_tokens.py <file> <file_clean>```
 
 ## Create a lesson plan
 Select break points to stay below 32k tokens (~25k for a decent margin).
@@ -27,6 +34,14 @@ GPT can help, ask for it.
 ## Split any lessons with incomplete ingestion
 Typically two files is enough.
 Builder instructions will say treat pair as one file.
+```
+# Mapping
+- Manuscript refers to two files:
+  - "3DCB_L5a_PK_clean.md"
+  - "3DCB_L5b_PK_clean.md"
+- Manifest refers to the "figsManifest_L5_C11_12.json" file.
+- Lesson plan refers to the "lesson_plan" file.
+```
 
 # Create a github repo for the figures (and maybe the descriptions, if lengthy)
 - Make it public.
