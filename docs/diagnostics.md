@@ -10,6 +10,7 @@ View image in repo ⇱
 View this image on GitHub ⇱
 View on GitHub ⇱
 Link to image ⇱
+View full-size image ⇱
 ```
 ## These are bogus, brings up the GitHub repo (yes, it shows the image)
 ```
