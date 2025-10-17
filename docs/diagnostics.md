@@ -25,4 +25,4 @@ View this image on GitHub ⇱
 ©
 
 # Prompts
-Show all figures in sequence with captions only.
+List all figures in sequence with captions only.
