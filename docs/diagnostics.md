@@ -8,6 +8,7 @@ View image file ⇱
 View source image in repo ⇱
 View image in repo ⇱
 View this image on GitHub ⇱
+View source on GitHub ⇱
 View on GitHub ⇱
 Link to image ⇱
 View full-size image ⇱
@@ -16,6 +17,7 @@ View full image ⇱
 ## These are bogus, brings up the GitHub repo (yes, it shows the image)
 ```
 View on GitHub ⇱
+Repo link ⇱
 View this image on GitHub ⇱
 ```
 
