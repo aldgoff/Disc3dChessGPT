@@ -11,6 +11,7 @@ View this image on GitHub ⇱
 View on GitHub ⇱
 Link to image ⇱
 View full-size image ⇱
+View full image ⇱
 ```
 ## These are bogus, brings up the GitHub repo (yes, it shows the image)
 ```
@@ -22,3 +23,6 @@ View this image on GitHub ⇱
 &#x2197
 &#2197
 ©
+
+# Prompts
+Show all figures in sequence with captions only.
