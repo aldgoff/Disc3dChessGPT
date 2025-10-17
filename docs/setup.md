@@ -72,6 +72,7 @@ Make sure they align with the manuscript (the lesson plan is handy here, make it
 
 ## Create each lesson
 - Upload a profile image
+-- Use the png file in the Knowledge base as the profile picture.
 - Upload the lesson manuscript(s)
 - Upload the lesson manifest
 
