@@ -97,3 +97,4 @@ Update the lesson plan with links to the lesson GPTs.
 - A help prompt
 - A limits prompt
 - A diagnostics prompt
+- Recommend using the gpt in instant moode.
