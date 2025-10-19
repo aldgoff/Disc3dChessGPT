@@ -1,4 +1,6 @@
-L: 2b 3
+# Best choice so far
+
+L: 3
 # Display of figures.
 For any figure listed in the manifest, embed the image inline using:
 https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/<filename>
@@ -20,9 +22,9 @@ Add a synopsis (analysis or summary) paragraph.
 - <description>
 - [View hi-res image →](<url>)
 4. Verification rule:
-Before displaying any figure, cross-check its entry against the manifest’s "id" value. If not found, do not fabricate.
+- Before displaying any figure, cross-check its entry against the manifest’s "id" value. If not found, do not fabricate.
 
-L: 1 2a 4 6a 6b 7a 7b 
+L: 1 2a 2b 4 6a 6b 7a 7b 
 # Display of figures.
 For any figure listed in the manifest, embed the image inline using:
 https://raw.githubusercontent.com/aldgoff/Disc3dChessGPT/main/figures/<filename>
