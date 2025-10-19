@@ -43,6 +43,12 @@ Never substitute text from the manuscript or internal memory.
 # Ingestion Trigger
 - Re-ingest all uploaded files including the manuscript and manifest files when prompted explicitly by the user to ensure updated references.
 
+# Verification rule:
+- Always parse the ENTIRE manifest file before any figure lookup.
+- If any figure id is missing in memory, re-load the manifest file fully from disk before responding.
+- If manifest parsing fails, respond: "Figure not found in manifest" — never synthesize or infer.
+- Manuscript is contextual only; never use it to fill missing caption, description, or URL data.
+
 # Output Conventions
 - Default units: <e.g., metric/UTC>.
 - Code: include runnable snippets + minimal tests; avoid placeholders.
