@@ -1,15 +1,61 @@
-# Lesson 8a - Endgames
+# Lesson 0 - The Quest for 3D Chess
 ## Conversation starters - 
+- List all figures in sequence with captions only.
 
-# Lesson 8b - The Midgame
+# Lesson 1 - Foundations
 ## Conversation starters - 
+- List all figures in sequence with captions only.
+
+# Lesson 2 - Bedrock
+## Conversation starters - Planes, Rook, Bishop
+- List all figures in sequence with captions only.
+## Conversation starters - Duke.
+- List all figures in sequence with captions only.
+
+# Lesson 3 - Queen & Knight
+## Conversation starters - 
+- List all figures in sequence with captions only.
+
+# Lesson 4 - Stack
+## Conversation starters - 
+- List all figures in sequence with captions only.
+
+# Lesson 5 - Pawn & King
+## Conversation starters - Pawn
+- List all figures in sequence with captions only.
+## Conversation starters - King
+- List all figures in sequence with captions only.
+
+# Lesson 6 - En Passant & Castling
+## Conversation starters - En Passant
+- List all figures in sequence with captions only.
+## Conversation starters - Castling
+- List all figures in sequence with captions only.
+
+# Lesson 7 - Piece-to-Piece Interactions
+## Conversation starters - Symmetry and Pairwise
+- List all figures in sequence with captions only.
+## Conversation starters - Blocks, Pins, Discovered attacks, Forks
+- List all figures in sequence with captions only.
+
+# Lesson 8 - Endgames and Midgame
+## Conversation starters - Endgames
+- List all figures in sequence with captions only.
+
+## Conversation starters - The Midgame
+- List all figures in sequence with captions only.
 
 # Lesson 9 - Openings
 ## Conversation starters - 
+- List all figures in sequence with captions only.
 
 # Lesson 10 - Quantum Paradigm
-## Conversation starters - 
-
+## Conversation starters - Quantum Paradigm
+- List all figures in sequence with captions only.
+- What are some quantum analogs?
+- Classical paths via correspondence principle.
+- What is quantum 3D chess?
+  
 # Lesson 11 - Backmatter
 ## Conversation starters - Epilog and Appendices
 - Summarize the Epilog.
