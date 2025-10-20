@@ -32,3 +32,7 @@ Then display: Figure N — <caption>, the manifest description, and a repo link 
 
 # Ingestion Trigger
 Re-ingest all uploaded files including the manuscript and manifest files when prompted explicitly by the user to ensure updated references.
+
+
+-- 3DCB_L11_EpilogAppendAbout.md
+-- 3DCB_L11_Index.md
