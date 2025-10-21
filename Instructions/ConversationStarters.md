@@ -6,36 +6,52 @@
 - Table of Contents (TOC).
 
 # Lesson 1 - Foundations
-## Conversation starters - 
-- List all figures in sequence with captions only.
-- Why planar moves?
-- Explain advancement squares.
-- How does blocking work in 3D chess.
-- Overview.
-- TOC.
-- Reingest Builder files.
+## Conversation starters
+- [x] List all figures in sequence with captions only.
+- [x] Why planar moves?
+- [x] Explain advancement squares.
+- [x] How does blocking work in 3D chess?
+-------------------------
+- [x] Show first and last.
+- [x] Overview.
+- [x] TOC.
+- [x] TOC & overview.
+- [x] Reingest Builder files.
 
 # Lesson 2 - Bedrock
 ## Conversation starters - Planes, Rook, Bishop
-- List all figures in sequence with captions only.
-- Planes of the base pieces.
-- How does the rook advance?
-- How does the bishop advance?
+- [x] List all figures in sequence with captions only.
+- [x] Planes of the base pieces.
+- [x] How does the rook advance?
+- [x] How does the bishop advance?
+-------------------------
+- [x] Show first and last.
+- [x] TOC & overview.
 ## Conversation starters - Duke.
-- List all figures in sequence with captions only.
-- Planes of the base pieces.
-- How does the duke advance?
-- How many planes, how many quadrants?
+- [x] List all figures in sequence with captions only.
+- [x] Planes of the duke.
+- [x] How does the duke advance?
+- [x] Show figs 50-53.
+-------------------------
+- [x] Show first and last.
+- [x] TOC & overview.
+- [x] Show figs 50-53.
+- [x] Why can advancement squares extend off the board?
 
 # Lesson 3 - Queen & Knight
-## Conversation starters - 
-- List all figures in sequence with captions only.
-- What are base pieces?
-- How does the queen advance?
-- How does the knight jump?
+## Conversation starters
+- [x] List all figures in sequence with captions only.
+- [x] What are base pieces?
+- [x] Queen advancement squares and rectangles.
+- [x] How does the knight jump?
+-------------------------
+- [x] Show first and last.
+- [x] TOC & overview.
+- [ ] Queen advances as rook, bishop or duke.
+- [ ] How does the queen advance?
 
 # Lesson 4 - Stack
-## Conversation starters - 
+## Conversation starters
 - List all figures in sequence with captions only.
 - What the heck is a stack?
 - Why allow stacking bishop & duke?
