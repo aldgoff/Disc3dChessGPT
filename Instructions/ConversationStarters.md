@@ -12,10 +12,10 @@
 - [x] Explain advancement squares.
 - [x] How does blocking work in 3D chess?
 -------------------------
+- [x] TOC & overview.
 - [x] Show first and last.
 - [x] Overview.
 - [x] TOC.
-- [x] TOC & overview.
 - [x] Reingest Builder files.
 
 # Lesson 2 - Bedrock
@@ -25,16 +25,16 @@
 - [x] How does the rook advance?
 - [x] How does the bishop advance?
 -------------------------
-- [x] Show first and last.
 - [x] TOC & overview.
+- [x] Show first and last.
 ## Conversation starters - Duke.
 - [x] List all figures in sequence with captions only.
 - [x] Planes of the duke.
 - [x] How does the duke advance?
 - [x] Show figs 50-53.
 -------------------------
-- [x] Show first and last.
 - [x] TOC & overview.
+- [x] Show first and last.
 - [x] Show figs 50-53.
 - [x] Why can advancement squares extend off the board?
 
@@ -45,33 +45,42 @@
 - [x] What are overlap tiles?
 - [x] How does the knight jump?
 -------------------------
-- [x] Show first and last.
 - [x] TOC & overview.
+- [x] Show first and last.
 - [ ] Queen advances as rook, bishop or duke.
 - [ ] How does the queen advance?
 - [ ] Queen advancement squares and rectangles.
 
 # Lesson 4 - Stack
 ## Conversation starters
-- [ ] List all figures in sequence with captions only.
-- [ ] What the heck is a stack?
-- [ ] Why allow stacking bishop & duke?
-- [ ] What would be the starting lineup for a 10x10x10 board?
+- [x] List all figures in sequence with captions only.
+- [x] What the heck is a stack?
+- [x] Why allow stacking bishop & duke?
+- [x] Must the stack move as a whole?
 -------------------------
-- [x] Show first and last.
 - [x] TOC & overview.
+- [x] Show first and last.
+- [ ] What would be the starting lineup for a 10x10x10 board?
+- [x] Contrast queen and stack.
 
 # Lesson 5 - Pawn & King
 ## Conversation starters - Pawn
-- List all figures in sequence with captions only.
-- Pawn advances, single & double.
-- Pawn captures; bishop & duke.
-- Pawn promotion, shackling & molasses.
+- [ ] List all figures in sequence with captions only. [85-95, 96-105, not 106]
+- [x] Pawn advances, single & double.
+- [x] Pawn captures; bishop & duke.
+- [x] Pawn promotion, shackling & molasses.
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
+- [ ] What would be the starting lineup for a 10x10x10 board?
 ## Conversation starters - King
-- List all figures in sequence with captions only.
-- How does the king advance?
-- What is hemming?
-- What does it mean to deflate a king?
+- [x] List all figures in sequence with captions only.
+- [x] How does the king advance?
+- [x] What is hemming?
+- [x] What does it mean to deflate a king?
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
 
 # Lesson 6 - En Passant & Castling
 ## Conversation starters - En Passant
