@@ -53,10 +53,13 @@
 
 # Lesson 4 - Stack
 ## Conversation starters
-- List all figures in sequence with captions only.
-- What the heck is a stack?
-- Why allow stacking bishop & duke?
-- What would be the starting lineup for a 10x10x10 board?
+- [ ] List all figures in sequence with captions only.
+- [ ] What the heck is a stack?
+- [ ] Why allow stacking bishop & duke?
+- [ ] What would be the starting lineup for a 10x10x10 board?
+-------------------------
+- [x] Show first and last.
+- [x] TOC & overview.
 
 # Lesson 5 - Pawn & King
 ## Conversation starters - Pawn
