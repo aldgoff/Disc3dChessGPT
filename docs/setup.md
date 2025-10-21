@@ -1,5 +1,16 @@
 # Setup
 
+# Create a virtual environment for using python packages.
+## To set up a virtual environment for python packages
+- ```python3 -m venv venv```
+## Activate the environment using 
+- ```source venv/bin/activate```
+## Install the required packages 
+```
+pip install pathlib
+pip install tiktoken
+```
+
 # Prepare a complete book ready manuscript, like 3D Chess
 
 ## Convert to markdown (manuscript.md)
