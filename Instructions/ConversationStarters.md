@@ -1,6 +1,6 @@
 # Lesson 0 - The Quest for 3D Chess
 ## Conversation starters - 
-- Show the lesson plan.
+- [x] Show the lesson plan.
 - Help.
 - Limits, caveats, diagnostics, debugging, etc.
 - Table of Contents (TOC).
@@ -10,7 +10,10 @@
 - List all figures in sequence with captions only.
 - Why planar moves?
 - Explain advancement squares.
-- How does blocking work in 3D chess?
+- How does blocking work in 3D chess.
+- Overview.
+- TOC.
+- Reingest Builder files.
 
 # Lesson 2 - Bedrock
 ## Conversation starters - Planes, Rook, Bishop
