@@ -84,53 +84,59 @@
 
 # Lesson 6 - En Passant & Castling
 ## Conversation starters - En Passant
-- List all figures in sequence with captions only.
-- How many types of en passant?
-- The useful myth of paths.
-- Why is this so complicated?
+- [x] List all figures in sequence with captions only.
+- [x] How many types of en passant?
+- [x] The useful myth of paths.
+- [x] Why is this so complicated?
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
 ## Conversation starters - Castling
-- List all figures in sequence with captions only.
-- How many types of castling?
-- Rejected castling rules.
-- What is a royal castle?
+- [x] List all figures in sequence with captions only.
+- [x] How many types of castling?
+- [x] Rejected castling rules.
+- [x] What is a royal castle?
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
 
 # Lesson 7 - Piece-to-Piece Interactions
 ## Conversation starters - Symmetry and Pairwise
-- List all figures in sequence with captions only.
-- What are the symmetry Principles?
-- Show some pairwise engagements.
-- Peeking and trapdoor moves.
+- [ ] List all figures in sequence with captions only.
+- [ ] What are the symmetry Principles?
+- [ ] Show some pairwise engagements.
+- [ ] Peeking and trapdoor moves.
 ## Conversation starters - Blocks, Pins, Discovered attacks, Forks
-- List all figures in sequence with captions only.
-- Types of blocks and pins.
-- Types of discovered attacks.
-- Types of forks.
+- [ ] List all figures in sequence with captions only.
+- [ ] Types of blocks and pins.
+- [ ] Types of discovered attacks.
+- [ ] Types of forks.
 
 # Lesson 8 - Endgames and Midgame
 ## Conversation starters - Endgames
-- List all figures in sequence with captions only.
-- Show the king and rook vs king endgame.
-- The queen is ferocious.
-- Show a pawn race.
+- [ ] List all figures in sequence with captions only.
+- [ ] Show the king and rook vs king endgame.
+- [ ] The queen is ferocious.
+- [ ] Show a pawn race.
 ## Conversation starters - The Midgame
-- List all figures in sequence with captions only.
-- Slingshot gambit.
-- Trapdoor gambit.
-- Split stack gambit.
+- [ ] List all figures in sequence with captions only.
+- [ ] Slingshot gambit.
+- [ ] Trapdoor gambit.
+- [ ] Split stack gambit.
 
 # Lesson 9 - Openings
 ## Conversation starters - 
-- List all figures in sequence with captions only.
-- What is torque?
-- Show the Greedy opening.
-- Show faceoff pawns.
+- [ ] List all figures in sequence with captions only.
+- [ ] What is torque?
+- [ ] Show the Greedy opening.
+- [ ] Show faceoff pawns.
 
 # Lesson 10 - Quantum Paradigm
 ## Conversation starters - Quantum Paradigm
-- List all figures in sequence with captions only.
-- What are some quantum analogs?
-- Classical paths via correspondence principle.
-- What is quantum 3D chess?
+- [ ] List all figures in sequence with captions only.
+- [ ] What are some quantum analogs?
+- [ ] Classical paths via correspondence principle.
+- [ ] What is quantum 3D chess?
   
 # Lesson 11 - Backmatter
 ## Conversation starters - Epilog and Appendices
