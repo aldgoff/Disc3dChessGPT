@@ -41,14 +41,15 @@
 # Lesson 3 - Queen & Knight
 ## Conversation starters
 - [x] List all figures in sequence with captions only.
-- [x] What are base pieces?
-- [x] Queen advancement squares and rectangles.
+- [x] Queen advances as either rook, bishop, or duke.
+- [x] What are overlap tiles?
 - [x] How does the knight jump?
 -------------------------
 - [x] Show first and last.
 - [x] TOC & overview.
 - [ ] Queen advances as rook, bishop or duke.
 - [ ] How does the queen advance?
+- [ ] Queen advancement squares and rectangles.
 
 # Lesson 4 - Stack
 ## Conversation starters
