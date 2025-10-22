@@ -132,12 +132,27 @@
 - [ ] Show faceoff pawns.
 
 # Lesson 10 - Quantum Paradigm
-## Conversation starters - Quantum Paradigm
+## Conversation starters - Quantum Analogs
 - [ ] List all figures in sequence with captions only.
 - [ ] What are some quantum analogs?
 - [ ] Classical paths via correspondence principle.
 - [ ] What is quantum 3D chess?
-  
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
+## Conversation starters - Quantum 3D Chess
+- [x] Re-ingest all files.
+- [ ] Re-ingest all files and reload manifest display layer
+- [ ] Clear render cache and reload manifest display layer.
+- [ ] What are some quantum analogs?
+- [ ] Classical paths via correspondence principle.
+- [ ] What is quantum 3D chess?
+  -------------------------
+- [x] TOC & overview.
+- [ ] List all figures in sequence with captions only.
+- [x] Show first and last.
+- [ ] Re-ingest all files.
+
 # Lesson 11 - Backmatter
 ## Conversation starters - Epilog and Appendices
 - Summarize the Epilog.
