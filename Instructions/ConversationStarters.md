@@ -65,7 +65,7 @@
 
 # Lesson 5 - Pawn & King
 ## Conversation starters - Pawn
-- [ ] List all figures in sequence with captions only. [85-95, 96-105, not 106]
+- [ ] List all figures in sequence with captions only - [-1]. [85-95, 96-105, not 106]
 - [x] Pawn advances, single & double.
 - [x] Pawn captures; bishop & duke.
 - [x] Pawn promotion, shackling & molasses.
@@ -110,7 +110,7 @@
 - [x] TOC & overview.
 - [x] Show first and last.
 ## Conversation starters - Blocks, Pins, Discovered attacks, Forks
-- [ ] List all figures in sequence with captions only. [155-178]: missing 3 [179-181]
+- [ ] List all figures in sequence with captions only - [-3]. [155-178]: missing [179-181]
 - [x] Types of blocks and pins.
 - [x] Types of discovered attacks.
 - [ ] Types of forks. Made up figures.
@@ -139,17 +139,21 @@
 
 # Lesson 9 - Openings
 ## Conversation starters - 
-- [ ] List all figures in sequence with captions only.
-- [ ] What is torque?
-- [ ] Show the Greedy opening.
-- [ ] Show faceoff pawns.
+- [ ] List all figures in sequence with captions only - [-1]
+- [x] What is torque?
+- [x] Show the Greedy opening.
+- [x] Show faceoff pawns.
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
+- [x] Any tables in this lesson?
 
 # Lesson 10 - Quantum Paradigm
 ## Conversation starters - Quantum Analogs
-- [ ] List all figures in sequence with captions only.
-- [ ] What are some quantum analogs?
-- [ ] Classical paths via correspondence principle.
-- [ ] What is quantum 3D chess?
+- [x] List all figures in sequence with captions only.
+- [x] What are some quantum analogs?
+- [x] Classical paths via correspondence principle.
+- [x] What is a degenerate invariant?
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
@@ -160,11 +164,21 @@
 - [ ] What are some quantum analogs?
 - [ ] Classical paths via correspondence principle.
 - [ ] What is quantum 3D chess?
-  -------------------------
+-------------------------
 - [x] TOC & overview.
 - [ ] List all figures in sequence with captions only.
 - [x] Show first and last.
 - [ ] Re-ingest all files.
+## Conversation starters - Quantum 3D Chess Part A
+- [ ] List all figures in sequence with captions only.
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
+## Conversation starters - Quantum 3D Chess Part B
+- [ ] List all figures in sequence with captions only.
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
 
 # Lesson 11 - Backmatter
 ## Conversation starters - Epilog and Appendices
