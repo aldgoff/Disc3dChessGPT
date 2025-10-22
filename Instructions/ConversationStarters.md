@@ -182,27 +182,44 @@
 
 # Lesson 11 - Backmatter
 ## Conversation starters - Epilog and Appendices
-- Summarize the Epilog.
-- List the Congruent Rules of Chess.
-- Appendix II - The Decorators.
-- About the Author.
+- [x] Summarize the Epilog.
+- [x] List the Congruent Rules of Chess.
+- [x] Appendix II - The Decorators.
+- [x] About the Author.
+-------------------------
+- [x] TOC & overview.
+- [x] List all figures in sequence with captions only.
+- [x] Show first and last.
+- =======================
+- [x] List all figures in sequence with captions only.
 ## Conversation starters - Tables
-- List all course tables in sequence by Lesson.
-- Tables in all lessons.
-- List tables in this Lesson.
-- List the quadrant numbering tables.
+- [x] List the table of tables.
+- [x] List tables in this Lesson.
+- [x] List the quadrant numbering tables.
+- [x] Show the rook quadrant numbering.
+-------------------------
+- [x] TOC & overview.
+- [x] List all figures in sequence with captions only.
+- [x] Show first and last.
 ## Conversation starters - Figures
-- Show the list of figures.
-- How many figures in each lesson?
-- List the figures in Lesson 6.
-- Show the list of tables.
+- [x] List all figures in sequence with captions only.
+- [x] How many figures in each lesson?
+- [x] Show the list of tables.
 ## Conversation starters - Jargon
-- How many jargon entries?
-- How many jargon entries by Lesson?
-- Show the jargon entries for Lesson 1 – Foundations.
-- How does jargon complexity evolve across lessons?
+- [x] How is the jargon grouped?
+- [x] How many jargon entries by Lesson?
+- [x] Show the jargon entries for Lesson 1 – Foundations.
+- [x] How does jargon complexity evolve across lessons?
+-------------------------
+- [x] TOC & overview.
+- [x] List all figures in sequence with captions only.
+- [x] Show first and last.
+- [x] Show bishop jargon.
+- [x] How many jargon entries? 300
 ## Conversation starters - Index and Footnotes
-- How many index entries?
-- Gambits?
-- Select a clever footnote.
-- Show a figure about en passant.
+- [x] How many index entries? 477
+- [x] How many index entities between pages 1 and 50?
+- [x] Entries about gambits.
+- [x] Select a clever footnote.
+-------------------------
+- [x] TOC & overview.
