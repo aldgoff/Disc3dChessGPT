@@ -14,6 +14,7 @@
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
+- =======================
 - [x] Overview.
 - [x] TOC.
 - [x] Reingest Builder files.
@@ -35,6 +36,7 @@
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
+- =======================
 - [x] Show figs 50-53.
 - [x] Why can advancement squares extend off the board?
 
@@ -47,6 +49,7 @@
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
+- =======================
 - [ ] Queen advances as rook, bishop or duke.
 - [ ] How does the queen advance?
 - [ ] Queen advancement squares and rectangles.
@@ -60,6 +63,7 @@
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
+- =======================
 - [ ] What would be the starting lineup for a 10x10x10 board?
 - [x] Contrast queen and stack.
 
@@ -72,6 +76,7 @@
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
+- =======================
 - [ ] What would be the starting lineup for a 10x10x10 board?
 ## Conversation starters - King
 - [x] List all figures in sequence with captions only.
@@ -127,6 +132,7 @@
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
+- =======================
 - [x] Is there a story about a pawn in this lesson?
 ## Conversation starters - The Midgame
 - [x] List all figures in sequence with captions only.
@@ -157,25 +163,19 @@
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
-## Conversation starters - Quantum 3D Chess
-- [x] Re-ingest all files.
-- [ ] Re-ingest all files and reload manifest display layer
-- [ ] Clear render cache and reload manifest display layer.
-- [ ] What are some quantum analogs?
-- [ ] Classical paths via correspondence principle.
-- [ ] What is quantum 3D chess?
--------------------------
-- [x] TOC & overview.
-- [ ] List all figures in sequence with captions only.
-- [x] Show first and last.
-- [ ] Re-ingest all files.
 ## Conversation starters - Quantum 3D Chess Part A
-- [ ] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.
+- [x] Ensemble of classical games.
+- [x] Propagating packet of probability.
+- [x] All versus any rule.
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
 ## Conversation starters - Quantum 3D Chess Part B
-- [ ] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.
+- [x] Quantum Game trees.
+- [x] An objective measurement mechanism?
+- [x] Many World's Interpetation.
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
