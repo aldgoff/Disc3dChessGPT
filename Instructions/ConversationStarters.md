@@ -102,27 +102,40 @@
 
 # Lesson 7 - Piece-to-Piece Interactions
 ## Conversation starters - Symmetry and Pairwise
-- [ ] List all figures in sequence with captions only.
-- [ ] What are the symmetry Principles?
-- [ ] Show some pairwise engagements.
-- [ ] Peeking and trapdoor moves.
+- [x] List all figures in sequence with captions only.
+- [x] What are the symmetry Principles?
+- [x] Show some pairwise engagements.
+- [x] Peeking and trapdoor moves.
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
 ## Conversation starters - Blocks, Pins, Discovered attacks, Forks
-- [ ] List all figures in sequence with captions only.
-- [ ] Types of blocks and pins.
-- [ ] Types of discovered attacks.
-- [ ] Types of forks.
+- [ ] List all figures in sequence with captions only. [155-178]: missing 3 [179-181]
+- [x] Types of blocks and pins.
+- [x] Types of discovered attacks.
+- [ ] Types of forks. Made up figures.
+-------------------------
+- [ ] TOC & overview. Made up RRAPS (RAM, Retreat, Advance, Perimeter, Shield)?!?
+- [x] Show first and last.
 
 # Lesson 8 - Endgames and Midgame
 ## Conversation starters - Endgames
-- [ ] List all figures in sequence with captions only.
-- [ ] Show the king and rook vs king endgame.
-- [ ] The queen is ferocious.
-- [ ] Show a pawn race.
+- [x] List all figures in sequence with captions only.
+- [x] Show the king and rook vs king endgame.
+- [x] The queen is ferocious.
+- [x] Show a pawn race.
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
+- [x] Is there a story about a pawn in this lesson?
 ## Conversation starters - The Midgame
-- [ ] List all figures in sequence with captions only.
-- [ ] Slingshot gambit.
-- [ ] Trapdoor gambit.
-- [ ] Split stack gambit.
+- [x] List all figures in sequence with captions only.
+- [x] Slingshot gambit.
+- [x] Trapdoor gambit.
+- [x] Split stack gambit.
+-------------------------
+- [x] TOC & overview.
+- [x] Show first and last.
 
 # Lesson 9 - Openings
 ## Conversation starters - 
