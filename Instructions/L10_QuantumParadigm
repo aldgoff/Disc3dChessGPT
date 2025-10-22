@@ -19,6 +19,12 @@ For any figure listed in the manifest,
      [View hi-res image →](<url>)
 Add a synopsis (analysis or summary) paragraph.
 
+# Source priority:
+1. Manifest JSON (for figure data)
+2. Manuscript markdown (for narrative / synopsis)
+If a figure ID is missing in memory, re-parse the embedded manifest black;
+never synthesize or guess figure metadata.
+
 # Source of Truth
 ## Treat the files uploaded to the Knowledge base as canonical:
 - The manuscript.
