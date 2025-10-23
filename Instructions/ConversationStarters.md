@@ -1,9 +1,11 @@
 # Lesson 0 - The Quest for 3D Chess
 ## Conversation starters - 
 - [x] Show the lesson plan.
-- Help.
-- Limits, caveats, diagnostics, debugging, etc.
-- Table of Contents (TOC).
+- [x] Help.
+- [x] Limits, caveats, diagnostics, debugging, etc.
+- [x] Table of Contents (TOC).
+- =======================
+https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta-version-0-7
 
 # Lesson 1 - Foundations
 ## Conversation starters
@@ -69,7 +71,7 @@
 
 # Lesson 5 - Pawn & King
 ## Conversation starters - Pawn
-- [ ] List all figures in sequence with captions only - [-1]. [85-95, 96-105, not 106]
+- [x] List all figures in sequence with captions only.
 - [x] Pawn advances, single & double.
 - [x] Pawn captures; bishop & duke.
 - [x] Pawn promotion, shackling & molasses.
@@ -114,13 +116,21 @@
 -------------------------
 - [x] TOC & overview.
 - [x] Show first and last.
-## Conversation starters - Blocks, Pins, Discovered attacks, Forks
-- [ ] List all figures in sequence with captions only - [-3]. [155-178]: missing [179-181]
-- [x] Types of blocks and pins.
+## Conversation starters - Blocks, Pins, Discovered attacks.1
+- [x] List all figures in sequence with captions only.  [155-170]
+- [x] Types of blocks.
+- [x] Types of pins.
 - [x] Types of discovered attacks.
-- [ ] Types of forks. Made up figures.
 -------------------------
-- [ ] TOC & overview. Made up RRAPS (RAM, Retreat, Advance, Perimeter, Shield)?!?
+- [x] TOC & overview.
+- [x] Show first and last.
+## Conversation starters - Discovered attacks.2, Forks
+- [x] List all figures in sequence with captions only.  [171-181]
+- [x] What are shield tiles?
+- [x] Types of forks.
+- [x] What is RAM?
+-------------------------
+- [x] TOC & overview.
 - [x] Show first and last.
 
 # Lesson 8 - Endgames and Midgame
@@ -145,7 +155,7 @@
 
 # Lesson 9 - Openings
 ## Conversation starters - 
-- [ ] List all figures in sequence with captions only - [-1]
+- [x] List all figures in sequence with captions only.
 - [x] What is torque?
 - [x] Show the Greedy opening.
 - [x] Show faceoff pawns.
