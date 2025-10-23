@@ -7,6 +7,7 @@
 - =======================
 
 https://chatgpt.com/g/g-68efb94ea36c819199cfcdccc9321572-quest-for-3d-chess-beta-version-0-6
+
 https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta-version-0-7
 
 # Lesson 1 - Foundations
