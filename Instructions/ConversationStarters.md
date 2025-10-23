@@ -12,7 +12,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 1 - Foundations
 ## Conversation starters
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [1-15]
 - [x] Why planar moves?
 - [x] Explain advancement squares.
 - [x] How does blocking work in 3D chess?
@@ -26,7 +26,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 2 - Bedrock
 ## Conversation starters - Planes, Rook, Bishop
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [16-39]
 - [x] Planes of the base pieces.
 - [x] How does the rook advance?
 - [x] How does the bishop advance?
@@ -34,7 +34,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 - [x] TOC & overview.
 - [x] Show first and last.
 ## Conversation starters - Duke.
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [40-61]
 - [x] Planes of the duke.
 - [x] How does the duke advance?
 - [x] Show figs 50-53.
@@ -47,7 +47,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 3 - Queen & Knight
 ## Conversation starters
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [62-71]
 - [x] Queen advances as either rook, bishop, or duke.
 - [x] What are overlap tiles?
 - [x] How does the knight jump?
@@ -61,7 +61,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 4 - Stack
 ## Conversation starters
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [72-84]
 - [x] What the heck is a stack?
 - [x] Why allow stacking bishop & duke?
 - [x] Must the stack move as a whole?
@@ -74,7 +74,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 5 - Pawn & King
 ## Conversation starters - Pawn
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [85-95-106]
 - [x] Pawn advances, single & double.
 - [x] Pawn captures; bishop & duke.
 - [x] Pawn promotion, shackling & molasses.
@@ -84,7 +84,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 - =======================
 - [ ] What would be the starting lineup for a 10x10x10 board?
 ## Conversation starters - King
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [107-115]
 - [x] How does the king advance?
 - [x] What is hemming?
 - [x] What does it mean to deflate a king?
@@ -94,7 +94,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 6 - En Passant & Castling
 ## Conversation starters - En Passant
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [116-127]
 - [x] How many types of en passant?
 - [x] The useful myth of paths.
 - [x] Why is this so complicated?
@@ -102,7 +102,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 - [x] TOC & overview.
 - [x] Show first and last.
 ## Conversation starters - Castling
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [128-137]
 - [x] How many types of castling?
 - [x] Rejected castling rules.
 - [x] What is a royal castle?
@@ -112,7 +112,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 7 - Piece-to-Piece Interactions
 ## Conversation starters - Symmetry and Pairwise
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [138-154]
 - [x] What are the symmetry Principles?
 - [x] Show some pairwise engagements.
 - [x] Peeking and trapdoor moves.
@@ -138,7 +138,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 8 - Endgames and Midgame
 ## Conversation starters - Endgames
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [182-194]
 - [x] Show the king and rook vs king endgame.
 - [x] The queen is ferocious.
 - [x] Show a pawn race.
@@ -148,7 +148,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 - =======================
 - [x] Is there a story about a pawn in this lesson?
 ## Conversation starters - The Midgame
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [195-213]
 - [x] Slingshot gambit.
 - [x] Trapdoor gambit.
 - [x] Split stack gambit.
@@ -158,7 +158,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 9 - Openings
 ## Conversation starters - 
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [214-231]
 - [x] What is torque?
 - [x] Show the Greedy opening.
 - [x] Show faceoff pawns.
@@ -169,7 +169,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 
 # Lesson 10 - Quantum Paradigm
 ## Conversation starters - Quantum Analogs
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only. [232-246]
 - [x] What are some quantum analogs?
 - [x] Classical paths via correspondence principle.
 - [x] What is a degenerate invariant?
@@ -177,7 +177,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 - [x] TOC & overview.
 - [x] Show first and last.
 ## Conversation starters - Quantum 3D Chess Part A
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only. [247-255]
 - [x] Ensemble of classical games.
 - [x] Propagating packet of probability.
 - [x] All versus any rule.
@@ -185,7 +185,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 - [x] TOC & overview.
 - [x] Show first and last.
 ## Conversation starters - Quantum 3D Chess Part B
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [256-264]
 - [x] Quantum Game trees.
 - [x] An objective measurement mechanism?
 - [x] Many World's Interpetation.
@@ -201,7 +201,7 @@ https://chatgpt.com/g/g-68fa17f8fcfc8191a460302101988317-quest-for-3d-chess-beta
 - [x] About the Author.
 -------------------------
 - [x] TOC & overview.
-- [x] List all figures in sequence with captions only.
+- [x] List all figures in sequence with captions only.  [265-267]
 - [x] Show first and last.
 - =======================
 - [x] List all figures in sequence with captions only.
