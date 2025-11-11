@@ -1,0 +1,80 @@
+[
+  {
+    "id": "L12_T001",
+    "description": "Single Stack on KR1,2 from White POV",
+    "input": "(POV-White) [White: S@KR1,2]",
+    "expected": {
+      "pieces": 1,
+      "owner": "White",
+      "piece_names": ["Stack"],
+      "tiles": [
+        {
+          "level": "KR",
+          "coords": [1, 2],
+          "bishop_color": "Black",
+          "duke_color": "Ruby"
+        }
+      ]
+    }
+  },
+  {
+    "id": "L12_T002",
+    "description": "Simple King at KB4,4 from White POV",
+    "input": "(POV-White) [White: K@KB4,4]",
+    "expected": {
+      "pieces": 1,
+      "owner": "White",
+      "piece_names": ["King"],
+      "tiles": [
+        {
+          "level": "KB",
+          "coords": [4, 4],
+          "bishop_color": "White",
+          "duke_color": "Silver"
+        }
+      ]
+    }
+  },
+  {
+	"id": "L12_T003",
+	"description": "Invalid geometry and notation: Gray Cardinal on level T at 0,9 from Alligator POV (teaching-valid format)",
+	"input": "(POV-Alligator) [Gray: C@T0,9]",
+	"expected": {
+	  "valid": false,
+	  "errors": [
+		"Invalid POV: 'Alligator' not in {White, Black, Neutral}",
+		"Invalid side label: 'Gray' not in {White, Black}",
+		"Invalid piece code: 'C' not in {K,Q,R,B,D,S,N,P}",
+		"Invalid level: 'T' not in {KR,KN,KB,K,Q,QB,QN,QR}",
+		"Invalid coordinates: 0,9 outside range 1–8"
+	  ],
+	  "notes": [
+		"Single-side positions are acceptable for Tactical Analysis exercises."
+	  ]
+	}
+  },
+  {
+	"id": "L12_T004",
+	"description": "Neutral POV: Gray Stack at K4,4 representing ambiguous ownership",
+	"input": "(POV-Neutral) [Gray: S@K4,4]",
+	"expected": {
+	  "pieces": 1,
+	  "owner": "Gray",
+	  "piece_names": ["Stack"],
+	  "tiles": [
+		{
+		  "level": "K",
+		  "coords": [4, 4],
+		  "bishop_color": "White",
+		  "duke_color": "Silver"
+		}
+	  ],
+	  "valid": true,
+	  "notes": [
+		"Gray ownership accepted under POV-Neutral for tactical neutrality.",
+		"Used in ambiguity or balance demonstrations where side does not affect geometry."
+	  ]
+	}
+  }
+]
+
