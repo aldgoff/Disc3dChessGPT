@@ -374,5 +374,31 @@ About the Author [493]
 Index I
 References XVII
 
-Tactical Analysis
-Give a state string that defines a position on the board evaulate it.
+# Tactical Analysis (Lesson 12)
+
+Given a state string that defines a position on the board, evaluate it.
+- (Board: 8x8x8) (POV-White) [White: K@KB4,4; R@KR1,1] [Black: Q@QB8,8]
+
+## Between pairs of pieces
+- What planes.
+- What quadrants.
+- Linear moves.
+- Do this for orthogonal relationships.
+- Eventually add perimeters.
+- Eventually add forward and reverse advancement manifolds (squares, rectangles).
+- Eventually tile types (apex, end, between, overlap clases, specials).
+- Eventually do all this for base pieces, then for all the rest.
+
+## Interactions
+- Eventually add attacks, defense, blocks, pins, discovereds & forks.
+- Eventually torque.
+
+## Positions
+- Eventually Starting line up.
+- And other interesting positions (peeking, trapdoor, mutual blocks/pins, etc.).
+
+## Board visualizations
+- Something like the Inkscape figures of the book.
+
+## Long term objectve
+- Lay the foundation for writing the SW to implement the rules and facilitate play.
