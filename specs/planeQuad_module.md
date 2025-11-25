@@ -1,14 +1,16 @@
 # Plane Quad Module
-  Canonical Plane Rule
-    Each plane is uniquely defined by its canonical cyclic ray list.
-    Ray adjacency exists only within this cycle.
-    Quadants (quads) are defined only by adjacent pairs in this cycle.
-    No rotation or reversal of the cycle is permitted.
-    Any alternative ordering, rotation, reversal, or ray-pair mapping is invalid.
-    All plane, quad, and movement logic MUST reference the canonical Plane Quad Table.
 
-  ## The Plane Quad Table
-    Plane       Ray Set (1st to last)
+  Canonical Plane Rule
+   - Each plane is uniquely defined by its canonical cyclic ray list.
+   - Ray adjacency exists only within this cycle.
+   - Quadants (quads) are defined only by adjacent pairs in this cycle.
+   - No rotation or reversal of the cycle is permitted.
+     
+     Any alternative ordering, rotation, reversal, or ray-pair mapping is invalid.
+     All plane, quad, and movement logic MUST reference the canonical Plane Quad Table.
+
+## The Plane Quad Table
+  Plane, Ray Set (1st to last)
 
     Rook Planes (Orthogonal)
       Horizontal  left_fore > right_fore > left_back  > right_back >
@@ -32,9 +34,10 @@
         Upright     right_up   > fore_up   > left_down  > back_down >
         Downright   right_down > fore_down > left_up    > back_up   >
         Each duke ray must occur in three and only three planes
-
       Duke-plane adjacency is defined only by the listed cycles.
       No coordinate pattern or geometric relation may add or modify adjacency.
+
+  Constraints:
 
     No other grouping or adjacency pattern is valid
     No ray may belong to more than the listed planes
@@ -45,24 +48,25 @@
 
     These cycles are the canonical order; none other exists
 
-    Summary: For all 13 planes, the first quad is always the quadrant formed by the first two rays listed, the wrapQuad is the last one listed.
+  Summary: 
+    For all 13 planes, the first quad is always the quadrant formed by the first two rays listed, the wrapQuad is the last one listed.
 
-  ## The Plane Groups
-	Vertical planes (rook)
-		Left
-		Right
-	Forward planes (bishop)
-		Upward
-		Downward
-	Outward planes (bishop)
-		Leftward
-		Rightward
-	Verticalcross planes (duke)
-		Major
-		Minor
-	Leftcross planes (duke)
-		Upleft
-		Downleft
-	Rightcross planes (duke)
-		Upright
-		Downright
+## The Plane Groups
+    Vertical planes (rook)
+      Left
+      Right
+    Forward planes (bishop)
+      Upward
+      Downward
+    Outward planes (bishop)
+      Leftward
+      Rightward
+    Verticalcross planes (duke)
+      Major
+      Minor
+    Leftcross planes (duke)
+      Upleft
+      Downleft
+    Rightcross planes (duke)
+      Upright
+      Downright
