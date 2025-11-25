@@ -1,12 +1,14 @@
-# Global Quad Numbers (Q<n>)
-  Quad (1-60)
+# Quad Map Spec
 
-## 1. Plane Quad Number 
+## 1. Global Quad Number 
+  	Quad (1-60)
+
+## 2. Plane Quad Number 
     Rook   (1-4) = (Q<n>-1)%4 + 1
     Bishop (1-6) = (Q<n>-1)%6 + 1
     Duke   (1-4) = (Q<n>-1)%4 + 1
 
-## 2. Piece Quad Number
+## 3. Piece Quad Number
     Rook
       Horizontal (1- 4)  = Q1,Q2,Q3,Q4
       Left       (5- 8)  = Q5,Q6,Q7,Q8 
@@ -26,7 +28,7 @@
       Upright    (17-20) = Q53,Q54,Q55,Q56
       Downright  (21-24) = Q57,Q58,Q59,Q60
 
-## 3. Nicknames for selected quadrants
+## 4. Nicknames for selected quadrants
     Rook:
       Q1 - Forward
       Q2 - Right
