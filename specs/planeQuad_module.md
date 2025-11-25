@@ -5,9 +5,8 @@
    - Ray adjacency exists only within this cycle.
    - Quadants (quads) are defined only by adjacent pairs in this cycle.
    - No rotation or reversal of the cycle is permitted.
-     
-     Any alternative ordering, rotation, reversal, or ray-pair mapping is invalid.
-     All plane, quad, and movement logic MUST reference the canonical Plane Quad Table.
+   - Any alternative ordering, rotation, reversal, or ray-pair mapping is invalid.
+   - All plane, quad, and movement logic MUST reference the canonical Plane Quad Table.
 
 ## The Plane Quad Table
   Plane, Ray Set (1st to last)
@@ -49,7 +48,8 @@
     These cycles are the canonical order; none other exists
 
   Summary: 
-    For all 13 planes, the first quad is always the quadrant formed by the first two rays listed, the wrapQuad is the last one listed.
+   - For all 13 planes, the first quad is always the quadrant formed by the first two rays listed,
+   - the wrapQuad is the last one listed.
 
 ## The Plane Groups
     Vertical planes (rook)
@@ -70,3 +70,28 @@
     Rightcross planes (duke)
       Upright
       Downright
+
+## Duke Quad Types
+  - Duke quads come in two flavors, edge and face, which alternate.
+  - Quad flavor is computed from ray deltas.
+
+## Determine Duke Quad Type:
+    Given adjacent vertex rays with components (dz1,dx1,dy1) and (dz2,dx2,dy2):
+      Let Δ = (dz2-dz1, dx2-dx1, dy2-dy1).
+      Count zeros in Δ:
+      2 zeros → face-quad
+      1 zero  → edge-quad
+    No other case occurs.
+
+## Duke alternating quad type summary:
+    Plane    firstQuad            wrapQuad
+    Major:     edge - face - edge - face
+    Minor:     face - edge - face - edge
+    Upleft:    edge - face - edge - face
+    Downleft:  edge - face - edge - face
+    Upright:   edge - face - edge - face
+    Downright: edge - face - edge - face
+    
+  - Because the quad sequence is cyclic, each slant plane alternates edge and face quadrants.
+  - In all slant planes except the Minor plane, quad1 is an edge quad and quad2 is a face quad.
+  - In the Minor plane, quad1 is a face quad and quad2 is an edge quad.
