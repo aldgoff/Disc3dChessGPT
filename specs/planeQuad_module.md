@@ -8,7 +8,7 @@
    - Any alternative ordering, rotation, reversal, or ray-pair mapping is invalid.
    - All plane, quad, and movement logic MUST reference the canonical Plane Quad Table.
 
-## The Plane Quad Table
+## 1. The Plane Quad Table
   Plane, Ray Set (1st to last)
 
     Rook Planes (Orthogonal)
@@ -38,20 +38,20 @@
 
   Constraints:
 
-    No other grouping or adjacency pattern is valid
-    No ray may belong to more than the listed planes
+    No other grouping or adjacency pattern is valid.
+    No ray may belong to more than the listed planes.
 
     Planes are distinct by text only.
     No symmetry or rotation of the cube may identify two plane-cycles.
     Only the listed cycles define plane identity.
 
-    These cycles are the canonical order; none other exists
+    These cycles are the canonical order; none other exists.
 
   Summary: 
    - For all 13 planes, the first quad is always the quadrant formed by the first two rays listed,
    - the wrapQuad is the last one listed.
 
-## The Plane Groups
+## 2. The Plane Groups
     Vertical planes (rook)
       Left
       Right
@@ -71,11 +71,11 @@
       Upright
       Downright
 
-## Duke Quad Types
+## 3. Duke Quad Types
   - Duke quads come in two flavors, edge and face, which alternate.
   - Quad flavor is computed from ray deltas.
 
-## Determine Duke Quad Type:
+  ### 3.1 Formula for Quad Type:
     Given adjacent vertex rays with components (dz1,dx1,dy1) and (dz2,dx2,dy2):
       Let Δ = (dz2-dz1, dx2-dx1, dy2-dy1).
       Count zeros in Δ:
@@ -83,7 +83,7 @@
       1 zero  → edge-quad
     No other case occurs.
 
-## Duke alternating quad type summary:
+  ### 3.2 Alternating Quad Type Summary:
     Plane    firstQuad            wrapQuad
     Major:     edge - face - edge - face
     Minor:     face - edge - face - edge
