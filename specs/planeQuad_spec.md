@@ -28,24 +28,24 @@ Ray membership:
 -------------------------------------------------------------------------------
 ## 2. The Plane Quad Table
 
-### 2.1 Rook Planes (orthogonal)
-Horizontal:  left_fore > right_fore > left_back  > right_back >
-Left:        up        > right_fore > down       > right_back >
-Right:       up        > left_fore  > down       > left_back  >
+  ### 2.1 Rook Planes (orthogonal)
+    Horizontal:  left_fore > right_fore > left_back  > right_back >
+    Left:        up        > right_fore > down       > right_back >
+    Right:       up        > left_fore  > down       > left_back  >
 
-### 2.2 Bishop Planes (skew)
-Upward:     LFU > RFU > right > RBD > LBD > left >
-Downward:   LFD > RFD > right > RBU > LBU > left >
-Leftward:   LBU > LFU > fore  > RFD > RBD > back >
-Rightward:  RBU > RFU > fore  > LFD > LBD > back >
+  ### 2.2 Bishop Planes (skew)
+    Upward:     LFU > RFU > right > RBD > LBD > left >
+    Downward:   LFD > RFD > right > RBU > LBU > left >
+    Leftward:   LBU > LFU > fore  > RFD > RBD > back >
+    Rightward:  RBU > RFU > fore  > LFD > LBD > back >
 
-### 2.3 Duke Planes (slant)
-Major:      fore_down > fore_up   > back_up    > back_down >
-Minor:      left_up   > right_up  > right_down > left_down >
-Upleft:     left_up   > fore_up   > right_down > back_down >
-Downleft:   left_down > fore_down > right_up   > back_up   >
-Upright:    right_up  > fore_up   > left_down  > back_down >
-Downright:  right_down> fore_down > left_up    > back_up   >
+  ### 2.3 Duke Planes (slant)
+    Major:      fore_down > fore_up   > back_up    > back_down >
+    Minor:      left_up   > right_up  > right_down > left_down >
+    Upleft:     left_up   > fore_up   > right_down > back_down >
+    Downleft:   left_down > fore_down > right_up   > back_up   >
+    Upright:    right_up  > fore_up   > left_down  > back_down >
+    Downright:  right_down> fore_down > left_up    > back_up   >
 
 -------------------------------------------------------------------------------
 ## 3. Ray Index (Ray → Planes)
@@ -54,38 +54,38 @@ Each ray belongs only to the planes listed below.
 
 (Exactly identical to the JSON "rayIndex" table; kept authoritative here.)
 
-- left_fore:  Horizontal, Right
-- right_fore: Horizontal, Left
-- left_back:  Horizontal, Right
-- right_back: Horizontal, Left
+    left_fore:  Horizontal, Right
+    right_fore: Horizontal, Left
+    left_back:  Horizontal, Right
+    right_back: Horizontal, Left
 
-- up:   Left, Right
-- down: Left, Right
+    - up:   Left, Right
+    - down: Left, Right
 
-- LFU: Upward, Leftward
-- RFU: Upward, Rightward
-- LFD: Downward, Rightward
-- RFD: Downward, Leftward
+    - LFU: Upward, Leftward
+    - RFU: Upward, Rightward
+    - LFD: Downward, Rightward
+    - RFD: Downward, Leftward
 
-- LBU: Downward, Leftward
-- LBD: Upward, Rightward
-- RBU: Upward, Downward
-- RBD: Downward, Upward
+    - LBU: Downward, Leftward
+    - LBD: Upward, Rightward
+    - RBU: Upward, Downward
+    - RBD: Downward, Upward
 
-- fore:  Leftward, Rightward
-- right: Upward, Downward
-- back:  Leftward, Rightward
-- left:  Upward, Downward
+    - fore:  Leftward, Rightward
+    - right: Upward, Downward
+    - back:  Leftward, Rightward
+    - left:  Upward, Downward
 
-- fore_down: Major, Downleft, Downright
-- fore_up:   Major, Upleft, Upright
-- back_up:   Major, Downleft, Downright
-- back_down: Major, Upleft, Upright
+    - fore_down: Major, Downleft, Downright
+    - fore_up:   Major, Upleft, Upright
+    - back_up:   Major, Downleft, Downright
+    - back_down: Major, Upleft, Upright
 
-- left_up:    Minor, Upleft, Downright
-- right_up:   Minor, Upright, Downleft
-- right_down: Minor, Upleft, Downright
-- left_down:  Minor, Downleft, Upright
+    - left_up:    Minor, Upleft, Downright
+    - right_up:   Minor, Upright, Downleft
+    - right_down: Minor, Upleft, Downright
+    - left_down:  Minor, Downleft, Upright
 
 -------------------------------------------------------------------------------
 ## 4. Duke Quad Types
