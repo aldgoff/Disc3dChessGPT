@@ -190,7 +190,7 @@
     Given a duke advancment square Ad
       print color_tiles(Ab)
 
-  Scope:
+Scope:
   - Definition and purpose.
   - Define an AdvSq class.
   - Clean object interface to construct advancement squares.
