@@ -22,18 +22,21 @@
 
     Duke
       Major       (1- 4) = Q37,Q38,Q39,Q40
-      Minor       (5- 9) = Q41,Q42,Q43,Q44
+      Minor       (5- 8) = Q41,Q42,Q43,Q44
       Upleft      (9-12) = Q45,Q46,Q47,Q48
       Downleft   (13-16) = Q49,Q50,Q51,Q52
       Upright    (17-20) = Q53,Q54,Q55,Q56
       Downright  (21-24) = Q57,Q58,Q59,Q60
 
 ## 4. Nicknames for selected quadrants
+  Each quadrant may define at most one nickname; nicknames must be unique across all quadrants.
+
     Rook:
       Q1 - Forward
       Q2 - Right
       Q3 - Backward
       Q4 - Left
+      Q5-Q12 - none
 
     Bishop:
       Q13 - UpPredator
@@ -44,6 +47,7 @@
       Q27 - LDnSling
       Q32 - RUpSling
       Q33 - RDnSling
+      Not listed => none
 
     Duke:
       Q37 - Fore
@@ -54,8 +58,13 @@
       Q42 - Starboard
       Q43 - Keel
       Q44 - Port
+      Q45-Q60 - none
 
-## 5. Canonical Quadrant Resolution: Unified Constructor Rule
+## 5. Ray order
+    The constructor accepts reversed ray-pairs for convenience,
+    but the canonical ordering from quadMap.json is always returned.
+
+## 6. Canonical Quadrant Resolution: Unified Constructor Rule
     Q = Quad(spec)
     spec: any one of...
       <n> (1-60)
