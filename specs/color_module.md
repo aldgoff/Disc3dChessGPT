@@ -1,9 +1,11 @@
-# Color Module
-  Bishop color
-    parity(z+x+y)
-    0→white, 1→black
+# Color Spec
 
-  Duke Color (4-color 2×2×2 unit cell)
+## 1. Bishop color
+    parity(z+x+y)
+      0 → white
+      1 → black
+
+## 2. Duke Color (4-color 2×2×2 unit cell)
     Define:
       uz = z % 2
       ux = x % 2
@@ -20,13 +22,17 @@
                   (0,1) → Ruby
                   (1,0) → Jade
                   (1,1) → Silver
-    The VTS color pattern repeats every 2 units along each axis.
 
-  Board tiles
+## 3. Board tiles
+    The VTS color pattern repeats every 2 units along each axis.
     parse LLX,Y → (Z,X,Y)
     map to (z,x,y)
-    apply bishop & duke
-    equivalence class = duke color
+    apply bishop & duke colors
 
-  Scope
-    Defines bishop and duke colors and class assignment for VTS and Board tiles.
+## 3. Equivalence classes
+    bishop color      (bishop)
+    duke color        (duke)
+    bishop-duke color (stack)
+
+Scope
+  - Defines bishop and duke colors and equivalence class assignment for VTS and Board tiles.
